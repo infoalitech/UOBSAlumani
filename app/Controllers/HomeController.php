@@ -14,17 +14,9 @@ class HomeController {
     }
 
     public function index() {
-
         echo $this->twig->render('dashboard.twig');
     }
     public function jobs() {
-        print($page);
-echo"<pre>
-
-
-
-";
-exit();
         echo $this->twig->render('jobs.twig');
     }
     public function posts() {
