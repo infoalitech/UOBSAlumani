@@ -1,11 +1,27 @@
-RewriteEngine On
-RewriteBase /php-crud-app/public/
+# File: /php-crud-app/php-crud-app/.htaccess
 
-# Redirect Trailing Slashes...
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)/$ /$1 [L,R=301]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# Handle Front Controller...
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.php [L]
+    # Redirect to the public directory
+    RewriteRule ^$ public/index.php [L]
+    RewriteRule (.*) public/$1 [L]
+
+    # Enable pretty URLs
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/UOBSAlumani/php-crud-app/vendor/.*$
+    RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]
+</IfModule>
+
+# Deny access to sensitive files
+<FilesMatch "\.(env|ini|log|htaccess)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Set default charset
+AddDefaultCharset UTF-8

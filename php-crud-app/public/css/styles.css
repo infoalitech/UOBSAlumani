@@ -5,79 +5,53 @@ body {
     background-color: #f4f4f4;
 }
 
-header {
-    background: #35424a;
-    color: #ffffff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-h1 {
-    margin: 0;
-}
-
-nav {
-    margin: 20px 0;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 15px;
-}
-
-nav a:hover {
-    background: #e8491d;
-}
-
 .container {
     width: 80%;
     margin: auto;
     overflow: hidden;
 }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background: #35424a;
-    color: #ffffff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+h1 {
+    color: #333;
 }
 
-.blog-post {
-    background: #ffffff;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.job-post {
-    background: #ffffff;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.news-article {
-    background: #ffffff;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-button {
-    background: #35424a;
-    color: #ffffff;
-    border: none;
+a.btn {
+    display: inline-block;
     padding: 10px 15px;
-    cursor: pointer;
+    margin: 10px 0;
+    background-color: #5cb85c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
-button:hover {
-    background: #e8491d;
+a.btn:hover {
+    background-color: #4cae4c;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
 }
