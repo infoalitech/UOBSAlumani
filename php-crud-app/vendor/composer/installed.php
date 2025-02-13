@@ -3,13 +3,22 @@
         'name' => 'uobsalumani/php-crud-app',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '2ad212ee7d03865b4d3ac2e13468e0b64f5d9ec0',
+        'reference' => 'a8bf9378f5821f0c49c31fa1958b6c0a12b09e8a',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'components/jquery' => array(
+            'pretty_version' => 'v3.7.1',
+            'version' => '3.7.1.0',
+            'reference' => '8edc7785239bb8c2ad2b83302b856a1d61de60e7',
+            'type' => 'component',
+            'install_path' => __DIR__ . '/../components/jquery',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'twbs/bootstrap' => array(
             'pretty_version' => 'v5.3.3',
             'version' => '5.3.3.0',
@@ -28,7 +37,7 @@
         'uobsalumani/php-crud-app' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2ad212ee7d03865b4d3ac2e13468e0b64f5d9ec0',
+            'reference' => 'a8bf9378f5821f0c49c31fa1958b6c0a12b09e8a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

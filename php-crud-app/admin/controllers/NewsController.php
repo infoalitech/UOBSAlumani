@@ -13,7 +13,9 @@ class NewsController {
 
     public function index() {
         $news = $this->newsModel->getAllNews();
-        require '../views/news/index.php';
+        require(__DIR__ . '/../views/news/index.php');
+
+        // require '../views/news/index.php';
     }
 
     public function create() {

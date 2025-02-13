@@ -18,45 +18,74 @@ $newsController = new NewsController();
 $jobsController = new JobsController();
 $authController = new AuthController();
 
-// Include routing logic or load the appropriate page based on the request
+// Parse the request URI
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$basePath = "/UOBSAlumani/php-crud-app/public"; // Base path for routing
+
 switch ($requestUri) {
-    case '/UOBSAlumani/php-crud-app/public/':
-    case '/UOBSAlumani/php-crud-app/public/index.php':
-        // Load the home page
+    case "$basePath/":
+    case "$basePath/index.php":
         include 'views/home.php';
         break;
-    case '/UOBSAlumani/php-crud-app/public/about':
-        // Load the about page
+
+    case "$basePath/about":
         include 'views/about.php';
         break;
-    case '/UOBSAlumani/php-crud-app/public/jobs':
-        // Call the jobs controller index method
-        $jobsController->index();
-        break;
-    case '/UOBSAlumani/php-crud-app/public/blogs':
-        // Call the blog controller index method
+
+    /** 🔹 Blog Routes */
+    case "$basePath/blogs":
         $blogController->index();
         break;
-    case '/UOBSAlumani/php-crud-app/public/news':
-        // Call the news controller index method
+    
+    case "$basePath/blogs/create":
+        $blogController->create();
+        break;
+
+    case "$basePath/blogs/edit":
+        if (isset($_GET['id'])) {
+            $blogController->edit($_GET['id']);
+        } else {
+            include 'views/404.php';
+        }
+        break;
+
+    case "$basePath/blogs/delete":
+        if (isset($_GET['id'])) {
+            $blogController->delete($_GET['id']);
+        } else {
+            include 'views/404.php';
+        }
+        break;
+
+    case "$basePath/blog/fetch":
+        $blogController->fetchBlogs(); // AJAX request handler for DataTables
+        break;
+
+    /** 🔹 News Routes */
+    case "$basePath/news":
         $newsController->index();
         break;
-    case '/UOBSAlumani/php-crud-app/public/login':
-        // Load the login page
+
+    /** 🔹 Jobs Routes */
+    case "$basePath/jobs":
+        $jobsController->index();
+        break;
+
+    /** 🔹 Authentication Routes */
+    case "$basePath/login":
         include 'views/login.php';
         break;
-    case '/UOBSAlumani/php-crud-app/public/login_handler.php':
-        // Handle the login form submission
+
+    case "$basePath/login_handler.php":
         $authController->login();
         break;
-    case '/UOBSAlumani/php-crud-app/public/logout':
-        // Handle the logout process
+
+    case "$basePath/logout":
         $authController->logout();
         break;
-    // Add more routes as needed
+
+    /** 🔹 Default: 404 Not Found */
     default:
-        // Load a 404 page or redirect to home
         include 'views/404.php';
         break;
 }

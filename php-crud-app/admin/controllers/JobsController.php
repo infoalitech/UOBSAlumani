@@ -13,7 +13,9 @@ class JobsController {
 
     public function index() {
         $jobs = $this->jobModel->getAllJobs();
-        require '../views/jobs/index.php';
+        require(__DIR__ . '/../views/jobs/index.php');
+
+        // require '../views/blogs/index.php';
     }
 
     public function create() {
