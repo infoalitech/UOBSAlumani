@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect base URL to public/index.php
+RewriteCond %{REQUEST_URI} ^/UOBSAlumani/?$ [NC]
+RewriteRule ^$ /UOBSAlumani/public/index.php [L,R=302]
+
+# Redirect all other requests to index.php inside /public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]

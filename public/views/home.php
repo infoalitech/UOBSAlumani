@@ -1,5 +1,4 @@
 <?php
-session_start();
 $title = 'Home';
 include 'snippets/header.php';
 include 'snippets/navigation.php';
