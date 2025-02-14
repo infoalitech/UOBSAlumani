@@ -47,7 +47,7 @@ class NewsController extends BaseController {
             $status = $_POST['status'];
             $date = $_POST['date'];
             $end_date = $_POST['end_date'];
-
+            print_r($this->newsModel->createNews($name, $desc, $status, $date, $end_date));  
             if ($this->newsModel->createNews($name, $desc, $status, $date, $end_date)) {
                 $this->redirect('/admin/news');
             }

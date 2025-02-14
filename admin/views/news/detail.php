@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">News Details</h1>
-        <a href="index.php" class="btn btn-secondary">Back</a>
+        <a href="<?= $basePath ?>/admin/news" class="btn btn-secondary">Back</a>
     </div>
 
     <div class="card shadow-sm p-4">
@@ -30,8 +30,8 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <a href="edit.php?id=<?= $news['id']; ?>" class="btn btn-primary">Edit</a>
-            <a href="delete.php?id=<?= $news['id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this news article?')">Delete</a>
+            <a href="<?= $basePath ?>/admin/news/edit?id=<?= $news['id']; ?>" class="btn btn-primary">Edit</a>
+            <a href="<?= $basePath ?>/admin/news/delete?id=<?= $news['id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this news article?')">Delete</a>
         </div>
     </div>
 </div>

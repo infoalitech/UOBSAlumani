@@ -22,7 +22,13 @@ class News {
             return [];
         }
     }
-
+    public function getLatestNews($limit = 3) {
+        $stmt = $this->db->prepare("SELECT * FROM news ORDER BY date DESC LIMIT :limit");
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
     /**
      * Get a single news article by ID
      */

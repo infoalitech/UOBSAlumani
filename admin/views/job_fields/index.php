@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Job Fields</h1>
-        <a href="<?= $basePath ?>/admin/job/fields/create" class="btn btn-primary">Add New Field</a>
+        <a href="<?= $basePath ?>/admin/jobs/fields/create" class="btn btn-primary">Add New Field</a>
     </div>
 
     <table id="jobFieldsTable" class="table table-striped table-bordered">
@@ -11,7 +11,6 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -56,17 +55,11 @@ $(document).ready(function () {
             { "data": "id" },
             { "data": "name" },
             {
-                "data": "status",
-                "render": function(data) {
-                    return `<span class="badge ${data === 'active' ? 'bg-success' : 'bg-danger'}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
-                }
-            },
-            {
                 "data": "id",
                 "render": function(data) {
                     return `
-                        <a href="${basePath}/admin/job/fields/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="${basePath}/admin/job/fields/detail?id=${data}" class="btn btn-sm btn-info">View</a>
+                        <a href="${basePath}/admin/jobs/fields/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="${basePath}/admin/jobs/fields/detail?id=${data}" class="btn btn-sm btn-info">View</a>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${data}">
                             Delete
                         </button>`;

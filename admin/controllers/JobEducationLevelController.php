@@ -42,14 +42,14 @@ class JobEducationLevelController extends BaseController {
      */
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = trim($_POST['name']);
-            $status = $_POST['status'];
+            $level = trim($_POST['level']);
 
-            if (empty($name) || !in_array($status, ['active', 'inactive'])) {
+            if (empty($level)) {
                 $error = "Invalid input. Please check your data.";
             } else {
-                if ($this->jobEducationLevelModel->createLevel($name, $status)) {
-                    $this->redirect('/admin/job_education_levels');
+                if ($this->jobEducationLevelModel->createLevel($level)) {
+                    print($level);  
+                    $this->redirect('/admin/jobs/education');
                 }
             }
         }
@@ -67,14 +67,13 @@ class JobEducationLevelController extends BaseController {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = trim($_POST['name']);
-            $status = $_POST['status'];
+            $level = trim($_POST['level']);
 
-            if (empty($name) || !in_array($status, ['active', 'inactive'])) {
+            if (empty($level)) {
                 $error = "Invalid input. Please check your data.";
             } else {
-                if ($this->jobEducationLevelModel->updateLevel($id, $name, $status)) {
-                    $this->redirect('/admin/job_education_levels');
+                if ($this->jobEducationLevelModel->updateLevel($id, $level)) {
+                    $this->redirect('/admin/jobs/education');
                 }
             }
         }
@@ -99,7 +98,7 @@ class JobEducationLevelController extends BaseController {
      */
     public function delete($id) {
         $this->jobEducationLevelModel->deleteLevel($id);
-        $this->redirect('/admin/job_education_levels');
+        $this->redirect('/admin/jobs/education');
     }
 }
 ?>

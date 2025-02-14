@@ -28,7 +28,7 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="<?= $basePath ?>/admin/index.php">Admin Panel</a>
+                <a class="navbar-brand" href="<?= $basePath ?>/admin/index">Admin Panel</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,6 +38,38 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                         <li class="nav-item">
                             <a class="nav-link" href="<?= $basePath ?>/admin/index">Dashboard</a>
                         </li>
+
+
+                        <!-- Job Management Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="jobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Jobs
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="jobDropdown">
+                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs">Jobs</a></li>
+                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/categories">Job Categories</a></li>
+                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/fields">Job Fields</a></li>
+                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/education">Job Education Level</a></li>
+                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/types">Job Types</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="<?= $basePath ?>/admin/news">News</a>
+                        </li>
+
+                        <!-- Blog Management Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Blogs
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blog/categories">Blog Categories</a></li>
+                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blogs">Blogs</a></li>
+                            </ul>
+                        </li>
+
+
                         <!-- User Management Dropdown -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,36 +82,14 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                             </ul>
                         </li>
 
-                        <!-- Blog Management Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Blogs
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="blogDropdown">
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/news">News</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blog/categories">Blog Categories</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blogs">Blogs</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="<?= $basePath ?>/index">View Website</a>
                         </li>
-
-                        <!-- Job Management Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="jobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Jobs
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="jobDropdown">
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs">Jobs</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/job/categories">Job Categories</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/job/fields">Job Fields</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/job/education">Job Education Level</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/job/types">Job Types</a></li>
-                            </ul>
-                        </li>
-
                         <!-- Logout Button -->
                         <li class="nav-item">
-                            <a class="nav-link text-danger" href="<?= $basePath ?>/logout.php">Logout</a>
+                            <a class="nav-link text-danger" href="<?= $basePath ?>/logout">Logout</a>
                         </li>
+
                     </ul>
                 </div>
             </div>

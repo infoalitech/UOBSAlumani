@@ -16,6 +16,7 @@
                 <option value="inactive">Inactive</option>
             </select>
         </div>
+        <a href="<?= $basePath ?>/admin/jobs/categories" class="btn btn-secondary">Back</a>
 
         <button type="submit" class="btn btn-primary">Create</button>
     </form>

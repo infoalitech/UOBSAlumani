@@ -17,8 +17,8 @@
         <div class="mb-3">
             <label for="status" class="form-label">Status:</label>
             <select id="status" name="status" class="form-select">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
             </select>
         </div>
 
@@ -33,7 +33,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Create</button>
-        <a href="index.php" class="btn btn-secondary">Back</a>
+        <a href="<?= $basePath ?>/admin/news" class="btn btn-secondary">Back</a>
     </form>
 </div>
 

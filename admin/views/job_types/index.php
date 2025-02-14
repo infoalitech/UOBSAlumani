@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Job Types</h1>
-        <a href="<?= $basePath ?>/admin/job/type/create" class="btn btn-primary">Add New Type</a>
+        <a href="<?= $basePath ?>/admin/jobs/type/create" class="btn btn-primary">Add New Type</a>
     </div>
 
     <table id="jobTypesTable" class="table table-striped table-bordered">
@@ -45,7 +45,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "job/type/fetch",
+            "url": "type/fetch",
             "type": "GET",
             "dataSrc": function(json) {
                 return json.data;
@@ -58,8 +58,8 @@ $(document).ready(function () {
                 "data": "id",
                 "render": function(data) {
                     return `
-                        <a href="${basePath}/admin/job/type/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="${basePath}/admin/job/type/detail?id=${data}" class="btn btn-sm btn-info">View</a>
+                        <a href="${basePath}/admin/jobs/type/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="${basePath}/admin/jobs/type/detail?id=${data}" class="btn btn-sm btn-info">View</a>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${data}">
                             Delete
                         </button>`;
@@ -75,7 +75,7 @@ $(document).ready(function () {
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
-        $('#confirmDelete').attr('href', `${basePath}/admin/job/type/delete?id=${id}`);
+        $('#confirmDelete').attr('href', `${basePath}/admin/jobs/type/delete?id=${id}`);
     });
 });
 </script>

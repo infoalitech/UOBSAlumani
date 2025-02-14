@@ -59,6 +59,7 @@ switch ($requestUri) {
 
     /** ========================== PUBLIC ROUTES ========================== */
     case "$basePath/index":
+    case "$basePath/home":
     case "$basePath/":
         $homeController->home();
         break;
@@ -67,6 +68,9 @@ switch ($requestUri) {
         $homeController->about();
         break;
 
+    case "$basePath/contact":
+        $homeController->contact();
+        break;
     /** 🔹 Blog Routes */
     case "$basePath/blogs":
         $homeController->blogs();
@@ -194,7 +198,7 @@ switch ($requestUri) {
         break;
 
     /** 🔹 Job Categories */
-    case "$basePath/admin/job/categories":
+    case "$basePath/admin/jobs/categories":
         $jobCategoryController->index();
         break;
     case "$basePath/admin/jobs/categories/fetch":
@@ -203,18 +207,18 @@ switch ($requestUri) {
     case "$basePath/admin/jobs/categories/detail":
         isset($_GET['id']) ? $jobCategoryController->detail($_GET['id']) : include 'views/404.php';
         break;
-    case "$basePath/admin/job/categories/create":
+    case "$basePath/admin/jobs/categories/create":
         $jobCategoryController->create();
         break;
-    case "$basePath/admin/job/categories/edit":
+    case "$basePath/admin/jobs/categories/edit":
         isset($_GET['id']) ? $jobCategoryController->edit($_GET['id']) : include 'views/404.php';
         break;
-    case "$basePath/admin/job/categories/delete":
+    case "$basePath/admin/jobs/categories/delete":
         isset($_GET['id']) ? $jobCategoryController->delete($_GET['id']) : include 'views/404.php';
         break;
 
     /** 🔹 Job education */
-    case "$basePath/admin/job/education":
+    case "$basePath/admin/jobs/education":
         $jobEducationLevelController->index();
         break;
     case "$basePath/admin/jobs/education/fetch":
@@ -223,19 +227,19 @@ switch ($requestUri) {
     case "$basePath/admin/jobs/education/detail":
         isset($_GET['id']) ? $jobEducationLevelController->detail($_GET['id']) : include 'views/404.php';
         break;
-    case "$basePath/admin/job/education/create":
+    case "$basePath/admin/jobs/education/create":
         $jobEducationLevelController->create();
         break;
-    case "$basePath/admin/job/education/edit":
+    case "$basePath/admin/jobs/education/edit":
         isset($_GET['id']) ? $jobEducationLevelController->edit($_GET['id']) : include 'views/404.php';
         break;
-    case "$basePath/admin/job/education/delete":
+    case "$basePath/admin/jobs/education/delete":
         isset($_GET['id']) ? $jobEducationLevelController->delete($_GET['id']) : include 'views/404.php';
         break;
 
 
     /** 🔹 Job fields */
-    case "$basePath/admin/job/fields":
+    case "$basePath/admin/jobs/fields":
         $jobFieldController->index();
         break;
 
@@ -245,18 +249,18 @@ switch ($requestUri) {
     case "$basePath/admin/jobs/fields/detail":
         isset($_GET['id']) ? $jobTypeController->detail($_GET['id']) : include 'views/404.php';
         break;
-    case "$basePath/admin/job/fields/create":
+    case "$basePath/admin/jobs/fields/create":
         $jobFieldController->create();
         break;
-    case "$basePath/admin/job/fields/edit":
+    case "$basePath/admin/jobs/fields/edit":
         isset($_GET['id']) ? $jobFieldController->edit($_GET['id']) : include 'views/404.php';
         break;
-    case "$basePath/admin/job/fields/delete":
+    case "$basePath/admin/jobs/fields/delete":
         isset($_GET['id']) ? $jobFieldController->delete($_GET['id']) : include 'views/404.php';
         break;
 
     /** 🔹 Job Types */
-    case "$basePath/admin/job/types":
+    case "$basePath/admin/jobs/types":
         $jobTypeController->index();
         break;
     case "$basePath/admin/jobs/type":

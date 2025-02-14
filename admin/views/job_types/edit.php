@@ -10,7 +10,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="index.php" class="btn btn-secondary">Back</a>
+        <a href="<?= $basePath ?>/admin/jobs/type" class="btn btn-secondary">Back</a>
     </form>
 </div>
 

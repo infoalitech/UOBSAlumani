@@ -11,7 +11,7 @@ class AuthController {
             if ($username == 'admin' && $password == 'password') {
                 session_start();
                 $_SESSION['username'] = $username;
-                header('Location: index.php');
+                header('Location: index');
                 exit;
             } else {
                 echo 'Invalid username or password';
@@ -22,7 +22,7 @@ class AuthController {
     public function logout() {
         session_start();
         session_destroy();
-        header('Location: login.php');
+        header('Location: login');
         exit;
     }
 }

@@ -8,9 +8,9 @@
             <label for="name" class="form-label">Type Name:</label>
             <input type="text" id="name" name="name" class="form-control" required>
         </div>
-
+        
         <button type="submit" class="btn btn-primary">Create</button>
-        <a href="index.php" class="btn btn-secondary">Back</a>
+        <a href="<?= $basePath ?>/admin/jobs/type" class="btn btn-secondary">Back</a>
     </form>
 </div>
 

@@ -17,8 +17,8 @@
         <div class="mb-3">
             <label for="status" class="form-label">Status:</label>
             <select id="status" name="status" class="form-select">
-                <option value="active" <?= $news['status'] === 'active' ? 'selected' : '' ?>>Active</option>
-                <option value="inactive" <?= $news['status'] === 'inactive' ? 'selected' : '' ?>>Inactive</option>
+                <option value="draft" <?= $news['status'] === 'draft' ? 'selected' : '' ?>>Draft</option>
+                <option value="published" <?= $news['status'] === 'published' ? 'selected' : '' ?>>Published</option>
             </select>
         </div>
 
@@ -33,7 +33,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="index.php" class="btn btn-secondary">Back</a>
+        <a href="<?= $basePath ?>/admin/news" class="btn btn-secondary">Back</a>
     </form>
 </div>
 

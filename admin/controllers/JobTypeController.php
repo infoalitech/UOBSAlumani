@@ -45,7 +45,7 @@ class JobTypeController extends BaseController {
             $name = trim($_POST['name']);
 
             if ($this->jobTypeModel->createType($name)) {
-                $this->redirect('/admin/job_types');
+                $this->redirect('/admin/jobs/type');
             }
         }
         $this->adminView('job_types/create');
@@ -65,7 +65,7 @@ class JobTypeController extends BaseController {
             $name = trim($_POST['name']);
 
             if ($this->jobTypeModel->updateType($id, $name)) {
-                $this->redirect('/admin/job_types');
+                $this->redirect('/admin/jobs/type');
             }
         }
         $this->adminView('job_types/edit', ['type' => $type]);
@@ -89,7 +89,7 @@ class JobTypeController extends BaseController {
      */
     public function delete($id) {
         $this->jobTypeModel->deleteType($id);
-        $this->redirect('/admin/job_types');
+        $this->redirect('/admin/jobs/type');
     }
 }
 ?>

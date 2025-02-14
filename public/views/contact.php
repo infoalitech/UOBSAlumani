@@ -1,5 +1,5 @@
 <?php
-$title = 'About Us';
+$title = 'Contact Us';
 include 'snippets/header.php';
 ?>
 

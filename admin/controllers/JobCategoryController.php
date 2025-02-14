@@ -41,12 +41,14 @@ class JobCategoryController extends BaseController {
             "recordsFiltered" => $totalCategories,
             "data" => $filteredCategories
         ]);
+        exit;
     }
 
     /**
      * Show create category form and handle submission
      */
     public function create() {
+        $error = "";
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name']);
             $status = $_POST['status'];
@@ -55,14 +57,13 @@ class JobCategoryController extends BaseController {
                 $error = "Invalid input. Please check your data.";
             } else {
                 if ($this->jobCategoryModel->createCategory($name, $status)) {
-                    header('Location: index.php');
-                    exit;
+                    $this->redirect('/admin/jobs/categories');
                 } else {
                     $error = "Failed to create category. Try again.";
                 }
             }
         }
-        $this->adminView('JobsCategories/create');
+        $this->adminView('JobsCategories/create', ['error' => $error]);
     }
 
     /**
@@ -72,9 +73,10 @@ class JobCategoryController extends BaseController {
         $category = $this->jobCategoryModel->getCategoryById($id);
 
         if (!$category) {
-            die("Category not found.");
+            $this->redirect('/admin/job-categories', ['error' => 'Category not found.']);
         }
 
+        $error = "";
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name']);
             $status = $_POST['status'];
@@ -83,14 +85,13 @@ class JobCategoryController extends BaseController {
                 $error = "Invalid input. Please check your data.";
             } else {
                 if ($this->jobCategoryModel->updateCategory($id, $name, $status)) {
-                    header('Location: index.php');
-                    exit;
+                    $this->redirect('/admin/jobs/categories');
                 } else {
                     $error = "Failed to update category.";
                 }
             }
         }
-        $this->adminView('JobsCategories/edit', ['category' => $category]);
+        $this->adminView('JobsCategories/edit', ['category' => $category, 'error' => $error]);
     }
 
     /**
@@ -98,7 +99,12 @@ class JobCategoryController extends BaseController {
      */
     public function detail($id) {
         $category = $this->jobCategoryModel->getCategoryById($id);
-        require '../views/JobsCategories/detail.php';
+
+        if (!$category) {
+            $this->redirect('/admin/job-categories', ['error' => 'Category not found.']);
+        }
+
+        $this->adminView('JobsCategories/detail', ['category' => $category]);
     }
 
     /**
@@ -106,10 +112,9 @@ class JobCategoryController extends BaseController {
      */
     public function delete($id) {
         if ($this->jobCategoryModel->deleteCategory($id)) {
-            header('Location: index.php');
-            exit;
+            $this->redirect('/admin/jobs/categories');
         } else {
-            die("Failed to delete category.");
+            $this->redirect('/admin/job-categories', ['error' => 'Failed to delete category.']);
         }
     }
 }

@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Job Education Levels</h1>
-        <a href="<?= $basePath ?>/admin/job/education/create" class="btn btn-primary">Add New Level</a>
+        <a href="<?= $basePath ?>/admin/jobs/education/create" class="btn btn-primary">Add New Level</a>
     </div>
 
     <table id="jobEducationLevelsTable" class="table table-striped table-bordered">
@@ -58,8 +58,8 @@ $(document).ready(function () {
                 "data": "id",
                 "render": function(data) {
                     return `
-                        <a href="${basePath}/admin/job/education/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="${basePath}/admin/job/education/detail?id=${data}" class="btn btn-sm btn-info">View</a>
+                        <a href="${basePath}/admin/jobs/education/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="${basePath}/admin/jobs/education/detail?id=${data}" class="btn btn-sm btn-info">View</a>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${data}">
                             Delete
                         </button>`;
@@ -75,7 +75,7 @@ $(document).ready(function () {
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
-        $('#confirmDelete').attr('href', `${basePath}/admin/job/education/delete?id=${id}`);
+        $('#confirmDelete').attr('href', `${basePath}/admin/jobs/education/delete?id=${id}`);
     });
 });
 </script>

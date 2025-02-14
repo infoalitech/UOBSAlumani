@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Job Categories</h1>
-        <a href="<?= $basePath ?>/admin/job/categories/create" class="btn btn-primary">Add New Category</a>
+        <a href="<?= $basePath ?>/admin/jobs/categories/create" class="btn btn-primary">Add New Category</a>
     </div>
 
     <table id="jobCategoriesTable" class="table table-striped table-bordered">
@@ -65,8 +65,7 @@ $(document).ready(function () {
                 "data": "id",
                 "render": function(data) {
                     return `
-                        <a href="${basePath}/admin/job/categories/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="${basePath}/admin/job/categories/detail?id=${data}" class="btn btn-sm btn-info">View</a>
+                        <a href="${basePath}/admin/jobs/categories/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${data}">
                             Delete
                         </button>`;
@@ -82,7 +81,7 @@ $(document).ready(function () {
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
-        $('#confirmDelete').attr('href', `${basePath}/admin/job/categories/delete?id=${id}`);
+        $('#confirmDelete').attr('href', `${basePath}/admin/jobs/categories/delete?id=${id}`);
     });
 });
 </script>

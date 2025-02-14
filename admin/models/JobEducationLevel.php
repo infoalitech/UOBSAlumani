@@ -16,7 +16,7 @@ class JobEducationLevel {
      */
     public function getAllLevels() {
         try {
-            $stmt = $this->db->query("SELECT * FROM job_education_levels ORDER BY level ASC");
+            $stmt = $this->db->query("SELECT * FROM education_levels ORDER BY level ASC");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             return [];
@@ -28,7 +28,7 @@ class JobEducationLevel {
      */
     public function getLevelById($id) {
         try {
-            $stmt = $this->db->prepare("SELECT * FROM job_education_levels WHERE id = :id");
+            $stmt = $this->db->prepare("SELECT * FROM education_levels WHERE id = :id");
             $stmt->execute(['id' => $id]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
@@ -42,10 +42,10 @@ class JobEducationLevel {
     public function getLevelCount($search = '') {
         try {
             if ($search) {
-                $stmt = $this->db->prepare("SELECT COUNT(*) FROM job_education_levels WHERE level LIKE :search");
+                $stmt = $this->db->prepare("SELECT COUNT(*) FROM education_levels WHERE level LIKE :search");
                 $stmt->execute(['search' => "%$search%"]);
             } else {
-                $stmt = $this->db->query("SELECT COUNT(*) FROM job_education_levels");
+                $stmt = $this->db->query("SELECT COUNT(*) FROM education_levels");
             }
             return $stmt->fetchColumn();
         } catch (PDOException $e) {
@@ -59,10 +59,10 @@ class JobEducationLevel {
     public function getPaginatedLevels($limit, $offset, $search = '') {
         try {
             if ($search) {
-                $stmt = $this->db->prepare("SELECT * FROM job_education_levels WHERE level LIKE :search LIMIT :offset, :limit");
+                $stmt = $this->db->prepare("SELECT * FROM education_levels WHERE level LIKE :search LIMIT :offset, :limit");
                 $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
             } else {
-                $stmt = $this->db->prepare("SELECT * FROM job_education_levels LIMIT :offset, :limit");
+                $stmt = $this->db->prepare("SELECT * FROM education_levels LIMIT :offset, :limit");
             }
             $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
             $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
@@ -78,7 +78,7 @@ class JobEducationLevel {
      */
     public function createLevel($level) {
         try {
-            $stmt = $this->db->prepare("INSERT INTO job_education_levels (level) VALUES (:level)");
+            $stmt = $this->db->prepare("INSERT INTO education_levels (level) VALUES (:level)");
             return $stmt->execute(['level' => trim($level)]);
         } catch (PDOException $e) {
             return false;
@@ -90,7 +90,7 @@ class JobEducationLevel {
      */
     public function updateLevel($id, $level) {
         try {
-            $stmt = $this->db->prepare("UPDATE job_education_levels SET level = :level WHERE id = :id");
+            $stmt = $this->db->prepare("UPDATE education_levels SET level = :level WHERE id = :id");
             return $stmt->execute(['id' => (int)$id, 'level' => trim($level)]);
         } catch (PDOException $e) {
             return false;
@@ -102,7 +102,7 @@ class JobEducationLevel {
      */
     public function deleteLevel($id) {
         try {
-            $stmt = $this->db->prepare("DELETE FROM job_education_levels WHERE id = :id");
+            $stmt = $this->db->prepare("DELETE FROM education_levels WHERE id = :id");
             return $stmt->execute(['id' => (int)$id]);
         } catch (PDOException $e) {
             return false;

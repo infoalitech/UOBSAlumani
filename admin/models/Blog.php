@@ -56,7 +56,12 @@ class Blog {
     }
     
     
-    
+    public function getLatestBlogs($limit = 3) {
+        $stmt = $this->db->prepare("SELECT * FROM blogs ORDER BY published_date DESC LIMIT :limit");
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function getAllBlogs() {
         $stmt = $this->db->query("SELECT * FROM blogs");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

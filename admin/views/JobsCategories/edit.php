@@ -17,6 +17,7 @@
             </select>
         </div>
 
+        <a href="<?= $basePath ?>/admin/jobs/categories" class="btn btn-secondary">Back</a>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>

@@ -2,7 +2,7 @@
 
 <div class="container mt-4">
     <h1>Job Type Details</h1>
-    <a href="index.php" class="btn btn-secondary">Back</a>
+    <a href="<?= $basePath ?>/admin/jobs/type" class="btn btn-secondary">Back</a>
 
     <div class="card shadow-sm p-4">
         <h3><?= htmlspecialchars($type['name']); ?></h3>
