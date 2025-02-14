@@ -63,11 +63,16 @@ class Blog {
     }
 
     public function getBlogById($id) {
-        $stmt = $this->db->prepare("SELECT * FROM blogs WHERE id = :id");
+        $stmt = $this->db->prepare("
+            SELECT blogs.*, categories.name AS category_name 
+            FROM blogs 
+            LEFT JOIN categories ON blogs.cat_id = categories.id
+            WHERE blogs.id = :id
+        ");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
+    
     public function createBlog($title, $cover, $description, $status, $published_date, $cat_id) {
         $stmt = $this->db->prepare("INSERT INTO blogs (title, cover, description, status, published_date, cat_id) VALUES (:title, :cover, :description, :status, :published_date, :cat_id)");
         return $stmt->execute(compact('title', 'cover', 'description', 'status', 'published_date', 'cat_id'));

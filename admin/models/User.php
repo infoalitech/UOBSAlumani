@@ -2,8 +2,8 @@
 class User {
     private $db;
 
-    public function __construct($database) {
-        $this->db = $database;
+    public function __construct(PDO $db) {
+        $this->db = $db;
     }
 
     public function create($data) {

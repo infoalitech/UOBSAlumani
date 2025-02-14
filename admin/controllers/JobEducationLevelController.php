@@ -7,7 +7,8 @@ class JobEducationLevelController {
     private $jobEducationLevelModel;
 
     public function __construct() {
-        $this->jobEducationLevelModel = new JobEducationLevel();
+        $db = require __DIR__ . '/../../config/database.php';
+        $this->jobEducationLevelModel = new JobEducationLevel($db);
     }
 
     public function index() {

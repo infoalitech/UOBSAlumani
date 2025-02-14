@@ -7,7 +7,8 @@ class JobFieldController {
     private $jobFieldModel;
 
     public function __construct() {
-        $this->jobFieldModel = new JobField();
+        $db = require __DIR__ . '/../../config/database.php';
+        $this->jobFieldModel = new JobField($db);
     }
 
     public function index() {

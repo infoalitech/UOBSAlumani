@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Blogs</h1>
-        <a href="<?= $basePath ?>/admin/blogs/create" class="btn btn-primary">Create Blog</a>
+        <a href="create.php" class="btn btn-primary">Create Blog</a>
     </div>
 
     <table id="blogsTable" class="table table-striped table-bordered">
@@ -40,9 +40,6 @@
 </div>
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>
-<script>
-    var basePath = "<?= $basePath ?>"; // Pass PHP variable to JS
-</script>
 
 <!-- DataTables AJAX Script -->
 <script>
@@ -68,7 +65,7 @@ $(document).ready(function () {
             { 
                 "data": "status",
                 "render": function(data) {
-                    return data !='draft' ? '<span class="badge bg-success">Published</span>' : 
+                    return data ? '<span class="badge bg-success">Published</span>' : 
                                   '<span class="badge bg-warning">Draft</span>';
                 }
             },
@@ -76,8 +73,7 @@ $(document).ready(function () {
                 "data": "id",
                 "render": function(data) {
                     return `
-                        <a href="${basePath}/admin/blogs/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="${basePath}/admin/blogs/detail?id=${data}" class="btn btn-sm btn-info">Detail</a>
+                        <a href="edit.php?id=${data}" class="btn btn-sm btn-warning">Edit</a>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" 
                                 data-bs-target="#deleteModal" data-id="${data}">
                             Delete

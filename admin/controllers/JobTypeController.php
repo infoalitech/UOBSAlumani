@@ -7,7 +7,8 @@ class JobTypeController {
     private $jobTypeModel;
 
     public function __construct() {
-        $this->jobTypeModel = new JobType();
+        $db = require __DIR__ . '/../../config/database.php';
+        $this->jobTypeModel = new JobType($db);
     }
 
     public function index() {

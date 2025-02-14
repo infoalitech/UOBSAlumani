@@ -3,7 +3,7 @@ namespace Admin\Models;
 
 use PDO;
 
-class JobCategory {
+class UserPermission {
     private $db;
 
     public function __construct(PDO $db) {

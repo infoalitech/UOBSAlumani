@@ -7,9 +7,9 @@ class UserPermissionController {
     private $userPermissionModel;
 
     public function __construct() {
-        $this->userPermissionModel = new UserPermission();
+        $db = require __DIR__ . '/../../config/database.php';
+        $this->userPermissionModel = new UserPermission($db);
     }
-
     public function index() {
         $permissions = $this->userPermissionModel->getAllPermissions();
         require '../views/permissions/index.php';

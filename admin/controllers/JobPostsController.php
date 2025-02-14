@@ -14,12 +14,14 @@ class JobPostsController {
     private $jobEducationLevelModel;
     private $jobTypeModel;
 
+
     public function __construct() {
-        $this->jobPostModel = new JobPost();
-        $this->jobCategoryModel = new JobCategory();
-        $this->jobFieldModel = new JobField();
-        $this->jobEducationLevelModel = new JobEducationLevel();
-        $this->jobTypeModel = new JobType();
+        $db = require __DIR__ . '/../../config/database.php';
+        $this->jobPostModel = new JobPost($db);
+        $this->jobCategoryModel = new JobCategory($db);
+        $this->jobFieldModel = new JobField($db);
+        $this->jobEducationLevelModel = new JobEducationLevel($db);
+        $this->jobTypeModel = new JobType($db);
     }
 
     public function index() {

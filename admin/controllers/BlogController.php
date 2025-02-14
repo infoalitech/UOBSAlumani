@@ -3,16 +3,20 @@ namespace Admin\Controllers;
 
 use Admin\Models\Blog;
 use Admin\Models\BlogCategory;
+use App\Helpers\Config; // Import the Config class
 
 class BlogController {
     private $blogModel;
     private $blogCategoryModel;
     private $perPage = 5; // Set blogs per page
+    private $basePath = 5; // Set blogs per page
 
-    public function __construct() {
+    public  function __construct() {
         $db = require __DIR__ . '/../../config/database.php';
         $this->blogModel = new Blog($db);
         $this->blogCategoryModel = new BlogCategory($db);
+
+        $this->basePath = rtrim(Config::get('BASE_PATH', '/UOBSAlumani/public'), '/');
     }
 
     public function index() {
@@ -61,20 +65,29 @@ class BlogController {
         $categories = $this->blogCategoryModel->getAllCategories();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $title = $_POST['title'];
-            $cover = $_POST['cover'];
+            // $cover = $_POST['cover'];
             $description = $_POST['description'];
             $status = $_POST['status'];
             $published_date = $_POST['published_date'];
             $cat_id = $_POST['cat_id'];
 
+            if(isset($_FILES['cover'])) {
+                $cover = $this->handleFileUpload($_FILES['cover']);
+            }else {
+                $cover = '';
+            }
+
             if ($this->blogModel->createBlog($title, $cover, $description, $status, $published_date, $cat_id)) {
-                header('Location: index.php');
+                header('Location: '. $this->basePath.'/admin/blogs');
                 exit;
             }
         }
-        require '../views/blogs/create.php';
+        require __DIR__ . '/../views/blogs/create.php';
     }
-
+    public function detail($id) {
+        $blog = $this->blogModel->getBlogById($id);
+        require __DIR__ . '/../views/blogs/detail.php';
+    }
     public function edit($id) {
         $blog = $this->blogModel->getBlogById($id);
         $categories = $this->blogCategoryModel->getAllCategories();
@@ -85,19 +98,39 @@ class BlogController {
             $status = $_POST['status'];
             $published_date = $_POST['published_date'];
             $cat_id = $_POST['cat_id'];
-
+            if(isset($_FILES['cover'])) {
+                $cover = $this->handleFileUpload($_FILES['cover']);
+            }else {
+                $cover = '';
+            }
             if ($this->blogModel->updateBlog($id, $title, $cover, $description, $status, $published_date, $cat_id)) {
-                header('Location: index.php');
+                header('Location: '. $this->basePath.'/admin/blogs');
                 exit;
             }
         }
-        require '../views/blogs/edit.php';
+        require __DIR__ . '/../views/blogs/edit.php';
     }
 
     public function delete($id) {
         $this->blogModel->deleteBlog($id);
-        header('Location: /UOBSAlumani/php-crud-app/public/blogs');
+        header('Location: '. $this->basePath.'/admin/blogs');
         exit;
+    }
+
+    /**
+     * Handle File Upload
+     */
+    private function handleFileUpload($file) {
+        if ($file['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = __DIR__ . '/../../uploads/';
+            $fileName = time() . '_' . basename($file['name']);
+            $targetFile = $uploadDir . $fileName;
+
+            if (move_uploaded_file($file['tmp_name'], $targetFile)) {
+                return 'uploads/' . $fileName; // Save relative path to database
+            }
+        }
+        return ''; // Return empty string if upload fails
     }
 }
 ?>

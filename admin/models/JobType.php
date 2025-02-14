@@ -6,8 +6,8 @@ use PDO;
 class JobType {
     private $db;
 
-    public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=your_database', 'username', 'password');
+    public function __construct(PDO $db) {
+        $this->db = $db;
     }
 
     public function getAllTypes() {

@@ -25,7 +25,7 @@
                     <td><?php echo $jobItem['name']; ?></td>
                     <td><?php echo $jobItem['status']; ?></td>
                     <td>
-                        <a href="edit?id=<?php echo $jobItem['id']; ?>">Edit</a>
+                        <a href="edit.php?id=<?php echo $jobItem['id']; ?>">Edit</a>
                         <a href="delete.php?id=<?php echo $jobItem['id']; ?>">Delete</a>
                     </td>
                 </tr>

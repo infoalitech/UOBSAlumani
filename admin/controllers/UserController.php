@@ -7,7 +7,7 @@ class UserController {
     private $userModel;
 
     public function __construct() {
-        $this->userModel = new User();
+        // $this->userModel = new User();
     }
 
     public function index() {
