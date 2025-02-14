@@ -3,50 +3,95 @@ namespace Admin\Controllers;
 
 use Admin\Models\JobField;
 
-class JobFieldController {
+class JobFieldController extends BaseController {
     private $jobFieldModel;
 
     public function __construct() {
-        $db = require __DIR__ . '/../../config/database.php';
-        $this->jobFieldModel = new JobField($db);
+        parent::__construct();
+        $this->jobFieldModel = new JobField($this->db);
     }
 
+    /**
+     * List all job fields
+     */
     public function index() {
         $fields = $this->jobFieldModel->getAllFields();
-        require '../views/job_fields/index.php';
+        $this->adminView('job_fields/index', ['fields' => $fields]);
     }
 
+    /**
+     * Fetch job fields for AJAX DataTables
+     */
+    public function fetchFields() {
+        $search = isset($_GET['search']['value']) ? trim($_GET['search']['value']) : '';
+        $totalFields = $this->jobFieldModel->getFieldCount($search);
+        $pagination = $this->getPaginationData($totalFields, $search);
+        $filteredFields = $this->jobFieldModel->getPaginatedFields($pagination['limit'], $pagination['start'], $search);
+
+        $this->jsonResponse([
+            "draw" => $pagination['draw'],
+            "page" => $pagination['page'],
+            "recordsTotal" => $totalFields,
+            "recordsFiltered" => $totalFields,
+            "data" => $filteredFields
+        ]);
+    }
+
+    /**
+     * Show create form and handle submission
+     */
     public function create() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $name = $_POST['name'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = trim($_POST['name']);
             $status = $_POST['status'];
 
             if ($this->jobFieldModel->createField($name, $status)) {
-                header('Location: index.php');
-                exit;
+                $this->redirect('/admin/job_fields');
             }
         }
-        require '../views/job_fields/create.php';
+        $this->adminView('job_fields/create');
     }
 
+    /**
+     * Show edit form and handle update
+     */
     public function edit($id) {
         $field = $this->jobFieldModel->getFieldById($id);
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $name = $_POST['name'];
+
+        if (!$field) {
+            die("Field not found.");
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = trim($_POST['name']);
             $status = $_POST['status'];
 
             if ($this->jobFieldModel->updateField($id, $name, $status)) {
-                header('Location: index.php');
-                exit;
+                $this->redirect('/admin/job_fields');
             }
         }
-        require '../views/job_fields/edit.php';
+        $this->adminView('job_fields/edit', ['field' => $field]);
     }
 
+    /**
+     * Show job field details
+     */
+    public function detail($id) {
+        $field = $this->jobFieldModel->getFieldById($id);
+
+        if (!$field) {
+            die("Field not found.");
+        }
+
+        $this->adminView('job_fields/detail', ['field' => $field]);
+    }
+
+    /**
+     * Delete a job field
+     */
     public function delete($id) {
         $this->jobFieldModel->deleteField($id);
-        header('Location: index.php');
-        exit;
+        $this->redirect('/admin/job_fields');
     }
 }
 ?>

@@ -7,58 +7,78 @@ use Admin\Models\JobField;
 use Admin\Models\JobEducationLevel;
 use Admin\Models\JobType;
 
-class JobPostsController {
+class JobPostsController extends BaseController {
     private $jobPostModel;
     private $jobCategoryModel;
     private $jobFieldModel;
     private $jobEducationLevelModel;
     private $jobTypeModel;
 
-
     public function __construct() {
-        $db = require __DIR__ . '/../../config/database.php';
-        $this->jobPostModel = new JobPost($db);
-        $this->jobCategoryModel = new JobCategory($db);
-        $this->jobFieldModel = new JobField($db);
-        $this->jobEducationLevelModel = new JobEducationLevel($db);
-        $this->jobTypeModel = new JobType($db);
+        parent::__construct();
+        $this->jobPostModel = new JobPost($this->db);
+        $this->jobCategoryModel = new JobCategory($this->db);
+        $this->jobFieldModel = new JobField($this->db);
+        $this->jobEducationLevelModel = new JobEducationLevel($this->db);
+        $this->jobTypeModel = new JobType($this->db);
     }
 
+    /**
+     * List all job posts
+     */
     public function index() {
         $jobPosts = $this->jobPostModel->getAllJobPosts();
-        require '../views/job_posts/index.php';
+        $this->adminView('job_posts/index', ['jobPosts' => $jobPosts]);
+    }
+    public function fetchJobPosts() {
+        $search = isset($_GET['search']['value']) ? trim($_GET['search']['value']) : '';
+        $totalJobs = $this->jobPostModel->getJobPostCount($search);
+        $pagination = $this->getPaginationData($totalJobs, $search);
+        $filteredJobs = $this->jobPostModel->getPaginatedJobPosts($pagination['limit'], $pagination['start'], $search);
+    
+        $this->jsonResponse([
+            "draw" => $pagination['draw'],
+            "page" => $pagination['page'],
+            "recordsTotal" => $totalJobs,
+            "recordsFiltered" => $totalJobs,
+            "data" => $filteredJobs
+        ]);
+    }
+    
+    /**
+     * Show details of a specific job post
+     */
+    public function detail($id) {
+        $jobPost = $this->jobPostModel->getJobPostById($id);
+
+        if (!$jobPost) {
+            die("Job Post not found.");
+        }
+
+        $this->adminView('job_posts/detail', ['jobPost' => $jobPost]);
     }
 
+    /**
+     * Show create form and handle submission
+     */
     public function create() {
         $categories = $this->jobCategoryModel->getAllCategories();
         $fields = $this->jobFieldModel->getAllFields();
         $levels = $this->jobEducationLevelModel->getAllLevels();
         $types = $this->jobTypeModel->getAllTypes();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $title = $_POST['title'];
-            $desc = $_POST['desc'];
-            $requirement = $_POST['requirement'];
-            $organization = $_POST['organization'];
-            $post_link = $_POST['post_link'];
-            $apply_link = $_POST['apply_link'];
-            $type_id = $_POST['type_id'];
-            $category_id = $_POST['category_id'];
-            $field_id = $_POST['field_id'];
-            $level_id = $_POST['level_id'];
-            $country = $_POST['country'];
-            $open_date = $_POST['open_date'];
-            $last_date = $_POST['last_date'];
-            $inserted_by = $_POST['inserted_by'];
-
-            if ($this->jobPostModel->createJobPost($title, $desc, $requirement, $organization, $post_link, $apply_link, $type_id, $category_id, $field_id, $level_id, $country, $open_date, $last_date, $inserted_by)) {
-                header('Location: index.php');
-                exit;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = $_POST;
+            if ($this->jobPostModel->createJobPost($data)) {
+                $this->redirect('/admin/job_posts');
             }
         }
-        require '../views/job_posts/create.php';
+        $this->adminView('job_posts/create', compact('categories', 'fields', 'levels', 'types'));
     }
 
+    /**
+     * Show edit form and handle update
+     */
     public function edit($id) {
         $jobPost = $this->jobPostModel->getJobPostById($id);
         $categories = $this->jobCategoryModel->getAllCategories();
@@ -66,34 +86,21 @@ class JobPostsController {
         $levels = $this->jobEducationLevelModel->getAllLevels();
         $types = $this->jobTypeModel->getAllTypes();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $title = $_POST['title'];
-            $desc = $_POST['desc'];
-            $requirement = $_POST['requirement'];
-            $organization = $_POST['organization'];
-            $post_link = $_POST['post_link'];
-            $apply_link = $_POST['apply_link'];
-            $type_id = $_POST['type_id'];
-            $category_id = $_POST['category_id'];
-            $field_id = $_POST['field_id'];
-            $level_id = $_POST['level_id'];
-            $country = $_POST['country'];
-            $open_date = $_POST['open_date'];
-            $last_date = $_POST['last_date'];
-            $inserted_by = $_POST['inserted_by'];
-
-            if ($this->jobPostModel->updateJobPost($id, $title, $desc, $requirement, $organization, $post_link, $apply_link, $type_id, $category_id, $field_id, $level_id, $country, $open_date, $last_date, $inserted_by)) {
-                header('Location: index.php');
-                exit;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = $_POST;
+            if ($this->jobPostModel->updateJobPost($id, $data)) {
+                $this->redirect('/admin/job_posts');
             }
         }
-        require '../views/job_posts/edit.php';
+        $this->adminView('job_posts/edit', compact('jobPost', 'categories', 'fields', 'levels', 'types'));
     }
 
+    /**
+     * Delete a job post
+     */
     public function delete($id) {
         $this->jobPostModel->deleteJobPost($id);
-        header('Location: index.php');
-        exit;
+        $this->redirect('/admin/job_posts');
     }
 }
 ?>

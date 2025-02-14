@@ -3,58 +3,101 @@ namespace Admin\Controllers;
 
 use Admin\Models\News;
 
-class NewsController {
+class NewsController extends BaseController {
     private $newsModel;
 
     public function __construct() {
-        $db = require '../config/database.php';
-        $this->newsModel = new News($db);
+        parent::__construct();
+        $this->newsModel = new News($this->db);
     }
 
+    /**
+     * Display all news articles
+     */
     public function index() {
         $news = $this->newsModel->getAllNews();
-        require(__DIR__ . '/../views/news/index.php');
-
-        // require '../views/news/index.php';
+        $this->adminView('news/index', ['news' => $news]);
     }
 
+    /**
+     * Fetch news articles for AJAX DataTables
+     */
+    public function fetchNews() {
+        $search = isset($_GET['search']['value']) ? trim($_GET['search']['value']) : '';
+        $totalNews = $this->newsModel->getNewsCount($search);
+        $pagination = $this->getPaginationData($totalNews, $search);
+        $filteredNews = $this->newsModel->getPaginatedNews($pagination['limit'], $pagination['start'], $search);
+
+        $this->jsonResponse([
+            "draw" => $pagination['draw'],
+            "page" => $pagination['page'],
+            "recordsTotal" => $totalNews,
+            "recordsFiltered" => $totalNews,
+            "data" => $filteredNews
+        ]);
+    }
+
+    /**
+     * Show create form and handle submission
+     */
     public function create() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $name = $_POST['name'];
-            $desc = $_POST['desc'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = trim($_POST['name']);
+            $desc = trim($_POST['desc']);
             $status = $_POST['status'];
             $date = $_POST['date'];
             $end_date = $_POST['end_date'];
 
             if ($this->newsModel->createNews($name, $desc, $status, $date, $end_date)) {
-                header('Location: index.php');
-                exit;
+                $this->redirect('/admin/news');
             }
         }
-        require '../views/news/create.php';
+        $this->adminView('news/create');
     }
 
+    /**
+     * Show edit form and handle update
+     */
     public function edit($id) {
         $news = $this->newsModel->getNewsById($id);
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $name = $_POST['name'];
-            $desc = $_POST['desc'];
+
+        if (!$news) {
+            die("News article not found.");
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = trim($_POST['name']);
+            $desc = trim($_POST['desc']);
             $status = $_POST['status'];
             $date = $_POST['date'];
             $end_date = $_POST['end_date'];
 
             if ($this->newsModel->updateNews($id, $name, $desc, $status, $date, $end_date)) {
-                header('Location: index.php');
-                exit;
+                $this->redirect('/admin/news');
             }
         }
-        require '../views/news/edit.php';
+        $this->adminView('news/edit', ['news' => $news]);
     }
 
+    /**
+     * Show news details
+     */
+    public function detail($id) {
+        $news = $this->newsModel->getNewsById($id);
+
+        if (!$news) {
+            die("News article not found.");
+        }
+
+        $this->adminView('news/detail', ['news' => $news]);
+    }
+
+    /**
+     * Delete a news article
+     */
     public function delete($id) {
         $this->newsModel->deleteNews($id);
-        header('Location: index.php');
-        exit;
+        $this->redirect('/admin/news');
     }
 }
 ?>

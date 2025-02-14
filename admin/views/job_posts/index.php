@@ -2,21 +2,27 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="mb-0">Blogs</h1>
-        <a href="create.php" class="btn btn-primary">Create Blog</a>
+        <h1 class="mb-0">Job Posts</h1>
+        <a href="create.php" class="btn btn-primary">Add New Job Post</a>
     </div>
 
-    <table id="blogsTable" class="table table-striped table-bordered">
+    <table id="jobPostsTable" class="table table-striped table-bordered">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Organization</th>
                 <th>Category</th>
-                <th>Status</th>
+                <th>Field</th>
+                <th>Education Level</th>
+                <th>Type</th>
+                <th>Country</th>
+                <th>Open Date</th>
+                <th>Last Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody></tbody> <!-- No static data, AJAX will populate this -->
+        <tbody></tbody> <!-- Populated dynamically via AJAX -->
     </table>
 </div>
 
@@ -29,7 +35,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete this blog?
+                Are you sure you want to delete this job post?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -44,11 +50,11 @@
 <!-- DataTables AJAX Script -->
 <script>
 $(document).ready(function () {
-    $('#blogsTable').DataTable({
+    $('#jobPostsTable').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "blog/fetch",
+            "url": "jobs/fetch",
             "type": "GET",
             "data": function(d) {
                 d.page = (d.start / d.length) + 1;  // Calculate page number from DataTables' start/length
@@ -61,19 +67,20 @@ $(document).ready(function () {
         "columns": [
             { "data": "id" },
             { "data": "title" },
-            { "data": "category" },
-            { 
-                "data": "status",
-                "render": function(data) {
-                    return data ? '<span class="badge bg-success">Published</span>' : 
-                                  '<span class="badge bg-warning">Draft</span>';
-                }
-            },
+            { "data": "organization" },
+            { "data": "category_name" },
+            { "data": "field_name" },
+            { "data": "education_level" },
+            { "data": "type_name" },
+            { "data": "country" },
+            { "data": "open_date" },
+            { "data": "last_date" },
             {
                 "data": "id",
                 "render": function(data) {
                     return `
                         <a href="edit.php?id=${data}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="detail.php?id=${data}" class="btn btn-sm btn-info">View</a>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" 
                                 data-bs-target="#deleteModal" data-id="${data}">
                             Delete
@@ -90,8 +97,7 @@ $(document).ready(function () {
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
-        $('#confirmDelete').attr('href', 'blogs/delete?id=' + id);
+        $('#confirmDelete').attr('href', 'delete.php?id=' + id);
     });
 });
-
 </script>

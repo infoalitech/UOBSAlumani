@@ -2,6 +2,7 @@
 namespace Admin\Models;
 
 use PDO;
+use PDOException;
 
 class JobEducationLevel {
     private $db;
@@ -10,30 +11,102 @@ class JobEducationLevel {
         $this->db = $db;
     }
 
+    /**
+     * Get all job education levels
+     */
     public function getAllLevels() {
-        $stmt = $this->db->query("SELECT * FROM job_education_levels");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $stmt = $this->db->query("SELECT * FROM job_education_levels ORDER BY level ASC");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
     }
 
+    /**
+     * Get a single job education level by ID
+     */
     public function getLevelById($id) {
-        $stmt = $this->db->prepare("SELECT * FROM job_education_levels WHERE id = :id");
-        $stmt->execute(['id' => $id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM job_education_levels WHERE id = :id");
+            $stmt->execute(['id' => $id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return null;
+        }
     }
 
+    /**
+     * Get total count of education levels (for pagination)
+     */
+    public function getLevelCount($search = '') {
+        try {
+            if ($search) {
+                $stmt = $this->db->prepare("SELECT COUNT(*) FROM job_education_levels WHERE level LIKE :search");
+                $stmt->execute(['search' => "%$search%"]);
+            } else {
+                $stmt = $this->db->query("SELECT COUNT(*) FROM job_education_levels");
+            }
+            return $stmt->fetchColumn();
+        } catch (PDOException $e) {
+            return 0;
+        }
+    }
+
+    /**
+     * Get paginated list of education levels with search support
+     */
+    public function getPaginatedLevels($limit, $offset, $search = '') {
+        try {
+            if ($search) {
+                $stmt = $this->db->prepare("SELECT * FROM job_education_levels WHERE level LIKE :search LIMIT :offset, :limit");
+                $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
+            } else {
+                $stmt = $this->db->prepare("SELECT * FROM job_education_levels LIMIT :offset, :limit");
+            }
+            $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+            $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
+    /**
+     * Create a new education level
+     */
     public function createLevel($level) {
-        $stmt = $this->db->prepare("INSERT INTO job_education_levels (level) VALUES (:level)");
-        return $stmt->execute(compact('level'));
+        try {
+            $stmt = $this->db->prepare("INSERT INTO job_education_levels (level) VALUES (:level)");
+            return $stmt->execute(['level' => trim($level)]);
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 
+    /**
+     * Update an existing education level
+     */
     public function updateLevel($id, $level) {
-        $stmt = $this->db->prepare("UPDATE job_education_levels SET level = :level WHERE id = :id");
-        return $stmt->execute(compact('id', 'level'));
+        try {
+            $stmt = $this->db->prepare("UPDATE job_education_levels SET level = :level WHERE id = :id");
+            return $stmt->execute(['id' => (int)$id, 'level' => trim($level)]);
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 
+    /**
+     * Delete an education level by ID
+     */
     public function deleteLevel($id) {
-        $stmt = $this->db->prepare("DELETE FROM job_education_levels WHERE id = :id");
-        return $stmt->execute(['id' => $id]);
+        try {
+            $stmt = $this->db->prepare("DELETE FROM job_education_levels WHERE id = :id");
+            return $stmt->execute(['id' => (int)$id]);
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 }
 ?>

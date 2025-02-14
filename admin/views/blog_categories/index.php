@@ -2,32 +2,29 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="mb-0">News Management</h1>
-        <a href="create.php" class="btn btn-primary">Add News</a>
+        <h1 class="mb-0">Blog Categories</h1>
+        <a href="create.php" class="btn btn-primary">Add New Category</a>
     </div>
 
-    <table id="newsTable" class="table table-striped table-bordered">
+    <table id="blogCategoriesTable" class="table table-striped table-bordered">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Start Date</th>
-                <th>End Date</th>
+                <th>Name</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody></tbody> <!-- AJAX will populate this -->
     </table>
 </div>
 
 <script>
 $(document).ready(function () {
-    $('#newsTable').DataTable({
+    $('#blogCategoriesTable').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "fetchNews.php",
+            "url": "fetchCategories.php",
             "type": "GET",
             "dataSrc": function(json) {
                 return json.data;
@@ -36,9 +33,6 @@ $(document).ready(function () {
         "columns": [
             { "data": "id" },
             { "data": "name" },
-            { "data": "status" },
-            { "data": "date" },
-            { "data": "end_date" },
             {
                 "data": "id",
                 "render": function(data) {
