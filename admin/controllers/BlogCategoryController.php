@@ -46,7 +46,7 @@ class BlogCategoryController extends BaseController {
             $name = trim($_POST['name']);
 
             if ($this->blogCategoryModel->createCategory($name)) {
-                $this->redirect('/admin/blog_categories');
+                $this->redirect('/admin/blog/categories');
             }
         }
         $this->adminView('blog_categories/create');
@@ -66,7 +66,7 @@ class BlogCategoryController extends BaseController {
             $name = trim($_POST['name']);
 
             if ($this->blogCategoryModel->updateCategory($id, $name)) {
-                $this->redirect('/admin/blog_categories');
+                $this->redirect('/admin/blog/categories');
             }
         }
         $this->adminView('blog_categories/edit', ['category' => $category]);
@@ -90,7 +90,7 @@ class BlogCategoryController extends BaseController {
      */
     public function delete($id) {
         $this->blogCategoryModel->deleteCategory($id);
-        $this->redirect('/admin/blog_categories');
+        $this->redirect('/admin/blog/categories');
     }
 }
 ?>

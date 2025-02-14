@@ -137,5 +137,39 @@ class News {
             return false;
         }
     }
+
+
+
+    public function incrementView($id) {
+        $stmt = $this->db->prepare("UPDATE news SET views = views + 1 WHERE id = :id");
+        return $stmt->execute(['id' => $id]);
+    }
+    
+    public function incrementLike($id) {
+        $stmt = $this->db->prepare("UPDATE news SET likes = likes + 1 WHERE id = :id");
+        return $stmt->execute(['id' => $id]);
+    }
+    
+    public function incrementClick($id) {
+        $stmt = $this->db->prepare("UPDATE news SET clicks = clicks + 1 WHERE id = :id");
+        return $stmt->execute(['id' => $id]);
+    }
+
+
+    public function getTotalViews() {
+        $stmt = $this->db->query("SELECT SUM(views) AS total FROM news");
+        return $stmt->fetchColumn() ?: 0;
+    }
+    
+    public function getTotalLikes() {
+        $stmt = $this->db->query("SELECT SUM(likes) AS total FROM news");
+        return $stmt->fetchColumn() ?: 0;
+    }
+    
+    public function getTotalClicks() {
+        $stmt = $this->db->query("SELECT SUM(clicks) AS total FROM news");
+        return $stmt->fetchColumn() ?: 0;
+    }
+    
 }
 ?>

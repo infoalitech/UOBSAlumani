@@ -156,19 +156,19 @@ switch ($requestUri) {
     case "$basePath/admin/blog/categories":
         $blogCategoryController->index();
         break;
-    case "$basePath/admin/jobs/fetch":
+    case "$basePath/admin/blog/categories/fetch":
         $blogCategoryController->fetchCategories(); // AJAX request handler for DataTables
         break;
-    case "$basePath/admin/jobs/detail":
+    case "$basePath/admin/blog/categories/detail":
         isset($_GET['id']) ? $blogCategoryController->detail($_GET['id']) : include 'views/404.php';
         break;
-    case "$basePath/admin/jobs/create":
+    case "$basePath/admin/blog/categories/create":
         $blogCategoryController->create();
         break;
-    case "$basePath/admin/jobs/edit":
+    case "$basePath/admin/blog/categories/edit":
         isset($_GET['id']) ? $blogCategoryController->edit($_GET['id']) : include 'views/404.php';
         break;
-    case "$basePath/admin/jobs/delete":
+    case "$basePath/admin/blog/categories/delete":
         isset($_GET['id']) ? $blogCategoryController->delete($_GET['id']) : include 'views/404.php';
         break;
 

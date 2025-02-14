@@ -2,7 +2,7 @@
 
 <div class="container mt-4">
     <h1>Blog Category Details</h1>
-    <a href="index.php" class="btn btn-secondary">Back</a>
+    <a href="<?= $basePath ?>/admin/blog/categories" class="btn btn-secondary">Back</a>
 
     <div class="card shadow-sm p-4">
         <h3><?= htmlspecialchars($category['name']); ?></h3>

@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Job Posts</h1>
-        <a href="create.php" class="btn btn-primary">Add New Job Post</a>
+        <a href="<?= $basePath ?>/admin/jobs/create" class="btn btn-primary">Add New Job Post</a>
     </div>
 
     <table id="jobPostsTable" class="table table-striped table-bordered">
@@ -50,7 +50,7 @@
 <!-- DataTables AJAX Script -->
 <script>
 $(document).ready(function () {
-    $('#jobPostsTable').DataTable({
+    let table = $('#jobPostsTable').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
@@ -79,10 +79,9 @@ $(document).ready(function () {
                 "data": "id",
                 "render": function(data) {
                     return `
-                        <a href="edit.php?id=${data}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="detail.php?id=${data}" class="btn btn-sm btn-info">View</a>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" 
-                                data-bs-target="#deleteModal" data-id="${data}">
+                        <a href="${basePath}/admin/jobs/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="${basePath}/admin/jobs/detail?id=${data}" class="btn btn-sm btn-info">View</a>
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${data}">
                             Delete
                         </button>`;
                 }
@@ -97,7 +96,7 @@ $(document).ready(function () {
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
-        $('#confirmDelete').attr('href', 'delete.php?id=' + id);
+        $('#confirmDelete').attr('href', `${basePath}/admin/jobs/delete?id=${id}`);
     });
 });
 </script>

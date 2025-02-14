@@ -4,6 +4,9 @@ use App\Helpers\Config; // Import the Config class
 $basePath = rtrim(Config::get('BASE_PATH', '/UOBSAlumani/public'), '/');
 $displayErrors = Config::get('DISPLAY_ERRORS', false);
 ?>
+<script>
+    var basePath = "<?= $basePath ?>"; // Pass PHP variable to JS
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>

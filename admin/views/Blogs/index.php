@@ -40,9 +40,7 @@
 </div>
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>
-<script>
-    var basePath = "<?= $basePath ?>"; // Pass PHP variable to JS
-</script>
+
 
 <!-- DataTables AJAX Script -->
 <script>
