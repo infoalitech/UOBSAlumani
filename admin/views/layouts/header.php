@@ -15,7 +15,7 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
     <title><?php echo $title ?? 'Admin Panel'; ?></title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/UOBSAlumani/php-crud-app/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/UOBSAlumani/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">

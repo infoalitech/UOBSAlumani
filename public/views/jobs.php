@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card">
                         <h5 class="card-title">${job.title}</h5>
                         <p>${job.organization}</p>
-                        <a href="jobDetail.php?id=${job.id}" class="btn btn-primary">View Details</a>
+                        <a href="./jobs/details?id=${job.id}" class="btn btn-primary">View Details</a>
                     </div>
                 </div>`).join('') : '<p class="alert alert-warning text-center">No jobs found.</p>';
         });

@@ -2341,7 +2341,8 @@ img.card-img-top {
   /* left: 0; right: 0; */
   /* top: 19%;  */
   margin: auto;
-  /* width: 320px; height: 500px; */
+  width: 80%; 
+  height: 500px;
   border-radius: 16px;
   background: #191919aa;
   background: linear-gradient(180deg, #ffffffaa 0%, #3e4c82cc 50%);

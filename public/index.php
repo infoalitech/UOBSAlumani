@@ -79,7 +79,7 @@ switch ($requestUri) {
         break;
 
     case "$basePath/blogs/details":
-        $homeController->blogDetail();
+        $homeController->blogDetail($_GET['id']);
         break;
 
     /** 🔹 News Routes */
@@ -87,7 +87,7 @@ switch ($requestUri) {
         $homeController->news();
         break;
     case "$basePath/news/details":
-        $homeController->newsDetail();
+        $homeController->newsDetail($_GET['id']);
         break;
 
     /** 🔹 Jobs Routes */
@@ -99,7 +99,7 @@ switch ($requestUri) {
         break;
 
     case "$basePath/jobs/details":
-        $homeController->jobsDetail();
+        $homeController->jobsDetail( $_GET['id']);
         break;
 
         

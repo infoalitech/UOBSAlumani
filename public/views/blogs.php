@@ -41,8 +41,8 @@ include 'snippets/header.php';
                     <?php } ?>
                   <h2 class="text-white"><?= htmlspecialchars($blog['title']) ?></h2>
                   <p class="text-white"><?= substr(htmlspecialchars($blog['description']), 0, 100) ?>...</p>
-                  <a href="<?= $basePath ?>/blogDetail.php?id=<?= $blog['id'] ?>" >
-                    <div  class="button">Get Started</div>
+                  <a href="<?= $basePath ?>/blogs/details?id=<?= $blog['id'] ?>" >
+                    <div  class="button">Read More</div>
                   </a>
                 </div>
 
