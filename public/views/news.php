@@ -11,16 +11,14 @@ $title = 'Job Opportunities';
 include 'snippets/header.php';
 ?>
     <!-- Page Title -->
-    <div class="page-title light-background">
+    <div class="page-title ">
         <div class="container">
-        <h1>Blogs</h1>
+        <h1>News</h1>
         <p>Discover the latest updates, blogs, and job openings from the UOBS Alumni Network.</p>
         </div>
     </div><!-- End Page Title -->
-
     <!-- Faq Section -->
     <section class="faq-9 faq section light-background" id="faq">
-
       <div class="container">
         <div class="row">
           <div class="col-lg-5" data-aos="fade-up">
@@ -34,26 +32,19 @@ include 'snippets/header.php';
           </div>
           <div class="col-lg-7" data-aos="fade-up" data-aos-delay="300">
             <div class="faq-container">
-              <?php foreach ($news as $news): ?>
+              <?php foreach ($latestNews as $news): ?>
                   <div class="faq-item">
                     <h3><?= htmlspecialchars($news['name']) ?></h3>
                     <div class="faq-content">
-                      <p><?= substr(htmlspecialchars($news['description']), 0, 150) ?>...</p>
-                      <a href="<?= $basePath ?>/newsDetail.php?id=<?= $news['id'] ?>" class="btn btn-sm btn-primary mt-2">Read More</a>
+                      <p><?= htmlspecialchars($news['description']) ?>...</p>
+                      <a href="<?= $basePath ?>/news/details?id=<?= $news['id'] ?>" class="btn btn-sm btn-primary mt-2">Read More</a>
                     </div>
                     <i class="faq-toggle bi bi-chevron-right"></i>
                   </div>
               <?php endforeach; ?>
             </div>
           </div>
-
         </div>
       </div>
     </section><!-- /Faq Section -->
-
-
-
-<?php include 'snippets/footer.php'; ?>
-
-
 <?php include 'snippets/footer.php'; ?>

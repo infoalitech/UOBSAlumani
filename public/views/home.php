@@ -308,7 +308,7 @@ include 'snippets/header.php';
                     <h3><?= htmlspecialchars($news['name']) ?></h3>
                     <div class="faq-content">
                       <p><?= substr(htmlspecialchars($news['description']), 0, 150) ?>...</p>
-                      <a href="<?= $basePath ?>/newsDetail.php?id=<?= $news['id'] ?>" class="btn btn-sm btn-primary mt-2">Read More</a>
+                      <a href="<?= $basePath ?>/news/details?id=<?= $news['id'] ?>" class="btn btn-sm btn-primary mt-2">Read More</a>
                     </div>
                     <i class="faq-toggle bi bi-chevron-right"></i>
                   </div>

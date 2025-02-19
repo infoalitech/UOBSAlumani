@@ -73,7 +73,7 @@ class HomeController {
     }
 
     public function news() {
-        $news = $this->newsModel->getAllNews();
+        $latestNews = $this->newsModel->getAllNews();
         include(__DIR__.'/../../public/views/news.php');
     }
 
