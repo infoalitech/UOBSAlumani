@@ -58,23 +58,26 @@ $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 switch ($requestUri) {
 
     /** ========================== PUBLIC ROUTES ========================== */
+    case "$basePath/index.php":
     case "$basePath/index":
     case "$basePath/home":
     case "$basePath/":
         $homeController->home();
         break;
 
-    case "$basePath/about":
+    case "$basePath/convocations":
         $homeController->about();
         break;
 
     case "$basePath/contact":
         $homeController->contact();
         break;
+
     /** 🔹 Blog Routes */
     case "$basePath/blogs":
         $homeController->blogs();
         break;
+
     case "$basePath/blogs/details":
         $homeController->blogDetail();
         break;
@@ -91,10 +94,15 @@ switch ($requestUri) {
     case "$basePath/jobs":
         $homeController->jobs();
         break;
+    case "$basePath/fetchFilteredJobs":
+        $homeController->fetchFilteredJobs();
+        break;
+
     case "$basePath/jobs/details":
         $homeController->jobsDetail();
         break;
 
+        
     /** 🔹 Authentication Routes */
     case "$basePath/login":
         include 'views/login.php';
@@ -106,10 +114,13 @@ switch ($requestUri) {
         $authController->logout();
         break;
 
+
+        
     /** ========================== ADMIN ROUTES ========================== */
 
     /** 🔹 Dashboard */
     case "$basePath/admin":
+    case "$basePath/admin/":
     case "$basePath/admin/index":
     case "$basePath/admin/dashboard":
         $dashboardController->dashboard();
@@ -244,10 +255,10 @@ switch ($requestUri) {
         break;
 
     case "$basePath/admin/jobs/fields/fetch":
-        $jobTypeController->fetchJobTypes(); // AJAX request handler for DataTables
+        $jobFieldController->fetchFields(); // AJAX request handler for DataTables
         break;
     case "$basePath/admin/jobs/fields/detail":
-        isset($_GET['id']) ? $jobTypeController->detail($_GET['id']) : include 'views/404.php';
+        isset($_GET['id']) ? $jobFieldController->detail($_GET['id']) : include 'views/404.php';
         break;
     case "$basePath/admin/jobs/fields/create":
         $jobFieldController->create();
