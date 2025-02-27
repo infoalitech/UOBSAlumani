@@ -3,6 +3,21 @@ use App\Helpers\Config; // Import the Config class
 
 $basePath = rtrim(Config::get('BASE_PATH', '/UOBSAlumani/public'), '/');
 $displayErrors = Config::get('DISPLAY_ERRORS', false);
+
+
+// Function to check if the user is logged in
+function isAuthenticated() {
+    return isset($_SESSION['username']);
+}
+
+// Function to check if the user has a specific permission
+function hasPermission($permission) {
+    if (!isset($_SESSION['permissions']) || empty($_SESSION['permissions'])) {
+        return false;
+    }
+    // print_r($_SESSION['permissions']);
+    return in_array($permission, array_column($_SESSION['permissions'], 'slug'));
+}
 ?>
 <script>
     var basePath = "<?= $basePath ?>"; // Pass PHP variable to JS
@@ -34,61 +49,87 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= $basePath ?>/admin/index">Dashboard</a>
-                        </li>
+                <ul class="navbar-nav ms-auto">
+                        
+                        <?php if (isAuthenticated()): ?> <!-- Show only if logged in -->
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= $basePath ?>/admin/index">Dashboard</a>
+                            </li>
 
+                            <!-- Job Management Dropdown -->
+                            <?php if (hasPermission('view_admin_jobs')): ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="jobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Jobs
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="jobDropdown">
+                                        <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs">Jobs</a></li>
+                                        <?php if (hasPermission('view_job_categories')): ?>
+                                            <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/categories">Job Categories</a></li>
+                                        <?php endif; ?>
+                                        <?php if (hasPermission('view_job_fields')): ?>
+                                            <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/fields">Job Fields</a></li>
+                                        <?php endif; ?>
+                                        <?php if (hasPermission('view_job_education')): ?>
+                                            <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/education">Job Education Level</a></li>
+                                        <?php endif; ?>
+                                        <?php if (hasPermission('view_job_types')): ?>
+                                            <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/types">Job Types</a></li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
 
-                        <!-- Job Management Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="jobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Jobs
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="jobDropdown">
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs">Jobs</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/categories">Job Categories</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/fields">Job Fields</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/education">Job Education Level</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/jobs/types">Job Types</a></li>
+                            <!-- News -->
+                            <?php if (hasPermission('view_admin_news')): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= $basePath ?>/admin/news">News</a>
+                                </li>
+                            <?php endif; ?>
 
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="<?= $basePath ?>/admin/news">News</a>
-                        </li>
+                            <!-- Blog Management Dropdown -->
+                            <?php if (hasPermission('view_admin_blogs')): ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Blogs
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+                                        <?php if (hasPermission('view_blog_categories')): ?>
+                                            <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blog/categories">Blog Categories</a></li>
+                                        <?php endif; ?>
+                                        <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blogs">Blogs</a></li>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
 
-                        <!-- Blog Management Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Blogs
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="blogDropdown">
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blog/categories">Blog Categories</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blogs">Blogs</a></li>
-                            </ul>
-                        </li>
+                            <!-- User Management Dropdown -->
+                            <?php if (hasPermission('view_users')): ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        User Management
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                        <li><a class="dropdown-item" href="<?= $basePath ?>/admin/users">Users</a></li>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
 
+                            <!-- View Website -->
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="<?= $basePath ?>/index">View Website</a>
+                            </li>
 
-                        <!-- User Management Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                User Management
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/users">Users</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/permissions">Permissions</a></li>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/user/permissions">User Permissions</a></li>
-                            </ul>
-                        </li>
+                            <!-- Logout -->
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="<?= $basePath ?>/logout">Logout</a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-danger" href="<?= $basePath ?>/index">View Website</a>
-                        </li>
-                        <!-- Logout Button -->
-                        <li class="nav-item">
-                            <a class="nav-link text-danger" href="<?= $basePath ?>/logout">Logout</a>
-                        </li>
+                        <?php else: ?> <!-- Show login button if NOT logged in -->
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" href="<?= $basePath ?>/login">Login</a>
+                            </li>
+                        <?php endif; ?>
 
                     </ul>
                 </div>

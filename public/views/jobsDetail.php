@@ -56,7 +56,5 @@ include 'snippets/header.php';
 </section><!-- /Features Section -->
 
 
-<?php include 'snippets/footer.php'; ?>
-
 
 <?php include 'snippets/footer.php'; ?>

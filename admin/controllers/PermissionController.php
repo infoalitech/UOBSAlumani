@@ -1,18 +1,19 @@
 <?php
 namespace Admin\Controllers;
 
-use Admin\Models\User;
+use Admin\Models\Permission;
 
-class PermissionController {
-    private $userModel;
+class PermissionController extends BaseController {
+    private $permissionModel;
 
     public function __construct() {
-        // $this->userModel = new User();
+        parent::__construct();
+        $this->permissionModel = new Permission($this->db);
+        
     }
 
     public function index() {
-        $users = $this->userModel->getAllUsers();
-        require '../views/users/index.php';
+        $users = $this->permissionModel->getAllPermissions();
+        // require '../views/permission/index.php';
     }
-
 }

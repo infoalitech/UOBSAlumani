@@ -12,7 +12,6 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Role</th>
                 <th>Status</th>
                 <th>Actions</th>
             </tr>
@@ -58,7 +57,6 @@ $(document).ready(function () {
             { "data": "id" },
             { "data": "name" },
             { "data": "email" },
-            { "data": "role" },
             {
                 "data": "active",
                 "render": function(data) {

@@ -1,34 +1,45 @@
 <?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="mb-0">User Details</h1>
+    <h1>Edit User</h1>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-control" value="" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" value="" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" value="" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="active" class="form-label">Status:</label>
+            <select id="active" name="active" class="form-select">
+                <option value="1" >Active</option>
+                <option value="0" >Inactive</option>
+            </select>
+        </div>
+
+        <!-- Job Type -->
+        <div class="mb-3">
+            <label for="permission_id" class="form-label">Permissions</label>
+            <select name="permission_id" class="form-select" required>
+                <option value="">Select Type</option>
+                <?php foreach ($permissions as $permission): ?>
+                    <option value="<?= $permission['id'] ?>"><?= htmlspecialchars($permission['name']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
         <a href="index.php" class="btn btn-secondary">Back</a>
-    </div>
-
-    <div class="card shadow-sm p-4">
-        <h3 class="mb-3"><?= htmlspecialchars($user['name']); ?></h3>
-
-        <div class="mb-3">
-            <strong>Email:</strong> <?= htmlspecialchars($user['email']); ?>
-        </div>
-
-        <div class="mb-3">
-            <strong>Role:</strong> <?= htmlspecialchars(ucfirst($user['role'])); ?>
-        </div>
-
-        <div class="mb-3">
-            <strong>Status:</strong>
-            <span class="badge <?= $user['active'] == 1 ? 'bg-success' : 'bg-danger' ?>">
-                <?= $user['active'] == 1 ? 'Active' : 'Inactive' ?>
-            </span>
-        </div>
-
-        <div class="d-flex justify-content-between">
-            <a href="edit.php?id=<?= $user['id']; ?>" class="btn btn-primary">Edit</a>
-            <a href="delete.php?id=<?= $user['id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
-        </div>
-    </div>
+    </form>
 </div>
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

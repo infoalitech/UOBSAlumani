@@ -2,13 +2,17 @@
 namespace Admin\Controllers;
 
 use Admin\Models\User;
+use Admin\Models\Permission;
 
 class UserController extends BaseController {
     private $userModel;
+    private $permissionModel;
 
     public function __construct() {
         parent::__construct();
         $this->userModel = new User($this->db);
+        $this->permissionModel = new Permission($this->db);
+        
     }
 
     /**
@@ -47,12 +51,12 @@ class UserController extends BaseController {
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $role = $_POST['role'];
             $active = $_POST['active'];
-
             if ($this->userModel->create(['name' => $name, 'email' => $email, 'password' => $password, 'role' => $role, 'active' => $active])) {
                 $this->redirect('/admin/users');
             }
         }
-        $this->adminView('users/create');
+        $permissions = $this->permissionModel->getAllPermissions();
+        $this->adminView('users/create', compact('permissions'));
     }
 
     /**
@@ -60,23 +64,32 @@ class UserController extends BaseController {
      */
     public function edit($id) {
         $user = $this->userModel->read($id);
-
         if (!$user) {
             die("User not found.");
         }
-
+    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name']);
             $email = trim($_POST['email']);
-            $role = $_POST['role'];
+            $permissions = $_POST['permission_ids'] ?? []; // Correct way to retrieve the array
             $active = $_POST['active'];
-
-            if ($this->userModel->update($id, ['name' => $name, 'email' => $email, 'role' => $role, 'active' => $active])) {
+    
+            if ($this->userModel->update($id, [
+                'name' => $name,
+                'email' => $email,
+                'permissions' => $permissions,
+                'active' => $active
+            ])) {
                 $this->redirect('/admin/users');
             }
         }
-        $this->adminView('users/edit', ['user' => $user]);
+    
+        $permissions = $this->permissionModel->getAllPermissions();
+        $userPermissions = array_column($user['permissions'], 'id'); // Extract permission IDs
+    
+        $this->adminView('users/edit', compact('user', 'permissions', 'userPermissions'));
     }
+    
 
     /**
      * Show user details
