@@ -26,9 +26,7 @@ include 'snippets/header.php';
         
         <div class="col-md-3 d-none d-md-block">
             <div id="filters" class="row">
-                <div class="mb-3">
-                    <input type="text" id="search" class="form-control" placeholder="Search by job title, description, organization...">
-                </div>
+
 
                 <div class="mb-3">
                     <h6>Job Type</h6>
@@ -73,6 +71,10 @@ include 'snippets/header.php';
         </div>
 
         <div class="col-md-8">
+
+            <div class="mb-3 filters">
+                <input type="text" id="search" class="form-control" placeholder="Search by job title, description, organization...">
+            </div>
             <div class="container mt-4">
                 <div class="row" id="job-results"></div>
             </div>
@@ -170,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             document.getElementById("job-results").innerHTML = data.jobs.length ? data.jobs.map(job => `
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="card">
                         <h5 class="card-title">${job.title}</h5>
                         <p>${job.organization}</p>
@@ -184,3 +186,23 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchJobs();
 });
 </script>
+
+<style>
+
+div#filters {
+    background: #f3f9ff;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
+.filters {
+    background: #f3f9ff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+div#filters h6 {
+    FONT-WEIGHT: 600;
+}
+<style>

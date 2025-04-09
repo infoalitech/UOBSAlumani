@@ -24,7 +24,7 @@ use Admin\Controllers\BlogCategoryController;
 use App\Helpers\Config; // Import the Config class
 
 // Get BASE_PATH from .env
-$basePath = rtrim(Config::get('BASE_PATH', '/UOBSAlumani/public'), '/');
+$basePath = rtrim(Config::get('BASE_PATH', '/public'), '/');
 $displayErrors = Config::get('DISPLAY_ERRORS', false);
 
 // Set error display settings based on .env
@@ -67,11 +67,17 @@ function AuthCheck($basePath,$permission = null){
 }
 function PermissionCheck($permission): bool
 {
+
+    if( $_SESSION['is_super_user']){
+        return true;
+    }
+
     global $basePath; // Ensure $basePath is accessible
     if (!isset($_SESSION['permissions']) || empty($_SESSION['permissions'])) {
         header('Location: ' . $basePath . '/login');
         exit;
     }
+    
     // Extract permission names from the session
     $userPermissions = array_column($_SESSION['permissions'], 'name');
     // Check if the required permission exists in the user's permissions

@@ -75,7 +75,7 @@ $(document).ready(function () {
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
-        $('#confirmDelete').attr('href', `${basePath}/admin/job/fields/delete?id=${id}`);
+        $('#confirmDelete').attr('href', `${basePath}/admin/jobs/fields/delete?id=${id}`);
     });
 });
 </script>

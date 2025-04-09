@@ -16,14 +16,14 @@ class News {
      */
     public function getAllNews() {
         try {
-            $stmt = $this->db->query("SELECT * FROM news ORDER BY date DESC");
+            $stmt = $this->db->query("SELECT * FROM news  where status = 'published'  ORDER BY date DESC");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             return [];
         }
     }
     public function getLatestNews($limit = 3) {
-        $stmt = $this->db->prepare("SELECT * FROM news ORDER BY date DESC LIMIT :limit");
+        $stmt = $this->db->prepare("SELECT * FROM news  where status = 'published'   ORDER BY date DESC LIMIT :limit");
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -7,7 +7,7 @@
     </div>
 
     <div class="card shadow-sm p-4">
-        <form method="POST" action="<?= $basePath ?>/admin/blogs/create"  enctype="multipart/form-data">
+        <form method="POST" action="<?= $basePath ?>/admin/blogs/create" enctype="multipart/form-data">
 
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
@@ -19,11 +19,11 @@
                 <input type="file" id="cover" name="cover" class="form-control" accept="image/*" required>
             </div>
 
-
-            <div class="mb-3">
-                <label for="description" class="form-label">Description:</label>
-                <textarea id="description" name="description" class="form-control" rows="5" required></textarea>
-            </div>
+<div class="mb-3">
+    <label for="description" class="form-label">Description:</label>
+    <div id="editor" style="height: 300px; background-color: #fff;"></div>
+    <input type="hidden" name="description" id="description">
+</div>
 
             <div class="mb-3">
                 <label for="status" class="form-label">Status:</label>
@@ -53,5 +53,35 @@
         </form>
     </div>
 </div>
+
+<!-- Quill CSS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<!-- Quill JS -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
+<!-- CKEditor -->
+<script>
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        placeholder: 'Write your blog content here...',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'header': [1, 2, false] }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link', 'image'],
+                ['clean']
+            ]
+        }
+    });
+
+    // Copy HTML content to hidden input on form submit
+    document.querySelector('form').addEventListener('submit', function () {
+        document.querySelector('#description').value = quill.root.innerHTML;
+    });
+</script>
+
+
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

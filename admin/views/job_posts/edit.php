@@ -17,17 +17,21 @@
                 <input type="text" name="organization" class="form-control" value="<?= htmlspecialchars($jobPost['organization']) ?>" required>
             </div>
 
-            <!-- Description -->
-            <div class="mb-3 col-md-6">
-                <label for="description" class="form-label">Job Description</label>
-                <textarea name="description" class="form-control" rows="5" required><?= htmlspecialchars($jobPost['description']) ?></textarea>
-            </div>
 
-            <!-- Requirements -->
-            <div class="mb-3 col-md-6">
-                <label for="requirement" class="form-label">Job Requirement</label>
-                <textarea name="requirement" class="form-control" rows="5" required><?= htmlspecialchars($jobPost['requirement']) ?></textarea>
-            </div>
+<!-- Description -->
+<div class="mb-3">
+    <label for="description" class="form-label">Job Description:</label>
+    <div id="editor" style="height: 300px; background-color: #fff;"></div>
+    <input type="hidden" name="description" id="description">
+</div>
+<!-- Requirement -->
+
+<div class="mb-3">
+    <label for="requirement" class="form-label">Job Requirement:</label>
+    <div id="editor2" style="height: 300px; background-color: #fff;"></div>
+    <input type="hidden" name="requirement" id="requirement">
+</div>
+
 
             <!-- Category -->
             <div class="mb-3 col-md-3">
@@ -128,5 +132,53 @@
         </div>
     </form>
 </div>
+
+<!-- Quill CSS & JS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+<script>
+    const quill = new Quill('#editor', {
+        theme: 'snow',
+        placeholder: 'Edit your blog content...',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'header': [1, 2, 3, false] }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link', 'image'],
+                ['clean']
+            ]
+        }
+    });
+    const quill2 = new Quill('#editor2', {
+        theme: 'snow',
+        placeholder: 'Edit your blog content...',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'header': [1, 2, 3, false] }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link', 'image'],
+                ['clean']
+            ]
+        }
+    });
+
+
+    // Load saved HTML content into Quill
+    const savedHTML = <?= json_encode($jobPost['description']) ?>;
+    quill.root.innerHTML = savedHTML;
+
+    // Load saved HTML content into Quill
+    const savedHTML2 = <?= json_encode($jobPost['requirement']) ?>;
+    quill2.root.innerHTML = savedHTML2;
+
+    // Sync content to hidden input on submit
+    document.querySelector('form').addEventListener('submit', function () {
+        document.querySelector('#description').value = quill.root.innerHTML;
+        document.querySelector('#requirement').value = quill2.root.innerHTML;
+    });
+</script>
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

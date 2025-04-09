@@ -96,14 +96,24 @@
 
 
   <!-- Vendor JS Files -->
-  <script src="/UOBSAlumani/public/assets/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/UOBSAlumani/public/assets/assets/vendor/php-email-form/validate.js"></script>
-  <script src="/UOBSAlumani/public/assets/assets/vendor/aos/aos.js"></script>
-  <script src="/UOBSAlumani/public/assets/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/UOBSAlumani/public/assets/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="/UOBSAlumani/public/assets/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/public/assets/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/public/assets/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/public/assets/assets/vendor/aos/aos.js"></script>
+  <script src="/public/assets/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/public/assets/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/public/assets/assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
   <!-- Main JS File -->
-  <script src="/UOBSAlumani/public/assets/assets/js/main.js"></script>
+  <script src="/public/assets/assets/js/main.js"></script>
+
+  <style>
+ul#jobTab .nav-link{
+    color: black !important;    
+}
+
+ul#jobTab  .nav-link.active {
+    color: white !important;
+}
+</style>
 </body>
 </html>

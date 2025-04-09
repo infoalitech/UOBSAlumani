@@ -21,7 +21,7 @@ class DashboardController extends BaseController {
 
     public function __construct() {
         parent::__construct();
-        $this->basePath = rtrim(Config::get('BASE_PATH', '/UOBSAlumani/public'), '/') . '/';
+        $this->basePath = rtrim(Config::get('BASE_PATH', '/public'), '/') . '/';
         $this->displayErrors = Config::get('DISPLAY_ERRORS', false);
 
         // Initialize models

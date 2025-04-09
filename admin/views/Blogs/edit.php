@@ -15,13 +15,17 @@
 
             <div class="mb-3">
                 <label for="cover" class="form-label">Cover Image:</label>
-                <input type="file" id="cover" name="cover" class="form-control" accept="image/*" required>
+                <input type="file" id="cover" name="cover" class="form-control" accept="image/*" >
             </div>
 
-            <div class="mb-3">
-                <label for="description" class="form-label">Description:</label>
-                <textarea id="description" name="description" class="form-control" rows="5" required><?php echo $blog['description']; ?></textarea>
-            </div>
+<div class="mb-3">
+    <label for="description" class="form-label">Description:</label>
+    <div id="editor" style="height: 300px; background-color: #fff;"></div>
+    <input type="hidden" name="description" id="description">
+</div>
+
+
+
 
             <div class="mb-3">
                 <label for="status" class="form-label">Status:</label>
@@ -54,5 +58,35 @@
         </form>
     </div>
 </div>
+<!-- Quill CSS & JS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+<script>
+    const quill = new Quill('#editor', {
+        theme: 'snow',
+        placeholder: 'Edit your blog content...',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'header': [1, 2, 3, false] }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link', 'image'],
+                ['clean']
+            ]
+        }
+    });
+
+    // Load saved HTML content into Quill
+    const savedHTML = <?= json_encode($blog['description']) ?>;
+    quill.root.innerHTML = savedHTML;
+
+    // Sync content to hidden input on submit
+    document.querySelector('form').addEventListener('submit', function () {
+        document.querySelector('#description').value = quill.root.innerHTML;
+    });
+</script>
+
+
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

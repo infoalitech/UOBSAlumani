@@ -47,7 +47,7 @@ class HomeController {
     public function home() {
         // Fetch latest content
         $latestBlogs = $this->blogModel->getLatestBlogs(3);
-        $latestNews = $this->newsModel->getLatestNews(3);
+        $latestNews = $this->newsModel->getLatestNews(5);
         $latestJobs = $this->jobModel->getLatestJobs(3);
         $jobtypes = $this->jobType->getAllTypes(3);
 

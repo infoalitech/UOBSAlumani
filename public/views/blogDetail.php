@@ -18,12 +18,13 @@ include 'snippets/header.php';
 <section id="features" class="features section">
   <div class="container mt-4">
     <div class="row">
-        <div class="col-md-6">
-            <strong>Description:</strong>
-            <div>
-                <?= !empty($blog['description']) ? $blog['description'] : '<em>No description provided.</em>' ?>
-            </div>
-        </div>
+<div class="col-md-6">
+    <strong>Description:</strong>
+    <div>
+        <?= !empty($blog['description']) ? $blog['description'] : '<em>No description provided.</em>' ?>
+    </div>
+</div>
+
         <div class="col-md-6">
             <?php if ($blog['cover']){ ?>
                 <img src="<?= $basePath ?>/../<?php echo htmlspecialchars($blog['cover']); ?>" class="card-img-top" alt="<?= htmlspecialchars($blog['title']) ?>">

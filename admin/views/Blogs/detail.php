@@ -17,10 +17,11 @@ require_once __DIR__ . '/../layouts/header.php';
             <img src="<?= $basePath ?>/../<?php echo htmlspecialchars($blog['cover']); ?>" width="300px" class="img-fluid rounded" alt="Blog Cover">
         </div>
 
-        <div class="mb-3">
-            <label class="fw-bold">Description:</label>
-            <p><?php echo nl2br(htmlspecialchars($blog['description'])); ?></p>
-        </div>
+<div class="mb-3">
+    <label class="fw-bold">Description:</label>
+    <div><?= $blog['description'] ?></div>
+</div>
+
 
         <div class="mb-3">
             <label class="fw-bold">Status:</label>

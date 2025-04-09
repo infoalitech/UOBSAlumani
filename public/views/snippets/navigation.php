@@ -47,9 +47,8 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
-        <a class="btn-getstarted" href="<?= $basePath ?>/admin/dashboard">Get Started</a>
-
+        <!--  <a class="btn-getstarted" href="<?= $basePath ?>/admin/dashboard">Get Started</a> -->
+        
     </div>
 </header>
 

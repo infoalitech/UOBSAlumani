@@ -8,13 +8,12 @@ class BlogController extends BaseController {
     private $blogModel;
     private $blogCategoryModel;
     private $perPage = 5;
-
+    
     public function __construct() {
         parent::__construct();
         $this->blogModel = new Blog($this->db);
         $this->blogCategoryModel = new BlogCategory($this->db);
     }
-
     public function index() {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $totalBlogs = $this->blogModel->getBlogCount();
@@ -22,7 +21,6 @@ class BlogController extends BaseController {
         $blogs = $this->blogModel->getPaginatedBlogs($this->perPage, $offset);
         $this->adminView('blogs/index', ['blogs' => $blogs]);
     }
-
     public function fetchBlogs() {
         $search = isset($_GET['search']['value']) ? trim($_GET['search']['value']) : '';
         $totalBlogs = $this->blogModel->getBlogCount($search);
@@ -37,7 +35,6 @@ class BlogController extends BaseController {
             "data" => $filteredBlogs
         ]);
     }
-
     public function create() {
         $categories = $this->blogCategoryModel->getAllCategories();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -64,27 +61,34 @@ class BlogController extends BaseController {
 
         $this->adminView('blogs/detail', ['blog' => $blog]);
     }
-    public function edit($id) {
-        $blog = $this->blogModel->getBlogById($id);
-        $categories = $this->blogCategoryModel->getAllCategories();
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $title = $_POST['title'];
-            $description = $_POST['description'];
-            $status = $_POST['status'];
-            $published_date = $_POST['published_date'];
-            $cat_id = $_POST['cat_id'];
-            $cover = isset($_FILES['cover']) ? $this->handleFileUpload($_FILES['cover']) : $blog['cover'];
+public function edit($id) {
+    $blog = $this->blogModel->getBlogById($id);
+    $categories = $this->blogCategoryModel->getAllCategories();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $status = $_POST['status'];
+        $published_date = $_POST['published_date'];
+        $cat_id = $_POST['cat_id'];
 
-            if ($this->blogModel->updateBlog($id, $title, $cover, $description, $status, $published_date, $cat_id)) {
-                $this->redirect('/admin/blogs');
-            }
+        // Check if a new cover image is uploaded
+        $cover = isset($_FILES['cover']) && $_FILES['cover']['error'] == 0 
+            ? $this->handleFileUpload($_FILES['cover']) // Upload new image
+            : $blog['cover']; // Keep old image if no new one
+
+        // Update the blog with the new or old cover
+        if ($this->blogModel->updateBlog($id, $title, $cover, $description, $status, $published_date, $cat_id)) {
+            $this->redirect('/admin/blogs');
         }
-        $this->adminView('blogs/edit', ['blog' => $blog,'categories'=>$categories]);
     }
+    $this->adminView('blogs/edit', ['blog' => $blog, 'categories' => $categories]);
+}
 
     public function delete($id) {
         $this->blogModel->deleteBlog($id);
         $this->redirect('/admin/blogs');
     }
 }
+
+
 ?>

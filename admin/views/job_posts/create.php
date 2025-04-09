@@ -23,16 +23,19 @@
                 </div>
 
                 <!-- Description -->
-                <div class="mb-3 col-md-6">
-                    <label for="description" class="form-label">Job Description</label>
-                    <textarea name="description" class="form-control" rows="5" required></textarea>
-                </div>
-
+<div class="mb-3">
+    <label for="description" class="form-label">Job Description:</label>
+    <div id="editor" style="height: 300px; background-color: #fff;"></div>
+    <input type="hidden" name="description" id="description">
+</div>
                 <!-- Requirement -->
-                <div class="mb-3 col-md-6">
-                    <label for="requirement" class="form-label">Job Requirement</label>
-                    <textarea name="requirement" class="form-control" rows=5" required></textarea>
-                </div>
+
+<div class="mb-3">
+    <label for="requirement" class="form-label">Job Requirement:</label>
+    <div id="editor2" style="height: 300px; background-color: #fff;"></div>
+    <input type="hidden" name="requirement" id="requirement">
+</div>
+
 
                 <!-- Category -->
                 <div class="mb-3 col-md-3">
@@ -126,5 +129,50 @@
         </div>
     </form>
 </div>
+
+
+<!-- Quill CSS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<!-- Quill JS -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
+<!-- CKEditor -->
+<script>
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        placeholder: 'Write your blog content here...',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'header': [1, 2, false] }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link', 'image'],
+                ['clean']
+            ]
+        }
+    });
+    var quill2 = new Quill('#editor2', {
+        theme: 'snow',
+        placeholder: 'Write your blog content here...',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ 'header': [1, 2, false] }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link', 'image'],
+                ['clean']
+            ]
+        }
+    });
+
+    // Copy HTML content to hidden input on form submit
+    document.querySelector('form').addEventListener('submit', function () {
+        document.querySelector('#description').value = quill.root.innerHTML;
+        document.querySelector('#requirement').value = quill2.root.innerHTML;
+    });
+
+</script>
+
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

@@ -48,7 +48,7 @@ class JobEducationLevelController extends BaseController {
                 $error = "Invalid input. Please check your data.";
             } else {
                 if ($this->jobEducationLevelModel->createLevel($level)) {
-                    print($level);  
+                    // print($level);  
                     $this->redirect('/admin/jobs/education');
                 }
             }

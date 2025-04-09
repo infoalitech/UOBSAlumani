@@ -46,7 +46,7 @@ class JobFieldController extends BaseController {
             $status = $_POST['status'];
 
             if ($this->jobFieldModel->createField($name, $status)) {
-                $this->redirect('/admin/job_fields');
+                $this->redirect('/admin/jobs/fields');
             }
         }
         $this->adminView('job_fields/create');
@@ -67,7 +67,7 @@ class JobFieldController extends BaseController {
             $status = $_POST['status'];
 
             if ($this->jobFieldModel->updateField($id, $name, $status)) {
-                $this->redirect('/admin/job_fields');
+                $this->redirect('/admin/jobs/fields');
             }
         }
         $this->adminView('job_fields/edit', ['field' => $field]);
@@ -91,7 +91,7 @@ class JobFieldController extends BaseController {
      */
     public function delete($id) {
         $this->jobFieldModel->deleteField($id);
-        $this->redirect('/admin/job_fields');
+        $this->redirect('/admin/jobs/fields');
     }
 }
 ?>

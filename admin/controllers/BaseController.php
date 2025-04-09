@@ -9,7 +9,7 @@ class BaseController {
 
     public function __construct() {
         $this->db = require __DIR__ . '/../../config/database.php';
-        $this->basePath = rtrim(Config::get('BASE_PATH', '/UOBSAlumani/public'), '/');
+        $this->basePath = rtrim(Config::get('BASE_PATH', '/public'), '/');
     }
 
     /**

@@ -153,8 +153,12 @@ include 'snippets/header.php';
                       <img src="https://uobs.edu.pk/images/main/sarfaranga.jpg" class="card-img-top" alt="<?= htmlspecialchars($blog['title']) ?>">
                     <?php } ?>
                   <h2 class="text-white"><?= htmlspecialchars($blog['title']) ?></h2>
-                  <p class="text-white"><?= substr(htmlspecialchars($blog['description']), 0, 100) ?>...</p>
-                  <a href="<?= $basePath ?>/blogDetail.php?id=<?= $blog['id'] ?>" >
+                  <?php
+                  $plainText = strip_tags($blog['description']);
+                  $excerpt = mb_substr($plainText, 0, 100);
+                  ?>
+                  <p class="text-white"><?= $excerpt ?>...</p>
+                  <a href="<?= $basePath ?>/blogs/details?id=<?= $blog['id'] ?>" >
                     <div  class="button">Get Started</div>
                   </a>
                 </div>
@@ -165,131 +169,137 @@ include 'snippets/header.php';
         </div>
       </div>
     </section>
-    <!-- Features Cards Section -->
-      <!-- <section id="features-cards" class="features-cards section">
-        <div class="container">
-          <div class="row gy-4">
-            <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-              <div class="feature-box orange">
-                <i class="bi bi-award"></i>
-                <h4>Top Achievers</h4>
-                <p>Our alumni have won prestigious awards in academia, research, and entrepreneurship.</p>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-              <div class="feature-box blue">
-                <i class="bi bi-people"></i>
-                <h4>Global Alumni Network</h4>
-                <p>With over 5000+ graduates worldwide, UOBS alumni are making an impact in various fields.</p>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-              <div class="feature-box green">
-                <i class="bi bi-briefcase"></i>
-                <h4>Career Success</h4>
-                <p>More than 2000+ alumni have secured jobs in top companies and organizations.</p>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-              <div class="feature-box red">
-                <i class="bi bi-mortarboard"></i>
-                <h4>Higher Studies</h4>
-                <p>Over 100 alumni have pursued further education in leading universities worldwide.</p>
-              </div>
-            </div>
-          </div>
+
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Explore Opportunities</h2>
+        <p>Discover the latest updates, blogs, and job openings from the UOBS Alumni Network.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="d-flex justify-content-center">
+          <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+            <li class="nav-item">
+              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-all">
+                <h4>All</h4>
+              </a>
+            </li>
+            <?php foreach ($jobtypes as $key => $jobtype): ?>
+              <li class="nav-item">
+                <a class="nav-link                   
+                  " data-bs-toggle="tab" data-bs-target="#features-<?= $jobtype['id'] ?>">
+                  <h4><?= $jobtype['name'] ?></h4>
+                </a>
+              </li>
+            <?php endforeach; ?>
+            </li>
+          </ul>
         </div>
-      </section> -->
 
-<!-- Features Section -->
-<section id="features" class="features section">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Explore Opportunities</h2>
-    <p>Discover the latest updates, blogs, and job openings from the UOBS Alumni Network.</p>
-  </div><!-- End Section Title -->
+        <div class="tab-content py-5" data-aos="fade-up" data-aos-delay="200">
+          <!-- Blogs Tab -->
+            <div class="tab-pane fade 
+                    active show
+                " id="features-all">
+              <div class="row">
+                <?php foreach ($jobtypes as $key => $jobtype): ?>
 
-  <div class="container">
-    <div class="d-flex justify-content-center">
-      <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-        <?php foreach ($jobtypes as $key => $jobtype): ?>
-          <li class="nav-item">
-            <a class="nav-link 
-              <?php if ($key ==1 ): ?>
-              active show
-              <?php endif ?>
-              
-              " data-bs-toggle="tab" data-bs-target="#features-<?= $jobtype['id'] ?>">
-              <h4><?= $jobtype['name'] ?></h4>
-            </a>
-          </li>
-        <?php endforeach; ?>
-        </li>
-      </ul>
-    </div>
+                    <?php foreach ($latestJobs as $latestJob): ?>
+                        <?php if ($latestJob['type_id']  == $jobtype['id']): ?>   
+                            <div class="col-lg-4 col-md-6 mb-4 p-relative" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card">
+                                <div class="accents">
+                                <div class="acc-card"></div><div class="acc-card"></div><div class="acc-card"></div>
+                                <div class="light"></div><div class="light sm"></div>
+                                <div class="top-light"></div>
+                                </div>
+                                <div class="">
+                                    <?php if ($latestJob['image']){ ?>
+                                    <img src="<?= $basePath ?>/../<?php echo htmlspecialchars($latestJob['image']); ?>" class="card-img-top" alt="<?= htmlspecialchars($latestJob['title']) ?>">
+                                    <?php } else { ?>
+                                    <img src="https://uobs.edu.pk/images/main/sarfaranga.jpg" class="card-img-top" alt="<?= htmlspecialchars($latestJob['title']) ?>">
+                                    <?php } ?>
+                                    <h2 class="text-white"><?= htmlspecialchars($latestJob['title']) ?></h2>
+                                    <?php
+                                    $plainText = strip_tags($latestJob['description']);
+                                    $excerpt = mb_substr($plainText, 0, 100);
+                                    ?>
+                                    <p class="text-white"><?= $excerpt ?>...</p>
+                                    <a href="<?= $basePath ?>/jobs/details?id=<?= $latestJob['id'] ?>" >
+                                    <div  class="button">Get Started</div>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
-    <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-      <!-- Blogs Tab -->
-      <?php foreach ($jobtypes as $key => $jobtype): ?>
-        <div class="tab-pane fade 
-              <?php if ($key ==1 ): ?>
-                active show
-              <?php endif ?>
-            " id="features-<?= $jobtype['id'] ?>">
-          <div class="row">
-            <?php foreach ($latestJobs as $latestJob): ?>
-              <?php if ($latestJob['type_id']  == $jobtype['id']): ?>   
-                <div class="col-lg-4 col-md-6 mb-4 p-relative" data-aos="fade-up" data-aos-delay="100">
-                  <div class="card">
-                    <div class="accents">
-                      <div class="acc-card"></div><div class="acc-card"></div><div class="acc-card"></div>
-                      <div class="light"></div><div class="light sm"></div>
-                      <div class="top-light"></div>
-                    </div>
-                    <div class="">
-                        <?php if ($latestJob['image']){ ?>
-                          <img src="<?= $basePath ?>/../<?php echo htmlspecialchars($latestJob['image']); ?>" class="card-img-top" alt="<?= htmlspecialchars($latestJob['title']) ?>">
-                        <?php } else { ?>
-                          <img src="https://uobs.edu.pk/images/main/sarfaranga.jpg" class="card-img-top" alt="<?= htmlspecialchars($latestJob['title']) ?>">
-                        <?php } ?>
-                        <h2 class="text-white"><?= htmlspecialchars($latestJob['title']) ?></h2>
-                        <p class="text-white"><?= substr(htmlspecialchars($latestJob['description']), 0, 100) ?>...</p>
-                        <p class="text-white"><?= substr(htmlspecialchars($latestJob['organization']), 0, 100) ?>...</p>
-                        <a href="<?= $basePath ?>/blogDetail.php?id=<?= $latestJob['id'] ?>" >
-                          <div  class="button">Get Started</div>
-                        </a>
+              </div>
+            </div><!-- End Blogs Tab -->
+          
+          <?php foreach ($jobtypes as $key => $jobtype): ?>
+            <div class="tab-pane fade 
+                " id="features-<?= $jobtype['id'] ?>">
+              <div class="row">
+                <?php foreach ($latestJobs as $latestJob): ?>
+                    <?php if ($latestJob['type_id']  == $jobtype['id']): ?>   
+                        <div class="col-lg-4 col-md-6 mb-4 p-relative" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card">
+                            <div class="accents">
+                            <div class="acc-card"></div><div class="acc-card"></div><div class="acc-card"></div>
+                            <div class="light"></div><div class="light sm"></div>
+                            <div class="top-light"></div>
+                            </div>
+                            <div class="">
+                                <?php if ($latestJob['image']){ ?>
+                                <img src="<?= $basePath ?>/../<?php echo htmlspecialchars($latestJob['image']); ?>" class="card-img-top" alt="<?= htmlspecialchars($latestJob['title']) ?>">
+                                <?php } else { ?>
+                                <img src="https://uobs.edu.pk/images/main/sarfaranga.jpg" class="card-img-top" alt="<?= htmlspecialchars($latestJob['title']) ?>">
+                                <?php } ?>
+                                <h2 class="text-white"><?= htmlspecialchars($latestJob['title']) ?></h2>
+                                <?php
+                                $plainText = strip_tags($latestJob['description']);
+                                $excerpt = mb_substr($plainText, 0, 100);
+                                ?>
+                                <p class="text-white"><?= $excerpt ?>...</p>
+                                <a href="<?= $basePath ?>/jobs/details?id=<?= $latestJob['id'] ?>" >
+                                <div  class="button">Get Started</div>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+              </div>
+            </div><!-- End Blogs Tab -->
+          <?php endforeach; ?>
+          <!-- Job Categories Tab -->
+          <div class="tab-pane fade" id="features-tab-2">
+            <div class="row">
+              <?php foreach ($jobCategories as $category): ?>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="card h-100 text-center">
+                    <div class="card-body">
+                      <h5 class="card-title"><?= htmlspecialchars($category['name']) ?></h5>
+                      <p class="card-text">Explore job opportunities in <?= htmlspecialchars($category['name']) ?>.</p>
+                      <a href="jobs.php?category=<?= $category['id'] ?>" class="btn btn-info">View Jobs</a>
                     </div>
                   </div>
                 </div>
-            <?php endif; ?>
-            <?php endforeach; ?>
-          </div>
-        </div><!-- End Blogs Tab -->
-      <?php endforeach; ?>
-      <!-- Job Categories Tab -->
-      <div class="tab-pane fade" id="features-tab-2">
-        <div class="row">
-          <?php foreach ($jobCategories as $category): ?>
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="card h-100 text-center">
-                <div class="card-body">
-                  <h5 class="card-title"><?= htmlspecialchars($category['name']) ?></h5>
-                  <p class="card-text">Explore job opportunities in <?= htmlspecialchars($category['name']) ?>.</p>
-                  <a href="jobs.php?category=<?= $category['id'] ?>" class="btn btn-info">View Jobs</a>
-                </div>
-              </div>
+              <?php endforeach; ?>
             </div>
-          <?php endforeach; ?>
+          </div><!-- End Job Categories Tab -->
         </div>
-      </div><!-- End Job Categories Tab -->
-
-    </div>
-  </div>
-</section><!-- /Features Section -->
+      </div>
+    </section>
+    <!-- /Features Section -->
 
     <!-- Faq Section -->
     <section class="faq-9 faq section light-background" id="faq">
-
       <div class="container">
         <div class="row">
           <div class="col-lg-5" data-aos="fade-up">

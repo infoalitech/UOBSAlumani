@@ -14,6 +14,7 @@ class AuthController extends BaseController {
     }
 
     public function login($basePath) {
+       
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Retrieve submitted credentials.
             $username = $_POST['username'];
@@ -21,8 +22,6 @@ class AuthController extends BaseController {
     
             // Start session early to set error messages.
             // session_start();
-
-    
             // try {
                 // First, count the total number of users in the database.
                 $countStmt = $this->db->query("SELECT COUNT(*) as total FROM users");
@@ -34,6 +33,8 @@ class AuthController extends BaseController {
                 $stmt->execute([':username' => $username]);
                 $user = $stmt->fetch(\PDO::FETCH_ASSOC);
                 // If there are no users, automatically create the user.
+
+
                 if ($totalUsers === 0) {
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                     $insertStmt = $this->db->prepare("INSERT INTO users (email, password, name, active) VALUES (:email, :password, :name, :active)");
@@ -60,11 +61,14 @@ class AuthController extends BaseController {
                     header('Location: ' . $basePath . '/admin/dashboard');
                     exit;
                 } else {
+
+
                     // For an existing system, check if the user exists.
                     if ($user) {
                         // Verify the password.
                         if (password_verify($password, $user['password'])) {
                             $_SESSION['username'] = $user['email'];
+                            $_SESSION['is_super_user'] = $user['super_user'];
 
                             // ✅ Fix: Ensure `getUserPermissions()` method exists
                             if (method_exists($this->userModel, 'getUserPermissions')) {
@@ -72,7 +76,6 @@ class AuthController extends BaseController {
                             } else {
                                 $_SESSION['permissions'] = [];
                             }
-
                             header('Location: ' . $basePath . '/admin/dashboard');
                             exit;
                         } else {
@@ -96,7 +99,7 @@ class AuthController extends BaseController {
     
 
     public function logout() {
-        session_start();
+        // session_start();
         session_destroy();
         header('Location: login');
         exit;

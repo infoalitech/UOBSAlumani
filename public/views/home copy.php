@@ -126,7 +126,7 @@ include 'snippets/header.php';
                             <img src="<?= $basePath ?>/<?= $blog['cover'] ?>" class="card-img-top" alt="<?= htmlspecialchars($blog['title']) ?>">
                             <div class="card-body">
                                 <h5 class="card-title"><?= htmlspecialchars($blog['title']) ?></h5>
-                                <a href="blogDetail.php?id=<?= $blog['id'] ?>" class="btn btn-primary">Read More</a>
+                                <a href="blog\detail?id=<?= $blog['id'] ?>" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>

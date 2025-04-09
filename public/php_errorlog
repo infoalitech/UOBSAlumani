@@ -1,0 +1,4344 @@
+[04-Apr-2025 08:05:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'test1'@'localhost' (using password: YES) in /home/customer/www/alumni.uobs.edu.pk/public_html/config/database.php:18
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(7): require_once()
+#1 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/config/database.php on line 18
+[04-Apr-2025 08:06:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'test1'@'localhost' (using password: YES) in /home/customer/www/alumni.uobs.edu.pk/public_html/config/database.php:18
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(7): require_once()
+#1 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/config/database.php on line 18
+[04-Apr-2025 08:08:20 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'ulguz1txwyoj6'@'localhost' (using password: NO) in /home/customer/www/alumni.uobs.edu.pk/public_html/config/database.php:18
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(7): require_once()
+#1 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/config/database.php on line 18
+[04-Apr-2025 08:28:30 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:28:30 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:28:35 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:28:35 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:28:38 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:28:38 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:31:04 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:31:04 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:31:07 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:31:07 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:31:16 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:31:16 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:38:36 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:38:36 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:39:08 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:39:08 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:39:28 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:39:28 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:40:43 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:40:43 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:40:55 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:40:55 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:41:06 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[04-Apr-2025 08:42:33 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:42:33 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:42:39 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:42:39 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:42:51 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[04-Apr-2025 08:45:25 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[04-Apr-2025 08:45:25 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 04:46:24 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 04:46:24 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 05:18:58 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 05:18:58 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 05:19:02 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 05:19:02 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 05:23:19 UTC] PHP Warning:  Array to string conversion in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/AuthController.php on line 69
+[07-Apr-2025 05:25:22 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/AuthController.php on line 104
+[07-Apr-2025 05:25:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/AuthController.php:104) in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/AuthController.php on line 106
+[07-Apr-2025 05:25:23 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/AuthController.php on line 104
+[07-Apr-2025 05:25:23 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/AuthController.php:104) in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/AuthController.php on line 106
+[07-Apr-2025 05:33:25 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:28 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 2
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:30 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:30 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 3
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:31 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 3
+            [1] => 1
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:31 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 1
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:32 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:33 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 6
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:34 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 6
+            [1] => 2
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:35 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 2
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:36 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:37 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 4
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:38 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:39 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 5
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:39 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:40 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 2
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:33:41 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 05:43:44 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 05:43:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(23): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 05:43:50 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 05:43:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(23): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:25:34 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:25:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:26:20 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 06:26:20 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 06:28:20 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:28:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:19 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:27 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:28 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:37 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:38 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:38 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:38 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:39 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:48 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:49 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:50 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:50 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:29:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/public/views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:06 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:07 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:07 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:39 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:40 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:40 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:40 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:40 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:41 UTC] PHP Warning:  require(/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php): Failed to open stream: No such file or directory in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/../views/blogs/index.php' (include_path='.:/usr/local/php82/pear') in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php:24
+Stack trace:
+#0 /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BlogController.php(22): Admin\Controllers\BaseController->adminView('blogs/index', Array)
+#1 /home/customer/www/alumni.uobs.edu.pk/public_html/public/index.php(205): Admin\Controllers\BlogController->index()
+#2 {main}
+  thrown in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 24
+[07-Apr-2025 06:30:43 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 06:30:43 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:05:23 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:05:23 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:18:03 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:18:03 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:20:27 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:20:27 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:59:02 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:59:02 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:59:09 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 07:59:09 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 08:04:36 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 08:07:28 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 08:11:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobEducationLevelController.php:51) in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 31
+[07-Apr-2025 09:01:34 UTC] PHP Warning:  Undefined array key "status" in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobFieldController.php on line 46
+[07-Apr-2025 09:01:34 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobFieldController.php:46) in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 31
+[07-Apr-2025 09:01:55 UTC] PHP Warning:  Undefined variable $status in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobFieldController.php on line 48
+[07-Apr-2025 09:01:55 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobFieldController.php:48) in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 31
+[07-Apr-2025 09:01:58 UTC] PHP Warning:  Undefined variable $status in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobFieldController.php on line 48
+[07-Apr-2025 09:01:58 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobFieldController.php:48) in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 31
+[07-Apr-2025 09:02:00 UTC] PHP Warning:  Undefined variable $status in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobFieldController.php on line 48
+[07-Apr-2025 09:02:00 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/JobFieldController.php:48) in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 31
+[07-Apr-2025 09:03:28 UTC] PHP Warning:  Undefined variable $field in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_fields/create.php on line 18
+[07-Apr-2025 09:03:28 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_fields/create.php on line 18
+[07-Apr-2025 09:03:28 UTC] PHP Warning:  Undefined variable $field in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_fields/create.php on line 19
+[07-Apr-2025 09:03:28 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_fields/create.php on line 19
+[07-Apr-2025 09:25:56 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 09:43:35 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 09:43:35 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 09:43:37 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 09:43:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 09:43:57 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 09:43:57 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 09:44:03 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 09:44:05 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 09:44:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 272
+[07-Apr-2025 10:17:57 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/blogs/detail.php on line 39
+[07-Apr-2025 10:19:04 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/blogs/detail.php on line 40
+[07-Apr-2025 10:20:54 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/blogs/detail.php on line 40
+[07-Apr-2025 10:20:57 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/blogs/detail.php on line 40
+[07-Apr-2025 10:21:34 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:21:34 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:21:36 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:21:36 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:22:11 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/blogs/detail.php on line 40
+[07-Apr-2025 10:55:18 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:55:18 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:55:22 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/blogs/detail.php on line 40
+[07-Apr-2025 10:55:22 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:55:22 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:55:43 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:55:43 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:55:58 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:55:58 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:56:07 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:56:07 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:57:19 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:57:19 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:57:26 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:57:26 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:58:22 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:58:22 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:58:22 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:58:22 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:58:23 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 10:58:23 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:01:40 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:01:40 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:23:46 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:23:46 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:24:14 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:24:24 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:24:24 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:25:12 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:25:19 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:25:19 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:25:34 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:25:37 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:25:46 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 10
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:25:49 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 10
+        )
+
+    [level] => Array
+        (
+            [0] => 9
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:25:58 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 10
+        )
+
+    [level] => Array
+        (
+            [0] => 9
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:25:59 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 9
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:01 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:19 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:22 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:23 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:24 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 5
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:24 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:25 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:25 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:35 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 5
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:36 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 5
+            [1] => 9
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:36 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 9
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:26:37 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:27:13 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:27:13 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 11:27:48 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:28:04 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:28:07 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:28:24 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:28:28 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:29:19 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 11:38:56 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[07-Apr-2025 17:05:57 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[07-Apr-2025 17:05:57 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[08-Apr-2025 04:51:56 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[08-Apr-2025 04:51:56 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[08-Apr-2025 04:51:59 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[08-Apr-2025 04:51:59 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 276
+[08-Apr-2025 05:17:14 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:17:14 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:17:56 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:17:56 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:17:58 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:18:27 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:18:27 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:18:28 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:18:28 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:18:35 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:18:35 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:18:53 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:18:57 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:18:58 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:18:59 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 6
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:19:00 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 9
+            [1] => 6
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:19:01 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 9
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:19:02 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:19:04 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => n
+)
+
+[08-Apr-2025 05:19:04 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nu
+)
+
+[08-Apr-2025 05:19:04 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nul
+)
+
+[08-Apr-2025 05:19:04 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => null
+)
+
+[08-Apr-2025 05:19:05 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nulla
+)
+
+[08-Apr-2025 05:19:05 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nullas
+)
+
+[08-Apr-2025 05:19:06 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nulla
+)
+
+[08-Apr-2025 05:19:07 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => null
+)
+
+[08-Apr-2025 05:19:07 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nul
+)
+
+[08-Apr-2025 05:19:07 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nu
+)
+
+[08-Apr-2025 05:19:08 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => n
+)
+
+[08-Apr-2025 05:19:08 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nn
+)
+
+[08-Apr-2025 05:19:08 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nno
+)
+
+[08-Apr-2025 05:19:08 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nnol
+)
+
+[08-Apr-2025 05:19:09 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nnola
+)
+
+[08-Apr-2025 05:19:09 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nnolan
+)
+
+[08-Apr-2025 05:19:09 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:19:10 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => n
+)
+
+[08-Apr-2025 05:19:10 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => no
+)
+
+[08-Apr-2025 05:19:10 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nol
+)
+
+[08-Apr-2025 05:19:10 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nola
+)
+
+[08-Apr-2025 05:19:10 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan
+)
+
+[08-Apr-2025 05:19:11 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan 
+)
+
+[08-Apr-2025 05:19:11 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan a
+)
+
+[08-Apr-2025 05:19:11 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan an
+)
+
+[08-Apr-2025 05:19:11 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and
+)
+
+[08-Apr-2025 05:19:11 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and 
+)
+
+[08-Apr-2025 05:19:12 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and e
+)
+
+[08-Apr-2025 05:19:12 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and em
+)
+
+[08-Apr-2025 05:19:12 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and eme
+)
+
+[08-Apr-2025 05:19:12 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emer
+)
+
+[08-Apr-2025 05:19:13 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emers
+)
+
+[08-Apr-2025 05:19:14 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emerss
+)
+
+[08-Apr-2025 05:19:14 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emerssd
+)
+
+[08-Apr-2025 05:19:14 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emerssds
+)
+
+[08-Apr-2025 05:19:15 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emerssd
+)
+
+[08-Apr-2025 05:19:15 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emerss
+)
+
+[08-Apr-2025 05:19:15 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emers
+)
+
+[08-Apr-2025 05:19:16 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => nolan and emer
+)
+
+[08-Apr-2025 05:19:16 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 05:19:20 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:19:20 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 05:56:51 UTC] PHP Warning:  Undefined variable $blog in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/edit.php on line 163
+[08-Apr-2025 05:56:51 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/edit.php on line 163
+[08-Apr-2025 06:00:56 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 2
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 10
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 11
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 11
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 12
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 12
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 12
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 12
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 14
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 30
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 37
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 37
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 38
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 38
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 39
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 39
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 40
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 40
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 41
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 41
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 42
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 42
+[08-Apr-2025 06:01:03 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 48
+[08-Apr-2025 06:01:03 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/jobsDetail.php on line 51
+[08-Apr-2025 06:01:48 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 06:01:48 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 06:02:16 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:02:24 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:02:27 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:03:21 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 06:03:21 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 06:04:37 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:06:05 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:07:01 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:09:24 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:14:45 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:15:22 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:15:59 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:17:08 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:18:05 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:18:11 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:18:12 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:20:16 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 06:20:16 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 06:57:49 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 06:57:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 06:57:52 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:58:01 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:59:02 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 06:59:16 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 07:00:34 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 07:01:23 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 07:01:24 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 07:04:37 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 07:12:11 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 07:12:43 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 40
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 40
+[08-Apr-2025 07:20:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 40
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 41
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 41
+[08-Apr-2025 07:20:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 41
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 42
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 42
+[08-Apr-2025 07:20:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 42
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 43
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 43
+[08-Apr-2025 07:20:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 43
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 44
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 44
+[08-Apr-2025 07:20:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 44
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 45
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 45
+[08-Apr-2025 07:20:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 45
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 46
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 46
+[08-Apr-2025 07:20:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 46
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 65
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 65
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Undefined variable $job in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 68
+[08-Apr-2025 07:20:06 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 68
+[08-Apr-2025 07:20:06 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 68
+[08-Apr-2025 07:20:19 UTC] PHP Warning:  Undefined variable $jobPostPost in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 12
+[08-Apr-2025 07:20:19 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 12
+[08-Apr-2025 07:20:19 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 12
+[08-Apr-2025 07:20:19 UTC] PHP Warning:  Undefined variable $jobPostPost in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 13
+[08-Apr-2025 07:20:19 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 13
+[08-Apr-2025 07:20:19 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 13
+[08-Apr-2025 07:20:19 UTC] PHP Warning:  Undefined variable $jobPostPost in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 85
+[08-Apr-2025 07:20:19 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 85
+[08-Apr-2025 07:20:19 UTC] PHP Warning:  Undefined variable $jobPostPost in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 86
+[08-Apr-2025 07:20:19 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/views/job_posts/detail.php on line 86
+[08-Apr-2025 07:21:20 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 07:21:20 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 07:22:04 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 07:22:04 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 279
+[08-Apr-2025 07:23:52 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:23:52 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:31:46 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/NewsController.php:50) in /home/customer/www/alumni.uobs.edu.pk/public_html/admin/controllers/BaseController.php on line 31
+[08-Apr-2025 07:32:49 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:32:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:32:54 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:32:54 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:32:59 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:32:59 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:33:03 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:33:03 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:34:06 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:34:06 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:34:11 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:34:11 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:37:33 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:37:33 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:37:52 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:37:52 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:38:35 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:38:35 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:38:52 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:38:52 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:42:13 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:42:13 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:53:48 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:53:48 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:54:05 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:54:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 245
+[08-Apr-2025 07:56:30 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 07:56:30 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:05:44 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:05:44 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:05:46 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:05:46 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:06:25 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:06:25 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:06:46 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:06:46 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:07:21 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:07:21 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:16:59 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:16:59 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:17:23 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:17:23 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:17:31 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:17:31 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 246
+[08-Apr-2025 08:19:34 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:19:34 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:19:54 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:19:54 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:23:05 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:23:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:35:03 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 08:35:17 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:35:17 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:40:13 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:40:13 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:44:09 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 08:44:09 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 09:19:25 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 09:19:25 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 11:06:52 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 11:06:52 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 11:08:54 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 11:12:03 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 11:12:03 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 11:14:16 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 11:14:16 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 11:14:17 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 11:14:17 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 13:38:35 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 13:38:35 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 13:38:51 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 13:38:51 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 13:38:59 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 13:39:50 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => C
+)
+
+[08-Apr-2025 13:39:51 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => Co
+)
+
+[08-Apr-2025 13:39:51 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => Com
+)
+
+[08-Apr-2025 13:39:54 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => Co
+)
+
+[08-Apr-2025 13:39:54 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => C
+)
+
+[08-Apr-2025 13:39:55 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[08-Apr-2025 13:40:08 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 13:40:08 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[08-Apr-2025 13:41:04 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:39:27 UTC] PHP Warning:  Undefined variable $jobCategories in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[09-Apr-2025 04:39:27 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/customer/www/alumni.uobs.edu.pk/public_html/public/views/home.php on line 283
+[09-Apr-2025 04:47:00 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:04 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 8
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:05 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:05 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 5
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:06 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:07 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 6
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:07 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:08 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 9
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:09 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:11 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 7
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
+[09-Apr-2025 04:47:12 UTC] Array
+(
+    [page] => 1
+    [limit] => 6
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [category] => Array
+        (
+            [0] => 
+        )
+
+    [level] => Array
+        (
+            [0] => 
+        )
+
+    [fields] => Array
+        (
+            [0] => 
+        )
+
+    [search] => 
+)
+
