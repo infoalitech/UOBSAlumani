@@ -20,14 +20,14 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
     
     
     <!-- Vendor CSS Files -->
-    <link href="/public/assets/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/public/assets/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/public/assets/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/public/assets/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/public/assets/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Main CSS File -->
-    <link href="/public/assets/assets/css/main.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/css/main.css" rel="stylesheet">
     <style>
         .navbar {
             background: #343a40;

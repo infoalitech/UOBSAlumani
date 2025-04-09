@@ -89,6 +89,22 @@ function PermissionCheck($permission): bool
     exit;
 }
 
+
+
+$uri = $_SERVER['REQUEST_URI'];
+$path = parse_url($uri, PHP_URL_PATH);
+
+// ✅ Define public-access folders to bypass (assets, vendor, etc.)
+$publicFolders = ['assets', 'vendor'];
+
+foreach ($publicFolders as $folder) {
+    if (preg_match("#^/UOBSAlumani/{$folder}/#", $path)) {
+        $file = $_SERVER['DOCUMENT_ROOT'] . $path;
+        if (file_exists($file)) {
+            return false; // Serve static file directly
+        }
+    }
+}
 // Route handling
 switch ($requestUri) {
 

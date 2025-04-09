@@ -1,9 +1,20 @@
 <?php
+// $host = 'localhost';
+// $db = 'db4mghcvowj9es';
+// $user = 'ulguz1txwyoj6';
+// $pass = 'yE2_7g33Ei{&';
+// $charset = 'utf8mb4';
+
+
 $host = 'localhost';
-$db = 'db4mghcvowj9es';
-$user = 'ulguz1txwyoj6';
-$pass = 'yE2_7g33Ei{&';
+$db = 'uobsAlumni';
+$user = 'test1';
+$pass = 'test1';
 $charset = 'utf8mb4';
+
+
+
+
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
