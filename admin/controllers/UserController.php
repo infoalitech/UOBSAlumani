@@ -12,7 +12,6 @@ class UserController extends BaseController {
         parent::__construct();
         $this->userModel = new User($this->db);
         $this->permissionModel = new Permission($this->db);
-        
     }
 
     /**
@@ -51,10 +50,22 @@ class UserController extends BaseController {
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $role = $_POST['role'];
             $active = $_POST['active'];
-            if ($this->userModel->create(['name' => $name, 'email' => $email, 'password' => $password, 'role' => $role, 'active' => $active])) {
+            $permissions = $_POST['permission_ids'] ?? [];
+            $isAlumni = isset($_POST['is_alumni']) ? 1 : 0;
+
+            if ($this->userModel->create([
+                'name' => $name,
+                'email' => $email,
+                'password' => $password,
+                'role' => $role,
+                'active' => $active,
+                'permissions' => $permissions,
+                'is_alumni' => $isAlumni
+            ])) {
                 $this->redirect('/admin/users');
             }
         }
+
         $permissions = $this->permissionModel->getAllPermissions();
         $this->adminView('users/create', compact('permissions'));
     }
@@ -67,36 +78,36 @@ class UserController extends BaseController {
         if (!$user) {
             die("User not found.");
         }
-    
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name']);
             $email = trim($_POST['email']);
-            $permissions = $_POST['permission_ids'] ?? []; // Correct way to retrieve the array
             $active = $_POST['active'];
-    
+            $permissions = $_POST['permission_ids'] ?? [];
+            $isAlumni = isset($_POST['is_alumni']) ? 1 : 0;
+
             if ($this->userModel->update($id, [
                 'name' => $name,
                 'email' => $email,
                 'permissions' => $permissions,
-                'active' => $active
+                'active' => $active,
+                'is_alumni' => $isAlumni
             ])) {
                 $this->redirect('/admin/users');
             }
         }
-    
+
         $permissions = $this->permissionModel->getAllPermissions();
-        $userPermissions = array_column($user['permissions'], 'id'); // Extract permission IDs
-    
+        $userPermissions = array_column($user['permissions'], 'id');
+
         $this->adminView('users/edit', compact('user', 'permissions', 'userPermissions'));
     }
-    
 
     /**
      * Show user details
      */
     public function detail($id) {
         $user = $this->userModel->read($id);
-
         if (!$user) {
             die("User not found.");
         }

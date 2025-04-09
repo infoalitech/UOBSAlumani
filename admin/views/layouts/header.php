@@ -1,9 +1,9 @@
+
 <?php
 use App\Helpers\Config;
 
 $basePath = rtrim(Config::get('BASE_PATH', '/public'), '/');
 $displayErrors = Config::get('DISPLAY_ERRORS', false);
-
 function isAuthenticated() {
     return isset($_SESSION['username']);
 }
@@ -29,13 +29,15 @@ function hasPermission($permission) {
     <title><?= $title ?? 'Admin Panel'; ?></title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="<?= $basePath ?>/../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="<?= $basePath ?>css/styles.css">
 
     <!-- Custom Dropdown Styles -->
     <style>

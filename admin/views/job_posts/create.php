@@ -23,18 +23,18 @@
                 </div>
 
                 <!-- Description -->
-<div class="mb-3">
-    <label for="description" class="form-label">Job Description:</label>
-    <div id="editor" style="height: 300px; background-color: #fff;"></div>
-    <input type="hidden" name="description" id="description">
-</div>
-                <!-- Requirement -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Job Description:</label>
+                    <div id="editor" style="height: 300px; background-color: #fff;"></div>
+                    <input type="hidden" name="description" id="description">
+                </div>
+                                <!-- Requirement -->
 
-<div class="mb-3">
-    <label for="requirement" class="form-label">Job Requirement:</label>
-    <div id="editor2" style="height: 300px; background-color: #fff;"></div>
-    <input type="hidden" name="requirement" id="requirement">
-</div>
+                <div class="mb-3">
+                    <label for="requirement" class="form-label">Job Requirement:</label>
+                    <div id="editor2" style="height: 300px; background-color: #fff;"></div>
+                    <input type="hidden" name="requirement" id="requirement">
+                </div>
 
 
                 <!-- Category -->

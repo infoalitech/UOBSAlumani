@@ -3,7 +3,6 @@ $title = 'Login';
 include 'snippets/header.php';
 ?>
 
-
 <!-- Page Title -->
 <div class="page-title light-background">
     <div class="container">
@@ -18,22 +17,28 @@ include 'snippets/header.php';
         <div class="col-md-6">
             <form method="POST" action="<?= $basePath ?>/login_handler">
                 <div class="form-group">
-                    <label for="username">Username:</label>
+                    <label for="username">Username (Email):</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                 </div>
+
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
+
                 <div class="form-group p-2 text-right">
-                    <button type="submit" class=" ml-auto btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+
+                <div class="form-group text-center">
+                    <p class="mt-3 mb-0">Don't have an account? 
+                        <a href="<?= $basePath ?>/register" class="text-primary">Register here</a>.
+                    </p>
                 </div>
             </form>
         </div>
     </div>
   </div>
 </section><!-- /Features Section -->
-
-
 
 <?php include 'snippets/footer.php'; ?>

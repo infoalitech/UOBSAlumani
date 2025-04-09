@@ -44,10 +44,27 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                         <li><a href="#">Dropdown 4</a></li>
                     </ul>
                 </li> -->
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        <!--  <a class="btn-getstarted" href="<?= $basePath ?>/admin/dashboard">Get Started</a> -->
+        <?php if (isset($_SESSION['is_alumni']) && $_SESSION['is_alumni'] == 1): ?>
+            <nav id="navmenu" class="navmenu">
+            <ul>
+            <li class="dropdown d-none d-xl-block">
+                <a href="#" class=" px-3 btn-getstarted"><span><?= htmlspecialchars($_SESSION['name'] ?? 'My Account') ?></span> <i class="btn-getstartedbi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                    <li><a href="<?= $basePath ?>/profile/view">View Profile</a></li>
+                    <li><a href="<?= $basePath ?>/profile/update">Update Profile</a></li>
+                    <li><a href="<?= $basePath ?>/change-password">Change Password</a></li>
+                    <li><a href="<?= $basePath ?>/jobs/create">Post a Job</a></li>
+                    <li><a href="<?= $basePath ?>/logout">Logout</a></li>
+                </ul>
+            </li>
+            </ul>
+        </nav>
+        <?php else: ?>
+            <a class="btn-getstarted" href="<?= $basePath ?>/admin/dashboard">Get Started</a>
+        <?php endif; ?>
         
     </div>
 </header>

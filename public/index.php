@@ -21,6 +21,8 @@ use Admin\Controllers\JobTypeController;
 use Admin\Controllers\JobEducationLevelController;
 use Admin\Controllers\JobPostsController;
 use Admin\Controllers\BlogCategoryController;
+use Admin\Controllers\AlumniRegistrationController;
+use Admin\Controllers\AlumniJobController;
 use App\Helpers\Config; // Import the Config class
 
 // Get BASE_PATH from .env
@@ -52,6 +54,7 @@ $jobTypeController = new JobTypeController();
 $jobEducationLevelController = new JobEducationLevelController();
 $jobPostsController = new JobPostsController();
 $blogCategoryController = new BlogCategoryController();
+$alumniRegistrationController = new AlumniRegistrationController();
 // Parse the request URI
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -95,7 +98,7 @@ $uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($uri, PHP_URL_PATH);
 
 // ✅ Define public-access folders to bypass (assets, vendor, etc.)
-$publicFolders = ['assets', 'vendor'];
+$publicFolders = [$basePath.'assets', $basePath.'vendor',$basePath.'../vendor',$basePath.'css',$basePath.'js'];
 
 foreach ($publicFolders as $folder) {
     if (preg_match("#^/UOBSAlumani/{$folder}/#", $path)) {
@@ -162,11 +165,48 @@ switch ($requestUri) {
         }
         include 'views/login.php';
         break;
+
+    case "$basePath/register":
+        if (isset($_SESSION['username'])) {
+            header('Location: '.$basePath.'/');
+            exit;
+        }
+        include 'views/register.php';
+        break;
+    case "$basePath/register_handler":
+        $alumniRegistrationController->handleRegister($basePath);
+        break;
     case "$basePath/login_handler":
         $authController->login($basePath);
         break;
     case "$basePath/logout":
         $authController->logout();
+        break;
+
+    case "$basePath/profile/update":
+        $alumniRegistrationController->updateProfileForm();
+        break;
+    case "$basePath/update_profile_handler":
+        $alumniRegistrationController->updateProfileHandler($basePath);
+        break;
+    case "$basePath/profile/view":
+        $alumniRegistrationController->viewProfile();
+        break;
+    case "$basePath/change-password":
+        include 'views/change_password.php';
+        break;
+    case "$basePath/change_password_handler":
+        $alumniRegistrationController->changePasswordHandler();
+        break;
+    // Alumni
+    case "$basePath/alumni/job/index":
+        $alumniRegistrationController->changePasswordHandler();
+        break;
+    case "$basePath/alumni/job/create":
+        $alumniRegistrationController->changePasswordHandler();
+        break;
+    case "$basePath/alumni/job/store":
+        $alumniRegistrationController->changePasswordHandler();
         break;
 
 

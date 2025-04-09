@@ -68,8 +68,9 @@ class AuthController extends BaseController {
                         // Verify the password.
                         if (password_verify($password, $user['password'])) {
                             $_SESSION['username'] = $user['email'];
-                            $_SESSION['is_super_user'] = $user['super_user'];
+                            $_SESSION['is_super_user'] = $user['is_super_user'];
 
+                            
                             // ✅ Fix: Ensure `getUserPermissions()` method exists
                             if (method_exists($this->userModel, 'getUserPermissions')) {
                                 $_SESSION['permissions'] = $this->userModel->getUserPermissions($user['id']);
