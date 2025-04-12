@@ -1,7 +1,17 @@
 <?php
 $title = 'Create New Job Post';
-include 'snippets/header.php';
+include(__DIR__.'/../snippets/header.php');
 ?>
+<!-- Page Title -->
+<div class="page-title light-background">
+    <div class="container">
+        <h1>Create Job Post</h1>
+        <p>
+        Create New Job Post
+        </p>
+        
+    </div>
+</div><!-- End Page Title -->
 
 <div class="container mt-4">
     <h1 class="mb-4">Create New Job Post</h1>
@@ -10,7 +20,7 @@ include 'snippets/header.php';
         <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" action="<?= $basePath ?>/alumni/job/store" enctype="multipart/form-data">
         <div class="row">
             <!-- Title -->
             <div class="mb-3 col-md-8">
@@ -172,4 +182,6 @@ include 'snippets/header.php';
     });
 </script>
 
-<?php include 'snippets/footer.php'; ?>
+<?php 
+include(__DIR__.'/../snippets/footer.php');
+?>

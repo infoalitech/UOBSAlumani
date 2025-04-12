@@ -152,6 +152,18 @@ class JobPostsController extends BaseController {
         }
         return true;
     }
-
+    public function updateStatus($id, $status) {
+        $validStatuses = ['pending', 'accepted', 'rejected'];
+        if (!in_array($status, $validStatuses)) {
+            $this->redirect('/admin/jobs', ['error' => 'Invalid status value']);
+        }
+    
+        if ($this->jobPostModel->updateJobStatus($id, $status)) {
+            $this->redirect('/admin/jobs', ['success' => 'Status updated successfully']);
+        } else {
+            $this->redirect('/admin/jobs', ['error' => 'Failed to update status']);
+        }
+    }
+    
 }
 ?>

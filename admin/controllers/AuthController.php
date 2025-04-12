@@ -49,8 +49,10 @@ class AuthController extends BaseController {
                     $stmt->execute([':username' => $username]);
                     $user = $stmt->fetch(\PDO::FETCH_ASSOC);
         
-                    // Log in the newly created user.
-                    $_SESSION['username'] = $username;
+                    $_SESSION['user_id'] = $user['id'];
+                    $_SESSION['username'] = $user['email'];
+                    $_SESSION['is_super_user'] = $user['is_super_user'];
+                    
                     // ✅ Fix: Ensure `getUserPermissions()` method exists
                     if (method_exists($this->userModel, 'getUserPermissions')) {
                         $_SESSION['permissions'] = $this->userModel->getUserPermissions($user['id']);
@@ -67,10 +69,11 @@ class AuthController extends BaseController {
                     if ($user) {
                         // Verify the password.
                         if (password_verify($password, $user['password'])) {
+                            $_SESSION['user_id'] = $user['id'];
                             $_SESSION['username'] = $user['email'];
+                            $_SESSION['user'] = $user;
                             $_SESSION['is_super_user'] = $user['is_super_user'];
 
-                            
                             // ✅ Fix: Ensure `getUserPermissions()` method exists
                             if (method_exists($this->userModel, 'getUserPermissions')) {
                                 $_SESSION['permissions'] = $this->userModel->getUserPermissions($user['id']);

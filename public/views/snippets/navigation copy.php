@@ -5,6 +5,8 @@ $basePath = rtrim(Config::get('BASE_PATH', '/UOBSAlumani/public'), '/');
 $displayErrors = Config::get('DISPLAY_ERRORS', false);
 ?>
 
+
+
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
@@ -30,11 +32,12 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
             <li class="dropdown d-none d-xl-block">
                 <a href="#" class=" px-3 btn-getstarted"><span><?= htmlspecialchars($_SESSION['name'] ?? 'My Account') ?></span> <i class="btn-getstartedbi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                    <?php if ($_SESSION['user']['status'] === 'active' && $_SESSION['user']['status'] === 'active'): ?>
+                    <?php if ($_SESSION['user']['status'] === 'active' && $_SESSION['user']['approved'] === 'accepted'): ?>
                         <li><a href="<?= $basePath ?>/alumni/job/index">View My Jobs</a></li>
                         <li><a href="<?= $basePath ?>/profile/view">View Profile</a></li>
                         <li><a href="<?= $basePath ?>/alumni/job/create">Post a Job</a></li>
                         <li><a href="<?= $basePath ?>/change-password">Change Password</a></li>
+
                     <?php else: 
                             $status = $_SESSION['user']['status'] ?? 'unknown';
                             $statusClass = [
@@ -42,7 +45,6 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                                 'inactive' => 'danger',
                                 'pending' => 'warning'
                             ];
-
                             $badgeClass = $statusClass[$status] ?? 'secondary';
                             ?>
                             <li>
@@ -51,16 +53,20 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                                 </a>
                             </li>
                     <?php  endif;  ?>
+
                     <li><a href="<?= $basePath ?>/profile/update">Update Profile</a></li>
                     <li><a href="<?= $basePath ?>/logout">Logout</a></li>
                 </ul>
             </li>
             </ul>
         </nav>
-        <?php else: ?>
+        <?php if (isset($_SESSION['user'])) ?>
             <a class="btn-getstarted" href="<?= $basePath ?>/admin/dashboard">Get Started</a>
+        <?php else: ?>
+            <a class="btn-getstarted" href="<?= $basePath ?>/login">Join Us Now</a>
         <?php endif; ?>
         
     </div>
 </header>
+<?php print_r($_SESSION['is_alumni']) ?>
 

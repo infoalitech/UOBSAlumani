@@ -122,5 +122,20 @@ class UserController extends BaseController {
         $this->userModel->delete($id);
         $this->redirect('/admin/users');
     }
+
+    public function updateStatus($id, $status) {
+        $validStatuses = ['active', 'inactive', 'pending'];
+    
+        if (!$id || !in_array($status, $validStatuses)) {
+            $this->redirect('/admin/users', ['error' => 'Invalid request']);
+        }
+    
+        if ($this->userModel->updateUserStatus($id, $status)) {
+            $this->redirect('/admin/users', ['success' => 'User status updated']);
+        } else {
+            $this->redirect('/admin/users', ['error' => 'Failed to update status']);
+        }
+    }
+    
 }
 ?>
