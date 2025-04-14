@@ -6,11 +6,38 @@ use PDOException;
 
 class JobPost {
     private $db;
+    public $user;
 
     public function __construct(PDO $db) {
         $this->db = $db;
+        if(isset($_SESSION['user_id']))
+            $this->user = $_SESSION['user_id'];
+        else
+            $this->user = 0;    
+
     }
 
+
+    /**
+     * Get all job posts
+     */
+    public function getAllJobPostsByUser() {
+        // try {
+            $stmt = $this->db->query("
+                SELECT jp.*, jc.name AS category_name, jf.name AS field_name, jt.name AS type_name, jel.level AS education_level 
+                FROM job_posts jp
+                LEFT JOIN job_categories jc ON jp.category_id = jc.id
+                LEFT JOIN job_fields jf ON jp.field_id = jf.id
+                LEFT JOIN job_types jt ON jp.type_id = jt.id
+                LEFT JOIN   education_levels jel ON jp.level_id = jel.id
+                where inserted_by = $this->user
+                ORDER BY jp.open_date DESC
+            ");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // } catch (PDOException $e) {
+        //     return [];
+        // }
+    }
     /**
      * Get all job posts
      */
@@ -23,6 +50,7 @@ class JobPost {
                 LEFT JOIN job_fields jf ON jp.field_id = jf.id
                 LEFT JOIN job_types jt ON jp.type_id = jt.id
                 LEFT JOIN   education_levels jel ON jp.level_id = jel.id
+                where jp.status == 'accepted'
                 ORDER BY jp.open_date DESC
             ");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -31,7 +59,7 @@ class JobPost {
         }
     }
     public function getLatestJobs($limit = 3) {
-        $stmt = $this->db->prepare("SELECT * FROM job_posts ORDER BY open_date DESC LIMIT :limit");
+        $stmt = $this->db->prepare("SELECT * FROM job_posts where status='accepted' ORDER BY open_date DESC LIMIT :limit");
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -92,6 +120,7 @@ class JobPost {
                     LEFT JOIN job_types jt ON jp.type_id = jt.id
                     LEFT JOIN   education_levels jel ON jp.level_id = jel.id
                     WHERE jp.title LIKE :search OR jp.organization LIKE :search
+                
                     ORDER BY jp.open_date DESC
                     LIMIT :offset, :limit
                 ");
@@ -279,7 +308,7 @@ class JobPost {
                 array_push($params, "%$search%", "%$search%", "%$search%");
             }
     
-            $query .= " ORDER BY jp.open_date DESC LIMIT ?, ?";
+            $query .= " and jp.status = 'accepted' ORDER BY jp.open_date DESC LIMIT ?, ?";
             $params[] = (int)$offset;
             $params[] = (int)$limit;
     
@@ -299,6 +328,10 @@ class JobPost {
         // }
     }
     
+    public function updateJobStatus($id, $status) {
+        $stmt = $this->db->prepare("UPDATE job_posts SET status = :status WHERE id = :id");
+        return $stmt->execute(['status' => $status, 'id' => $id]);
+    }
     
 }
 ?>

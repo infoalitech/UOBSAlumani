@@ -100,6 +100,7 @@ class AlumniRegistrationController {
         $user = $this->userModel->read($userId);
 
         // Auto login
+        $_SESSION['user'] = $user;
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['email'];
         $_SESSION['name'] = $user['name'];

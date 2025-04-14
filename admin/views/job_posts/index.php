@@ -19,6 +19,7 @@
                 <th>Country</th>
                 <th>Open Date</th>
                 <th>Last Date</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -51,15 +52,22 @@ $(document).ready(function () {
             { "data": "country" },
             { "data": "open_date" },
             { "data": "last_date" },
+            { "data": "status" },
             {
                 "data": "id",
                 "render": function(data) {
                     return `
-                        <a href="${basePath}/admin/jobs/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="${basePath}/admin/jobs/detail?id=${data}" class="btn btn-sm btn-info">View</a>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${data}">
-                            Delete
-                        </button>`;
+        <div class="btn-group">
+            <a href="${basePath}/admin/jobs/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
+            <a href="${basePath}/admin/jobs/detail?id=${data}" class="btn btn-sm btn-info">View</a>
+            <a href="${basePath}/admin/jobs/delete?id=${data}" class="btn btn-sm btn-danger">Delete</a>
+        </div>
+
+        <div class="btn-group mt-1">
+            <a href="${basePath}/admin/jobs/status?id=${data}&status=accepted" class="btn btn-sm btn-success">Accept</a>
+            <a href="${basePath}/admin/jobs/status?id=${data}&status=rejected" class="btn btn-sm btn-danger">Reject</a>
+            <a href="${basePath}/admin/jobs/status?id=${data}&status=pending" class="btn btn-sm btn-secondary">Pending</a>
+        </div>`;
                 }
             }
         ]

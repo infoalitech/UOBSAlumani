@@ -300,5 +300,10 @@ class User {
         }
     }
     
+    public function updateUserStatus($id, $status) {
+        $stmt = $this->db->prepare("UPDATE users SET status = :status WHERE id = :id");
+        return $stmt->execute(['status' => $status, 'id' => $id]);
+    }
+    
 }
 ?>

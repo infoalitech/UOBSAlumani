@@ -17,15 +17,12 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
     <title><?= htmlspecialchars($title) ?> - UOBS Alumni</title>
     <!-- <link rel="stylesheet" href="/UOBSAlumani/php-crud-app/vendor/twbs/bootstrap/dist/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="/UOBSAlumani/public/css/style.css"> -->
-    
-    
     <!-- Vendor CSS Files -->
     <link href="<?= $basePath ?>/assets/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= $basePath ?>/assets/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="<?= $basePath ?>/assets/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="<?= $basePath ?>/assets/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="<?= $basePath ?>/assets/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
     <!-- Main CSS File -->
     <link href="<?= $basePath ?>/assets/assets/css/main.css" rel="stylesheet">
     <style>
