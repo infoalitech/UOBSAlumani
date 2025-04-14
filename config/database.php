@@ -8,8 +8,8 @@
 
 $host = 'localhost';
 $db = 'uobsAlumni';
-$user = 'test1';
-$pass = 'test1';
+$user = 'asad07538';
+$pass = 'asad07538';
 $charset = 'utf8mb4';
 
 

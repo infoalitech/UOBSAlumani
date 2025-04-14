@@ -111,7 +111,9 @@ foreach ($publicFolders as $folder) {
             return false; // Serve static file directly
         }
     }
+
 }
+
 // Route handling
 switch ($requestUri) {
 
