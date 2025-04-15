@@ -15,35 +15,30 @@ class AlumniProfile {
      * Create a new alumni profile
      */
     public function create($data) {
-        try {
+        // try {
+        print_r($data);
             $stmt = $this->db->prepare("
                 INSERT INTO alumni_profiles (
-                    user_id, graduation_year, department, program, phone,
-                    current_city, current_position, company_name,
-                    linkedin_url, profile_picture
+                    user_id, full_name, reg_no, father_name, cnic, email
                 ) VALUES (
-                    :user_id, :graduation_year, :department, :program, :phone,
-                    :current_city, :current_position, :company_name,
-                    :linkedin_url, :profile_picture
+                    :user_id, :full_name, :reg_no, :father_name, :cnic, :email
                 )
             ");
+            
             $stmt->execute([
                 'user_id' => (int)$data['user_id'],
-                'graduation_year' => $data['graduation_year'],
-                'department' => $data['department'],
-                'program' => $data['program'],
-                'phone' => $data['phone'],
-                'current_city' => $data['current_city'],
-                'current_position' => $data['current_position'],
-                'company_name' => $data['company_name'],
-                'linkedin_url' => $data['linkedin_url'],
-                'profile_picture' => $data['profile_picture']
+                'full_name' => $data['full_name'] ?? '', // ✅ Add this
+                'reg_no' => $data['reg_no'] ?? '',
+                'father_name' => $data['father_name'] ?? '',
+                'cnic' => $data['cnic'] ?? '',
+                'email' => $data['email'] ?? ''
             ]);
+    
             return $this->db->lastInsertId();
-        } catch (PDOException $e) {
-            error_log("AlumniProfile::create - " . $e->getMessage());
-            return false;
-        }
+        // } catch (PDOException $e) {
+        //     error_log("AlumniProfile::create - " . $e->getMessage());
+        //     return false;
+        // }
     }
 
     /**
@@ -65,7 +60,6 @@ class AlumniProfile {
      */
     public function getByUserId($userId) {
         try {
-            // print("SELECT * FROM alumni_profiles WHERE user_id = $userId");
             $stmt = $this->db->prepare("SELECT * FROM alumni_profiles WHERE user_id = :user_id");
             $stmt->execute(['user_id' => (int)$userId]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -85,12 +79,21 @@ class AlumniProfile {
                     graduation_year = :graduation_year,
                     department = :department,
                     program = :program,
-                    phone = :phone,
+                    education_level_id = :education_level_id,
+                    additional_qualifications = :additional_qualifications,
                     current_city = :current_city,
                     current_position = :current_position,
                     company_name = :company_name,
+                    job_type = :job_type,
+                    experience_years = :experience_years,
+                    email = :email,
+                    phone = :phone,
                     linkedin_url = :linkedin_url,
-                    profile_picture = :profile_picture
+                    portfolio_url = :portfolio_url,
+                    profile_picture = :profile_picture,
+                    is_profile_public = :is_profile_public,
+                    show_contact_info = :show_contact_info,
+                    show_position = :show_position
                 WHERE id = :id
             ");
             $stmt->execute([
@@ -98,12 +101,21 @@ class AlumniProfile {
                 'graduation_year' => $data['graduation_year'],
                 'department' => $data['department'],
                 'program' => $data['program'],
-                'phone' => $data['phone'],
+                'education_level_id' => $data['education_level_id'],
+                'additional_qualifications' => $data['additional_qualifications'],
                 'current_city' => $data['current_city'],
                 'current_position' => $data['current_position'],
                 'company_name' => $data['company_name'],
+                'job_type' => $data['job_type'],
+                'experience_years' => $data['experience_years'],
+                'email' => $data['email'],
+                'phone' => $data['phone'],
                 'linkedin_url' => $data['linkedin_url'],
-                'profile_picture' => $data['profile_picture']
+                'portfolio_url' => $data['portfolio_url'],
+                'profile_picture' => $data['profile_picture'],
+                'is_profile_public' => (int)$data['is_profile_public'],
+                'show_contact_info' => (int)$data['show_contact_info'],
+                'show_position' => (int)$data['show_position']
             ]);
             return true;
         } catch (PDOException $e) {
@@ -126,7 +138,7 @@ class AlumniProfile {
     }
 
     /**
-     * Get all alumni profiles (optional: add pagination, filters)
+     * Get all alumni profiles
      */
     public function getAll() {
         try {

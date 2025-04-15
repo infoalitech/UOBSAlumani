@@ -10,8 +10,8 @@ class JobPost {
 
     public function __construct(PDO $db) {
         $this->db = $db;
-        if(isset($_SESSION['user_id']))
-            $this->user = $_SESSION['user_id'];
+        if(isset($_SESSION['user']))
+            $this->user = $_SESSION['user'];
         else
             $this->user = 0;    
 

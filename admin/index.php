@@ -5,7 +5,7 @@ session_start();
 require_once '../config/database.php';
 
 // Check if the user is authenticated
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['active'])) {
     header('Location: login.php'); // Redirect to login if not authenticated
     exit();
 }

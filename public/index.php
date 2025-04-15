@@ -29,7 +29,6 @@ use App\Helpers\Config; // Import the Config class
 // Get BASE_PATH from .env
 $basePath = rtrim(Config::get('BASE_PATH', '/public'), '/');
 $displayErrors = Config::get('DISPLAY_ERRORS', false);
-
 // Set error display settings based on .env
 if ($displayErrors) {
     ini_set('display_errors', 1);
@@ -62,20 +61,10 @@ $alumniJobController = new AlumniJobController();
 // Parse the request URI
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-function AuthCheck($basePath,$permission = null){
-    if (!isset($_SESSION['username'])) {
-        header('Location: '.$basePath.'/login');
-        exit;
-    }
-    if($permission != null){
-
-    }
-
-}
 function PermissionCheck($permission): bool
 {
 
-    if( $_SESSION['is_super_user']){
+    if( $_SESSION['user']['is_super_user']){
         return true;
     }
 
@@ -111,8 +100,8 @@ foreach ($publicFolders as $folder) {
             return false; // Serve static file directly
         }
     }
-
 }
+
 
 // Route handling
 switch ($requestUri) {
@@ -124,7 +113,6 @@ switch ($requestUri) {
     case "$basePath/":
         $homeController->home();
         break;
-
     case "$basePath/convocations":
         $homeController->about();
         break;
@@ -161,344 +149,352 @@ switch ($requestUri) {
     case "$basePath/jobs/details":
         $homeController->jobsDetail( $_GET['id']);
         break;
-
-        
-    /** 🔹 Authentication Routes */
-    case "$basePath/login":
-        if (isset($_SESSION['username'])) {
-            header('Location: '.$basePath.'/admin/dashboard');
-            exit;
-        }
-        include 'views/login.php';
-        break;
-
-    case "$basePath/register":
-        if (isset($_SESSION['username'])) {
-            header('Location: '.$basePath.'/');
-            exit;
-        }
-        include 'views/register.php';
-        break;
-    case "$basePath/register_handler":
-        $alumniRegistrationController->handleRegister($basePath);
-        break;
-    case "$basePath/login_handler":
-        $authController->login($basePath);
-        break;
-    case "$basePath/logout":
-        $authController->logout();
-        break;
-
-    case "$basePath/profile/update":
-        $alumniRegistrationController->updateProfileForm();
-        break;
-    case "$basePath/update_profile_handler":
-        $alumniRegistrationController->updateProfileHandler($basePath);
-        break;
-    case "$basePath/profile/view":
-        $alumniRegistrationController->viewProfile();
-        break;
-    case "$basePath/change-password":
-        include 'views/change_password.php';
-        break;
-    case "$basePath/change_password_handler":
-        $alumniRegistrationController->changePasswordHandler();
-        break;
-    // Alumni
-    case "$basePath/alumni/job/index":
-        $alumniJobController->list();
-        break;
-    case "$basePath/alumni/job/create":
-        $alumniJobController->create();
-        break;
-    case "$basePath/alumni/job/store":
-        $alumniJobController->store();
-        break;
-
-
-
-
-
-
-
-        
-    /** ========================== ADMIN ROUTES ========================== */
-
-    /** 🔹 Dashboard */
-    case "$basePath/admin":
-    case "$basePath/admin/":
-    case "$basePath/admin/index":
-    case "$basePath/admin/dashboard":
-        AuthCheck($basePath, 'access_dashboard');
-        $dashboardController->dashboard();
-        break;
-
-    /** 🔹 User Management */
-    case "$basePath/admin/users":
-        AuthCheck($basePath, 'view_users');
-        $userController->index();
-        break;
-    case "$basePath/admin/users/fetch":
-        AuthCheck($basePath, 'view_users');
-        $userController->fetchUsers(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/users/detail":
-        AuthCheck($basePath, 'view_users');
-        isset($_GET['id']) ? $userController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/users/create":
-        AuthCheck($basePath, 'create_users');
-        $userController->create();
-        break;
-    case "$basePath/admin/users/edit":
-        AuthCheck($basePath, 'edit_users');
-        isset($_GET['id']) ? $userController->edit($_GET['id']) : include 'views/404.php';
-        break;
-        AuthCheck($basePath);
-    case "$basePath/admin/users/delete":
-        AuthCheck($basePath, 'delete_users');
-        isset($_GET['id']) ? $userController->delete($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/users/status":
-        AuthCheck($basePath, 'delete_users');
-        isset($_GET['id']) ? $userController->updateStatus($_GET['id'], $_GET['status']) : include 'views/404.php';
-        break;
-    
-
-    /** 🔹 Permissions */
-    case "$basePath/admin/permissions":
-        AuthCheck($basePath, 'view_permissions');
-        $permissionController->index();
-        break;
-
-    /** 🔹 Blogs */
-    case "$basePath/admin/blogs":
-        AuthCheck($basePath, 'view_admin_blogs');
-        $blogController->index();
-        break;
-    case "$basePath/admin/blog/fetch":
-        AuthCheck($basePath, 'view_admin_blogs');
-        $blogController->fetchBlogs(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/blogs/detail":
-        AuthCheck($basePath, 'view_admin_blogs');
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $blogController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/blogs/create":
-        AuthCheck($basePath, 'create_blogs');
-        $blogController->create();
-        break;
-
-    case "$basePath/admin/blogs/edit":
-        AuthCheck($basePath, 'edit_blogs');
-        isset($_GET['id']) ? $blogController->edit($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/blogs/delete":
-        AuthCheck($basePath, 'delete_blogs');
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $blogController->delete($_GET['id']) : include 'views/404.php';
-        break;
-
-
-    /** 🔹 Blog Categories */
-    case "$basePath/admin/blog/categories":
-        AuthCheck($basePath, 'view_blog_categories');
-        $blogCategoryController->index();
-        break;
-    case "$basePath/admin/blog/categories/fetch":
-        AuthCheck($basePath);
-
-        $blogCategoryController->fetchCategories(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/blog/categories/detail":
-        AuthCheck($basePath);
-
-        isset($_GET['id']) ? $blogCategoryController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/blog/categories/create":
-        AuthCheck($basePath);
-        $blogCategoryController->create();
-        break;
-    case "$basePath/admin/blog/categories/edit":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $blogCategoryController->edit($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/blog/categories/delete":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $blogCategoryController->delete($_GET['id']) : include 'views/404.php';
-        break;
-
-
-    /** 🔹 Jobs */
-    case "$basePath/admin/jobs":
-        AuthCheck($basePath, 'view_admin_jobs');
-        $jobPostsController->index();
-        break;
-    case "$basePath/admin/jobs/fetch":
-        AuthCheck($basePath);
-        $jobPostsController->fetchJobPosts(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/jobs/detail":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobPostsController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/create":
-        AuthCheck($basePath, 'create_jobs');
-        $jobPostsController->create();
-        break;
-    case "$basePath/admin/jobs/edit":
-        AuthCheck($basePath, 'edit_jobs');
-        isset($_GET['id']) ? $jobPostsController->edit($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/delete":
-        AuthCheck($basePath, 'delete_jobs');
-        isset($_GET['id']) ? $jobPostsController->delete($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/status":
-        AuthCheck($basePath, 'delete_jobs');
-        isset($_GET['id']) ? $jobPostsController->updateStatus($_GET['id'],$_GET['status']) : include 'views/404.php';
-        break;
-
-    /** 🔹 Job Categories */
-    case "$basePath/admin/jobs/categories":
-        AuthCheck($basePath, 'view_job_categories');
-        $jobCategoryController->index();
-        break;
-    case "$basePath/admin/jobs/categories/fetch":
-        AuthCheck($basePath);
-        $jobCategoryController->fetchCategories(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/jobs/categories/detail":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobCategoryController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/categories/create":
-        AuthCheck($basePath);
-        $jobCategoryController->create();
-        break;
-    case "$basePath/admin/jobs/categories/edit":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobCategoryController->edit($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/categories/delete":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobCategoryController->delete($_GET['id']) : include 'views/404.php';
-        break;
-
-    /** 🔹 Job education */
-    case "$basePath/admin/jobs/education":
-        AuthCheck($basePath, 'view_job_education');
-        $jobEducationLevelController->index();
-        break;
-    case "$basePath/admin/jobs/education/fetch":
-        AuthCheck($basePath);
-        $jobEducationLevelController->fetchEducationLevels(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/jobs/education/detail":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobEducationLevelController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/education/create":
-        AuthCheck($basePath);
-        $jobEducationLevelController->create();
-        break;
-    case "$basePath/admin/jobs/education/edit":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobEducationLevelController->edit($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/education/delete":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobEducationLevelController->delete($_GET['id']) : include 'views/404.php';
-        break;
-
-
-    /** 🔹 Job fields */
-    case "$basePath/admin/jobs/fields":
-        AuthCheck($basePath, 'view_job_fields');
-        $jobFieldController->index();
-        break;
-
-    case "$basePath/admin/jobs/fields/fetch":
-        AuthCheck($basePath);
-        $jobFieldController->fetchFields(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/jobs/fields/detail":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobFieldController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/fields/create":
-        AuthCheck($basePath);
-        $jobFieldController->create();
-        break;
-    case "$basePath/admin/jobs/fields/edit":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobFieldController->edit($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/fields/delete":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobFieldController->delete($_GET['id']) : include 'views/404.php';
-        break;
-
-    /** 🔹 Job Types */
-    case "$basePath/admin/jobs/types":
-        AuthCheck($basePath, 'view_job_types');
-        $jobTypeController->index();
-        break;
-    case "$basePath/admin/jobs/type":
-        AuthCheck($basePath);
-        $jobTypeController->index();
-        break;
-    case "$basePath/admin/jobs/type/fetch":
-        AuthCheck($basePath);
-        $jobTypeController->fetchJobTypes(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/jobs/type/detail":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobTypeController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/type/create":
-        AuthCheck($basePath);
-        $jobTypeController->create();
-        break;
-    case "$basePath/admin/jobs/type/edit":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobTypeController->edit($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/jobs/type/delete":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $jobTypeController->delete($_GET['id']) : include 'views/404.php';
-        break;
-
-    /** 🔹 Job Types */
-    case "$basePath/admin/news":
-        AuthCheck($basePath, 'view_admin_news');
-        $newsController->index();
-        break;
-    case "$basePath/admin/news/fetch":
-        AuthCheck($basePath);
-        $newsController->fetchNews(); // AJAX request handler for DataTables
-        break;
-    case "$basePath/admin/news/detail":
-        AuthCheck($basePath);
-        isset($_GET['id']) ? $newsController->detail($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/news/create":
-        AuthCheck($basePath, 'create_news');
-        $newsController->create();
-        break;
-    case "$basePath/admin/news/edit":
-        AuthCheck($basePath, 'edit_news');
-        isset($_GET['id']) ? $newsController->edit($_GET['id']) : include 'views/404.php';
-        break;
-    case "$basePath/admin/news/delete":
-        AuthCheck($basePath, 'delete_news');
-        isset($_GET['id']) ? $newsController->delete($_GET['id']) : include 'views/404.php';
-        break;
-
-
-    /** 🔹 404 - Not Found */
     default:
-        include 'views/404.php';
         break;
 }
+// check if login
+
+if(isset($_SESSION['user'])) {
+
+    if($_SESSION['user']['is_alumni'] == 1){
+    /** ========================== Alumni ROUTES ========================== */
+        // Route handling
+        switch ($requestUri) { 
+            case "$basePath/logout":
+                $authController->logout();
+                break;
+            case "$basePath/profile/update":
+                $alumniRegistrationController->updateProfileForm();
+                break;
+            case "$basePath/update_profile_handler":
+                $alumniRegistrationController->updateProfileHandler($basePath);
+                break;
+            case "$basePath/profile/view":
+                $alumniRegistrationController->viewProfile();
+                break;
+            case "$basePath/change-password":
+                include 'views/change_password.php';
+                break;
+            case "$basePath/change_password_handler":
+                $alumniRegistrationController->changePasswordHandler();
+                break;
+            case "$basePath/alumni/job/index":
+                $alumniJobController->list();
+                break;
+            case "$basePath/alumni/job/create":
+                $alumniJobController->create();
+                break;
+            case "$basePath/alumni/job/store":
+                $alumniJobController->store();
+                break;
+            default:
+                header('location: '.$basePath.'/');
+                break;
+        }
+    } elseif($_SESSION['user']['is_alumni'] == 0){
+        /** ======= =================== ADMIN ROUTES ========================== */
+        // Route handling
+
+        switch ($requestUri) {
+            /** 🔹 Dashboard */
+            case "$basePath/admin":
+            case "$basePath/admin/":
+            case "$basePath/admin/index":
+            case "$basePath/admin/dashboard":
+                PermissionCheck('access_dashboard');
+                $dashboardController->dashboard();
+                break;
+
+            /** 🔹 User Management */
+            case "$basePath/admin/users":
+                PermissionCheck('view_users');
+                $userController->index();
+                break;
+            case "$basePath/admin/users/fetch":
+                PermissionCheck('view_users');
+                $userController->fetchUsers(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/users/detail":
+                PermissionCheck('view_users');
+                isset($_GET['id']) ? $userController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/users/create":
+                PermissionCheck('create_users');
+                $userController->create();
+                break;
+            case "$basePath/admin/users/edit":
+                PermissionCheck('edit_users');
+                isset($_GET['id']) ? $userController->edit($_GET['id']) : include 'views/404.php';
+                break;
+                AuthCheck($basePath);
+            case "$basePath/admin/users/delete":
+                PermissionCheck('delete_users');
+                isset($_GET['id']) ? $userController->delete($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/users/status":
+                PermissionCheck('delete_users');
+                isset($_GET['id']) ? $userController->updateStatus($_GET['id'], $_GET['status']) : include 'views/404.php';
+                break;
+            
+
+            /** 🔹 Permissions */
+            case "$basePath/admin/permissions":
+                PermissionCheck('view_permissions');
+                $permissionController->index();
+                break;
+
+            /** 🔹 Blogs */
+            case "$basePath/admin/blogs":
+                PermissionCheck('view_admin_blogs');
+                $blogController->index();
+                break;
+            case "$basePath/admin/blog/fetch":
+                PermissionCheck('view_admin_blogs');
+                $blogController->fetchBlogs(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/blogs/detail":
+                PermissionCheck('view_admin_blogs');
+                PermissionCheck($basePath);
+                isset($_GET['id']) ? $blogController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/blogs/create":
+                PermissionCheck('create_blogs');
+                $blogController->create();
+                break;
+
+            case "$basePath/admin/blogs/edit":
+                PermissionCheck('edit_blogs');
+                isset($_GET['id']) ? $blogController->edit($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/blogs/delete":
+                PermissionCheck('delete_blogs');
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $blogController->delete($_GET['id']) : include 'views/404.php';
+                break;
+
+
+            /** 🔹 Blog Categories */
+            case "$basePath/admin/blog/categories":
+                PermissionCheck('view_blog_categories');
+                $blogCategoryController->index();
+                break;
+            case "$basePath/admin/blog/categories/fetch":
+                AuthCheck($basePath);
+
+                $blogCategoryController->fetchCategories(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/blog/categories/detail":
+                AuthCheck($basePath);
+
+                isset($_GET['id']) ? $blogCategoryController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/blog/categories/create":
+                AuthCheck($basePath);
+                $blogCategoryController->create();
+                break;
+            case "$basePath/admin/blog/categories/edit":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $blogCategoryController->edit($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/blog/categories/delete":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $blogCategoryController->delete($_GET['id']) : include 'views/404.php';
+                break;
+
+
+            /** 🔹 Jobs */
+            case "$basePath/admin/jobs":
+                PermissionCheck('view_admin_jobs');
+                $jobPostsController->index();
+                break;
+            case "$basePath/admin/jobs/fetch":
+                AuthCheck($basePath);
+                $jobPostsController->fetchJobPosts(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/jobs/detail":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobPostsController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/create":
+                PermissionCheck('create_jobs');
+                $jobPostsController->create();
+                break;
+            case "$basePath/admin/jobs/edit":
+                PermissionCheck('edit_jobs');
+                isset($_GET['id']) ? $jobPostsController->edit($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/delete":
+                PermissionCheck('delete_jobs');
+                isset($_GET['id']) ? $jobPostsController->delete($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/status":
+                PermissionCheck('delete_jobs');
+                isset($_GET['id']) ? $jobPostsController->updateStatus($_GET['id'],$_GET['status']) : include 'views/404.php';
+                break;
+
+            /** 🔹 Job Categories */
+            case "$basePath/admin/jobs/categories":
+                PermissionCheck('view_job_categories');
+                $jobCategoryController->index();
+                break;
+            case "$basePath/admin/jobs/categories/fetch":
+                AuthCheck($basePath);
+                $jobCategoryController->fetchCategories(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/jobs/categories/detail":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobCategoryController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/categories/create":
+                AuthCheck($basePath);
+                $jobCategoryController->create();
+                break;
+            case "$basePath/admin/jobs/categories/edit":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobCategoryController->edit($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/categories/delete":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobCategoryController->delete($_GET['id']) : include 'views/404.php';
+                break;
+
+            /** 🔹 Job education */
+            case "$basePath/admin/jobs/education":
+                PermissionCheck('view_job_education');
+                $jobEducationLevelController->index();
+                break;
+            case "$basePath/admin/jobs/education/fetch":
+                AuthCheck($basePath);
+                $jobEducationLevelController->fetchEducationLevels(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/jobs/education/detail":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobEducationLevelController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/education/create":
+                AuthCheck($basePath);
+                $jobEducationLevelController->create();
+                break;
+            case "$basePath/admin/jobs/education/edit":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobEducationLevelController->edit($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/education/delete":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobEducationLevelController->delete($_GET['id']) : include 'views/404.php';
+                break;
+
+
+            /** 🔹 Job fields */
+            case "$basePath/admin/jobs/fields":
+                PermissionCheck('view_job_fields');
+                $jobFieldController->index();
+                break;
+
+            case "$basePath/admin/jobs/fields/fetch":
+                AuthCheck($basePath);
+                $jobFieldController->fetchFields(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/jobs/fields/detail":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobFieldController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/fields/create":
+                AuthCheck($basePath);
+                $jobFieldController->create();
+                break;
+            case "$basePath/admin/jobs/fields/edit":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobFieldController->edit($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/fields/delete":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobFieldController->delete($_GET['id']) : include 'views/404.php';
+                break;
+
+            /** 🔹 Job Types */
+            case "$basePath/admin/jobs/types":
+                PermissionCheck('view_job_types');
+                $jobTypeController->index();
+                break;
+            case "$basePath/admin/jobs/type":
+                AuthCheck($basePath);
+                $jobTypeController->index();
+                break;
+            case "$basePath/admin/jobs/type/fetch":
+                AuthCheck($basePath);
+                $jobTypeController->fetchJobTypes(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/jobs/type/detail":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobTypeController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/type/create":
+                AuthCheck($basePath);
+                $jobTypeController->create();
+                break;
+            case "$basePath/admin/jobs/type/edit":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobTypeController->edit($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/jobs/type/delete":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $jobTypeController->delete($_GET['id']) : include 'views/404.php';
+                break;
+
+            /** 🔹 Job Types */
+            case "$basePath/admin/news":
+                PermissionCheck('view_admin_news');
+                $newsController->index();
+                break;
+            case "$basePath/admin/news/fetch":
+                AuthCheck($basePath);
+                $newsController->fetchNews(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/news/detail":
+                AuthCheck($basePath);
+                isset($_GET['id']) ? $newsController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/news/create":
+                PermissionCheck('create_news');
+                $newsController->create();
+                break;
+            case "$basePath/admin/news/edit":
+                PermissionCheck('edit_news');
+                isset($_GET['id']) ? $newsController->edit($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/news/delete":
+                PermissionCheck('delete_news');
+                isset($_GET['id']) ? $newsController->delete($_GET['id']) : include 'views/404.php';
+                break;
+
+
+            /** 🔹 404 - Not Found */
+            default:
+                header('location: '.$basePath.'/');
+                break;
+        }
+    }
+}else{
+    /** 🔹 Authentication Routes */
+    switch ($requestUri) {
+        case "$basePath/login":
+            include 'views/login.php';
+            break;
+    
+        case "$basePath/register":
+            include 'views/register.php';
+            break;
+        case "$basePath/register_handler":
+            $alumniRegistrationController->handleRegister($basePath);
+            break;
+        case "$basePath/login_handler":
+            $authController->login($basePath);
+            break;
+    }
+}
+
+
+
+
+$homeController->home();

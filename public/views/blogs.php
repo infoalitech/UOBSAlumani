@@ -39,19 +39,18 @@ include 'snippets/header.php';
                     <?php } else { ?>
                       <img src="https://uobs.edu.pk/images/main/sarfaranga.jpg" class="card-img-top" alt="<?= htmlspecialchars($blog['title']) ?>">
                     <?php } ?>
-                  <h2 class="text-white"><?= htmlspecialchars($blog['title']) ?></h2>
-<?php
-$plainText = strip_tags($blog['description']);
-$excerpt = mb_substr($plainText, 0, 100);
-?>
-<p class="text-white"><?= $excerpt ?>...</p>
+                    <h2 class="text-white"><?= htmlspecialchars($blog['title']) ?></h2>
+                    <?php
+                    $plainText = strip_tags($blog['description']);
+                    $excerpt = mb_substr($plainText, 0, 100);
+                    ?>
+                    <p class="text-white"><?= $excerpt ?>...</p>
 
-                  <a href="<?= $basePath ?>/blogs/details?id=<?= $blog['id'] ?>" >
-                    <div  class="button">Read More</div>
-                  </a>
+                    <a href="<?= $basePath ?>/blogs/details?id=<?= $blog['id'] ?>" >
+                      <div  class="button">Read More</div>
+                    </a>
                 </div>
-
-            </div>
+              </div>
             </div>
           <?php endforeach; ?>
         </div>

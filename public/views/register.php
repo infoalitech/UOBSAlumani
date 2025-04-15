@@ -36,28 +36,23 @@ include 'snippets/header.php';
                     </div>
 
                     <div class="col-md-6 mb-3">
+                        <label for="father_name">Father's Name:</label>
+                        <input type="text" class="form-control" id="father_name" name="father_name" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="reg_no">Registration No:</label>
+                        <input type="text" class="form-control" id="reg_no" name="reg_no" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="cnic">CNIC:</label>
+                        <input type="text" class="form-control" id="cnic" name="cnic" required maxlength="15">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
                         <label for="email">Email Address:</label>
                         <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label for="phone">Phone:</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label for="graduation_year">Graduation Year:</label>
-                        <input type="number" class="form-control" id="graduation_year" name="graduation_year" min="2000" max="<?= date('Y') ?>" required>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label for="department">Department:</label>
-                        <input type="text" class="form-control" id="department" name="department">
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label for="program">Program:</label>
-                        <input type="text" class="form-control" id="program" name="program">
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -76,6 +71,7 @@ include 'snippets/header.php';
                             I confirm that I am an alumni of UOBS.
                         </label>
                     </div>
+
                     <?php
                     $captchaA = rand(1, 9);
                     $captchaB = rand(1, 9);
@@ -86,16 +82,15 @@ include 'snippets/header.php';
                         <input type="number" class="form-control" id="captcha" name="captcha" required>
                     </div>
 
-
                     <div class="col-12 text-right">
                         <button type="submit" class="btn btn-success">Register</button>
                     </div>
 
                     <div class="form-group text-center">
-                    <p class="mt-3 mb-0">Do you have an account? 
-                        <a href="<?= $basePath ?>/login" class="text-primary">Login here</a>.
-                    </p>
-                </div>
+                        <p class="mt-3 mb-0">Do you have an account? 
+                            <a href="<?= $basePath ?>/login" class="text-primary">Login here</a>.
+                        </p>
+                    </div>
                 </div>
             </form>
         </div>
@@ -105,6 +100,8 @@ include 'snippets/header.php';
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
+
+
 
     form.addEventListener("submit", function (e) {
         let errors = [];
@@ -135,7 +132,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (graduationYear < 2000 || graduationYear > currentYear) {
             errors.push("Graduation year must be between 2000 and " + currentYear + ".");
         }
+        const educationLevel = document.getElementById("education_level_id").value;
+        const experience = document.getElementById("experience_years").value;
 
+        if (educationLevel === "") {
+            errors.push("Please select your education level.");
+        }
+
+        if (experience && (isNaN(experience) || experience < 0 || experience > 50)) {
+            errors.push("Please enter a valid experience year between 0 and 50.");
+        }
         // Password match
         if (password !== confirmPassword) {
             errors.push("Passwords do not match.");

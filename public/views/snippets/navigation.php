@@ -32,33 +32,35 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                 <ul>
                     <?php if ($_SESSION['user']['status'] === 'active' && $_SESSION['user']['status'] === 'active'): ?>
                         <li><a href="<?= $basePath ?>/alumni/job/index">View My Jobs</a></li>
-                        <li><a href="<?= $basePath ?>/profile/view">View Profile</a></li>
                         <li><a href="<?= $basePath ?>/alumni/job/create">Post a Job</a></li>
                         <li><a href="<?= $basePath ?>/change-password">Change Password</a></li>
-                    <?php else: 
-                            $status = $_SESSION['user']['status'] ?? 'unknown';
-                            $statusClass = [
-                                'active' => 'success',
-                                'inactive' => 'danger',
-                                'pending' => 'warning'
-                            ];
-
-                            $badgeClass = $statusClass[$status] ?? 'secondary';
-                            ?>
-                            <li>
-                                <a href="<?= $basePath ?>/profile/view">
-                                    <span class="badge bg-<?= $badgeClass ?>"><?= ucfirst($status) ?></span>
-                                </a>
-                            </li>
-                    <?php  endif;  ?>
-                    <li><a href="<?= $basePath ?>/profile/update">Update Profile</a></li>
-                    <li><a href="<?= $basePath ?>/logout">Logout</a></li>
+                        <?php else: 
+                                $status = $_SESSION['user']['status'] ?? 'unknown';
+                                $statusClass = [
+                                    'active' => 'success',
+                                    'inactive' => 'danger',
+                                    'pending' => 'warning'
+                                ];
+                                $badgeClass = $statusClass[$status] ?? 'secondary';
+                                ?>
+                                <li>
+                                    <a href="<?= $basePath ?>/profile/view">
+                                        <span class="badge bg-<?= $badgeClass ?>"><?= ucfirst($status) ?></span>
+                                    </a>
+                                </li>
+                        <?php  endif;  ?>
+                        <li><a href="<?= $basePath ?>/profile/view">View Profile</a></li>
+                        <li><a href="<?= $basePath ?>/profile/update">Update Profile</a></li>
+                        <li><a href="<?= $basePath ?>/logout">Logout</a></li>
                 </ul>
             </li>
             </ul>
         </nav>
+        <?php elseif (isset($_SESSION['user']) && $_SESSION['user']['is_alumni'] != 1): ?>
+            <a class="btn-getstarted" href="<?= $basePath ?>/admin">Dashboard</a>
+
         <?php else: ?>
-            <a class="btn-getstarted" href="<?= $basePath ?>/admin/dashboard">Get Started</a>
+            <a class="btn-getstarted" href="<?= $basePath ?>/login">Get Started</a>
         <?php endif; ?>
         
     </div>

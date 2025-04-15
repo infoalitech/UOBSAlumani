@@ -22,23 +22,20 @@ class AlumniRegistrationController {
             $errors[] = "Method Not Allowed.";
         }
 
-        // Get & trim inputs
         $name = trim($_POST['name'] ?? '');
+        $fatherName = trim($_POST['father_name'] ?? '');
+        $regNo = trim($_POST['reg_no'] ?? '');
+        $cnic = trim($_POST['cnic'] ?? '');
         $email = trim($_POST['email'] ?? '');
-        $phone = trim($_POST['phone'] ?? '');
-        $graduationYear = trim($_POST['graduation_year'] ?? '');
-        $department = trim($_POST['department'] ?? '');
-        $program = trim($_POST['program'] ?? '');
         $password = $_POST['password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
         $captcha = $_POST['captcha'] ?? '';
         $isAlumni = isset($_POST['is_alumni']) ? 1 : 0;
 
-        // Store old inputs to repopulate form on error
         $_SESSION['old_input'] = $_POST;
 
-        // Validations
-        if (!$name || !$email || !$graduationYear || !$password || !$confirmPassword || !$captcha) {
+        // Validation
+        if (!$name || !$email || !$password || !$confirmPassword || !$captcha || !$regNo || !$cnic || !$fatherName) {
             $errors[] = "All required fields must be filled.";
         }
 
@@ -54,13 +51,12 @@ class AlumniRegistrationController {
             $errors[] = "CAPTCHA failed. Please try again.";
         }
 
-        // if (!empty($errors)) {
-        //     $_SESSION['form_errors'] = $errors;
-        //     header("Location: " . ($_SERVER['HTTP_REFERER'] ?? '/register'));
-        //     exit;
-        // }
+        if (!empty($errors)) {
+            $_SESSION['form_errors'] = $errors;
+            header("Location: " . ($_SERVER['HTTP_REFERER'] ?? '/register'));
+            exit;
+        }
 
-        // Hash password
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Create user
@@ -74,95 +70,73 @@ class AlumniRegistrationController {
             'permissions' => []
         ]);
 
-        // print($userId);
-        // exit();
         if (!$userId) {
             $_SESSION['form_errors'] = ["User registration failed. Email may already be taken."];
             header("Location: " . ($_SERVER['HTTP_REFERER'] ?? '/register'));
             exit;
         }
+        // print("Test");
+        // exit();
 
-        // Create alumni profile
+        // Create profile with basic details only
         $this->profileModel->create([
             'user_id' => $userId,
-            'graduation_year' => $graduationYear,
-            'department' => $department,
-            'program' => $program,
-            'phone' => $phone,
-            'current_city' => '',
-            'current_position' => '',
-            'company_name' => '',
-            'linkedin_url' => '',
-            'profile_picture' => ''
+            'full_name' => $name, // ✅ Pass name as full_name
+            'reg_no' => $regNo,
+            'father_name' => $fatherName,
+            'cnic' => $cnic,
+            'email' => $email
         ]);
-
-        // Fetch full user record to log in
-        $user = $this->userModel->read($userId);
-
-        // Auto login
-        $_SESSION['user'] = $user;
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $user['email'];
-        $_SESSION['name'] = $user['name'];
-        $_SESSION['role'] = $user['role'];
-        $_SESSION['is_super_user'] = $user['is_super_user'] ?? 0;
-        $_SESSION['is_alumni'] = $user['is_alumni'] ?? 1;
-
-        // Optional: Flash welcome
-        $_SESSION['flash_message'] = "Welcome, " . htmlspecialchars($user['name']) . "!";
-
-        // Redirect to dashboard or profile
-        header('Location: '.$basePath.'/');
+        $_SESSION['user'] = $this->userModel->read($userId);
+        $_SESSION['flash_message'] = "Welcome, " . htmlspecialchars($name) . "!";
+        header('Location: ' . $basePath . '/');
         exit;
     }
 
     public function viewProfile() {
-    
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
             header("Location: /login");
             exit;
         }
-    
-        $profile = $this->profileModel->getByUserId($_SESSION['user_id']);
-    
+
+        $profile = $this->profileModel->getByUserId($_SESSION['user']['id']);
+
         include __DIR__ . '/../../public/views/view_profile.php';
     }
-    
-
 
     public function updateProfileForm() {
-        if (!isset($_SESSION['username'])) {
+        if (!isset($_SESSION['user'])) {
             header("Location: /login");
             exit;
         }
-        $profile = $this->profileModel->getByUserId($_SESSION['user_id']);
+
+        $profile = $this->profileModel->getByUserId($_SESSION['user']['id']);
+
         if (!$profile) {
             $_SESSION['form_errors'] = ['Profile not found.'];
             header("Location: /dashboard");
             exit;
         }
-    
+
         include __DIR__ . '/../../public/views/update_profile.php';
     }
-    
+
     public function updateProfileHandler() {
-        session_start();
-    
-        if (!isset($_SESSION['user_id'])) {
+
+
+        if (!isset($_SESSION['user'])) {
             header("Location: /login");
             exit;
         }
-    
+
         $profileId = $_POST['profile_id'];
         $errors = [];
-    
-        // Basic validation
-        $graduation_year = trim($_POST['graduation_year']);
-        if (!$graduation_year || $graduation_year < 2000 || $graduation_year > date('Y')) {
+
+        $graduationYear = trim($_POST['graduation_year']);
+        if (!$graduationYear || $graduationYear < 2000 || $graduationYear > date('Y')) {
             $errors[] = "Graduation year must be valid.";
         }
 
-        // Handle image upload
         $profilePictureName = $_POST['old_profile_picture'] ?? '';
         if (!empty($_FILES['profile_picture']['name'])) {
             $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
@@ -176,71 +150,75 @@ class AlumniRegistrationController {
                 move_uploaded_file($_FILES['profile_picture']['tmp_name'], __DIR__ . '/../../public/uploads/' . $profilePictureName);
             }
         }
-    
+
         if (!empty($errors)) {
             $_SESSION['form_errors'] = $errors;
             header("Location: " . ($_SERVER['HTTP_REFERER'] ?? '/profile/update'));
             exit;
         }
-    
+
         $this->profileModel->update($profileId, [
-            'graduation_year' => $graduation_year,
-            'phone' => $_POST['phone'] ?? '',
+            'graduation_year' => $graduationYear,
             'department' => $_POST['department'] ?? '',
             'program' => $_POST['program'] ?? '',
+            'education_level_id' => $_POST['education_level_id'] ?? null,
+            'additional_qualifications' => $_POST['additional_qualifications'] ?? '',
             'current_city' => $_POST['current_city'] ?? '',
             'current_position' => $_POST['current_position'] ?? '',
             'company_name' => $_POST['company_name'] ?? '',
+            'job_type' => $_POST['job_type'] ?? '',
+            'experience_years' => $_POST['experience_years'] ?? '',
+            'email' => $_POST['email'] ?? '',
+            'phone' => $_POST['phone'] ?? '',
             'linkedin_url' => $_POST['linkedin_url'] ?? '',
-            'profile_picture' => $profilePictureName
+            'portfolio_url' => $_POST['portfolio_url'] ?? '',
+            'profile_picture' => $profilePictureName,
+            'is_profile_public' => isset($_POST['is_profile_public']) ? 1 : 0,
+            'show_contact_info' => isset($_POST['show_contact_info']) ? 1 : 0,
+            'show_position' => isset($_POST['show_position']) ? 1 : 0
         ]);
-    
+
         $_SESSION['success_message'] = "Profile updated successfully!";
         header("Location: " . ($_SERVER['HTTP_REFERER'] ?? '/profile/update'));
-
         exit;
     }
 
     public function changePasswordHandler() {
-        
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
             header("Location: " . ($_SERVER['HTTP_REFERER'] ?? '/login'));
             exit;
         }
+
         $errors = [];
         $current = $_POST['current_password'] ?? '';
         $new = $_POST['new_password'] ?? '';
         $confirm = $_POST['confirm_password'] ?? '';
-    
+
         if (!$current || !$new || !$confirm) {
             $errors[] = "All fields are required.";
         }
-    
+
         if ($new !== $confirm) {
             $errors[] = "New passwords do not match.";
         }
-    
-        $user = $this->userModel->read($_SESSION['user_id']);
-        
+
+        $user = $this->userModel->read($_SESSION['user']);
+
         if (!password_verify($current, $user['password'])) {
             $errors[] = "Current password is incorrect.";
         }
-    
+
         if (!empty($errors)) {
             $_SESSION['form_errors'] = $errors;
             header("Location: " . ($_SERVER['HTTP_REFERER'] ?? '/change-password'));
-
             exit;
         }
-    
+
         $hashed = password_hash($new, PASSWORD_BCRYPT);
         $this->userModel->updatePassword($user['id'], $hashed);
-    
+
         $_SESSION['success_message'] = "Password changed successfully.";
         header("Location: " . ($_SERVER['HTTP_REFERER'] ?? '/change-password'));
         exit;
-
     }
-    
-
 }

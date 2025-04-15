@@ -121,7 +121,7 @@
         <input type="hidden" name="views" value="0">
         <input type="hidden" name="likes" value="0">
         <input type="hidden" name="clicks" value="0">
-        <input type="hidden" name="inserted_by" value="<?= $_SESSION['user_id'] ?? 1 ?>">
+        <input type="hidden" name="inserted_by" value="<?= $_SESSION['user']['id'] ?? 1 ?>">
 
         <!-- Submit Button -->
         <div class="text-center">
