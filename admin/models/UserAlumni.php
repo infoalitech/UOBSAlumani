@@ -4,7 +4,7 @@ namespace Admin\Models;
 use PDO;
 use PDOException;
 
-class User {
+class UserAlumni {
     private $db;
 
     public function __construct(PDO $db) {
@@ -47,7 +47,7 @@ class User {
      */
     public function read($id) {
         try {
-            $stmt = $this->db->prepare("SELECT * FROM users WHERE id = :id");
+            $stmt = $this->db->prepare("SELECT * FROM users WHERE id = :id and is_alumni = 1");
             $stmt->execute(['id' => $id]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -112,7 +112,7 @@ class User {
     public function getUserCount($search = '') {
         try {
             if ($search) {
-                $stmt = $this->db->prepare("SELECT COUNT(*) FROM users WHERE is_alumni = 0 AND (name LIKE :search OR email LIKE :search)");
+                $stmt = $this->db->prepare("SELECT COUNT(*) FROM users WHERE  is_alumni =1 and (name LIKE :search OR email LIKE :search)");
                 $stmt->execute(['search' => "%$search%"]);
             } else {
                 $stmt = $this->db->query("SELECT COUNT(*) FROM users");
@@ -133,8 +133,7 @@ class User {
                 $stmt = $this->db->prepare("
                     SELECT * FROM users 
                     WHERE 
-                    is_alumni = 0 AND
-                    (name LIKE :search OR email LIKE :search)
+                    is_alumni = 1 and (name LIKE :search OR email LIKE :search) 
                     ORDER BY id DESC
                     LIMIT :offset, :limit
                 ");
@@ -142,7 +141,7 @@ class User {
             } else {
                 $stmt = $this->db->prepare("
                     SELECT * FROM users 
-                    WHERE is_alumni = 0 
+                    WHERE is_alumni = 1
                     ORDER BY id DESC
                     LIMIT :offset, :limit
                 ");
@@ -164,7 +163,7 @@ class User {
      */
     public function getAllUsers() {
         try {
-            $stmt = $this->db->query("SELECT * FROM users ORDER BY id DESC");
+            $stmt = $this->db->query("SELECT * FROM users WHERE is_alumni = 1 ORDER BY id DESC");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             error_log("User::getAllUsers - " . $e->getMessage());

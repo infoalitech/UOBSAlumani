@@ -2,11 +2,11 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="mb-0">User Management</h1>
-        <a href="<?= $basePath ?>/admin/users/create" class="btn btn-primary">Add User</a>
+        <h1 class="mb-0">Alumni Management</h1>
+        <a href="<?= $basePath ?>/admin/alumni/create" class="btn btn-primary">Add User</a>
     </div>
 
-    <table id="usersTable" class="table table-striped table-bordered">
+    <table id="alumniTable" class="table table-striped table-bordered">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
@@ -14,7 +14,6 @@
                 <th>Email</th>
                 <th>Status</th>
                 <th>Active</th>
-                
                 <th>Actions</th>
             </tr>
         </thead>
@@ -45,11 +44,11 @@
 
 <script>
 $(document).ready(function () {
-    let table = $('#usersTable').DataTable({
+    let table = $('#alumniTable').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "users/fetch",
+            "url": "alumni/fetch",
             "type": "GET",
             "dataSrc": function(json) {
                 return json.data;
@@ -83,11 +82,20 @@ $(document).ready(function () {
                 "data": "id",
                 "render": function(data) {
                     return `
-                        <a href="${basePath}/admin/users/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="${basePath}/admin/users/detail?id=${data}" class="btn btn-sm btn-info">View</a>
+                        <div class="btn-group mt-2">
+
+                        <a href="${basePath}/admin/alumni/edit?id=${data}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="${basePath}/admin/alumni/detail?id=${data}" class="btn btn-sm btn-info">View</a>
                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${data}">
                             Delete
                         </button>
+                        </div>
+
+                        <div class="btn-group mt-2">
+                            <a href="${basePath}/admin/alumni/status?id=${data}&status=active" class="btn btn-sm btn-success">Approve</a>
+                            <a href="${basePath}/admin/alumni/status?id=${data}&status=inactive" class="btn btn-sm btn-danger">Reject</a>
+                            <a href="${basePath}/admin/alumni/status?id=${data}&status=pending" class="btn btn-sm btn-secondary">Pending</a>
+                        </div>
                         `;
                 }
             }
@@ -101,7 +109,7 @@ $(document).ready(function () {
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
-        $('#confirmDelete').attr('href', `${basePath}/admin/users/delete?id=${id}`);
+        $('#confirmDelete').attr('href', `${basePath}/admin/alumni/delete?id=${id}`);
     });
 });
 </script>

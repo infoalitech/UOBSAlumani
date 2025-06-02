@@ -1,6 +1,7 @@
 <?php
-session_start();
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start(); // Start the session if it's not already started
+}
 // Include database configuration
 require_once '../config/database.php';
 

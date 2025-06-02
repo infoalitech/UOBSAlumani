@@ -48,5 +48,7 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
     </style>
 </head>
 <body class="index-page">
+
+
 <?php include 'navigation.php'; ?>
 <main class="main">

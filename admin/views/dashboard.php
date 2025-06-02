@@ -119,32 +119,32 @@
 <!-- Charts Script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    var userCtx = document.getElementById('userChart').getContext('2d');
-    new Chart(userCtx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Users', 'Admins'],
-            datasets: [{
-                data: [<?= $totalUsers - 10 ?>, 10],
-                backgroundColor: ['#007bff', '#dc3545']
-            }]
-        }
-    });
+    document.addEventListener("DOMContentLoaded", function () {
+        var userCtx = document.getElementById('userChart').getContext('2d');
+        new Chart(userCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Users', 'Admins'],
+                datasets: [{
+                    data: [<?= $totalUsers - 10 ?>, 10],
+                    backgroundColor: ['#007bff', '#dc3545']
+                }]
+            }
+        });
 
-    var contentCtx = document.getElementById('contentChart').getContext('2d');
-    new Chart(contentCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Blogs', 'News', 'Jobs'],
-            datasets: [{
-                label: 'Content Overview',
-                data: [<?= $totalBlogs ?>, <?= $totalNews ?>, <?= $totalJobs ?>],
-                backgroundColor: ['#28a745', '#ffc107', '#dc3545']
-            }]
-        }
+        var contentCtx = document.getElementById('contentChart').getContext('2d');
+        new Chart(contentCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Blogs', 'News', 'Jobs'],
+                datasets: [{
+                    label: 'Content Overview',
+                    data: [<?= $totalBlogs ?>, <?= $totalNews ?>, <?= $totalJobs ?>],
+                    backgroundColor: ['#28a745', '#ffc107', '#dc3545']
+                }]
+            }
+        });
     });
-});
 </script>
 
 <?php require_once __DIR__ . '/layouts/footer.php'; ?>

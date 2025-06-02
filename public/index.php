@@ -1,7 +1,10 @@
 <?php
-session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+if (session_status() == PHP_SESSION_NONE) {
+    session_start(); // Start the session if it's not already started
+}
+
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
 
 require_once '../config/database.php';
@@ -23,6 +26,7 @@ use Admin\Controllers\JobPostsController;
 use Admin\Controllers\BlogCategoryController;
 use Admin\Controllers\AlumniRegistrationController;
 use Admin\Controllers\AlumniJobController;
+use Admin\Controllers\UserAlumniController; // Import the UserAlumniController
 
 use App\Helpers\Config; // Import the Config class
 
@@ -41,6 +45,7 @@ if ($displayErrors) {
 }
 
 // Instantiate controllers
+
 $blogController = new BlogController();
 $newsController = new NewsController();
 $authController = new AuthController();
@@ -56,11 +61,21 @@ $jobPostsController = new JobPostsController();
 $blogCategoryController = new BlogCategoryController();
 $alumniRegistrationController = new AlumniRegistrationController();
 $alumniJobController = new AlumniJobController();
+$userAlumniController = new UserAlumniController();
+
+
 
 
 // Parse the request URI
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+
+function AuthCheck($basePath){
+    if (!isset($_SESSION['user'])) {
+        header('Location: '.$basePath.'/login');
+        exit;
+    }
+}
 function PermissionCheck($permission): bool
 {
 
@@ -203,6 +218,7 @@ if(isset($_SESSION['user'])) {
             case "$basePath/admin/dashboard":
                 PermissionCheck('access_dashboard');
                 $dashboardController->dashboard();
+
                 break;
 
             /** 🔹 User Management */
@@ -237,7 +253,40 @@ if(isset($_SESSION['user'])) {
                 break;
             
 
-            /** 🔹 Permissions */
+            /** 🔹 alumni Management */
+            case "$basePath/admin/alumni":
+                PermissionCheck('view_alumni');
+                $userAlumniController->index();
+                break;
+            case "$basePath/admin/alumni/fetch":
+                PermissionCheck('view_alumni');
+                $userAlumniController->fetchalumni(); // AJAX request handler for DataTables
+                break;
+            case "$basePath/admin/alumni/detail":
+                PermissionCheck('view_alumni');
+                isset($_GET['id']) ? $userAlumniController->detail($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/alumni/create":
+                PermissionCheck('create_alumni');
+                $userAlumniController->create();
+                break;
+            case "$basePath/admin/alumni/edit":
+                PermissionCheck('edit_alumni');
+                isset($_GET['id']) ? $userAlumniController->edit($_GET['id']) : include 'views/404.php';
+                break;
+                AuthCheck($basePath);
+            case "$basePath/admin/alumni/delete":
+                PermissionCheck('delete_alumni');
+                isset($_GET['id']) ? $userAlumniController->delete($_GET['id']) : include 'views/404.php';
+                break;
+            case "$basePath/admin/alumni/status":
+                PermissionCheck('delete_alumni');
+                isset($_GET['id']) ? $userAlumniController->updateStatus($_GET['id'], $_GET['status']) : include 'views/404.php';
+                break;
+           
+           
+           
+                /** 🔹 Permissions */
             case "$basePath/admin/permissions":
                 PermissionCheck('view_permissions');
                 $permissionController->index();
@@ -497,4 +546,4 @@ if(isset($_SESSION['user'])) {
 
 
 
-$homeController->home();
+// $homeController->home();

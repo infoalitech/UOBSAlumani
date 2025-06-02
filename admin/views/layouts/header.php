@@ -5,11 +5,11 @@ use App\Helpers\Config;
 $basePath = rtrim(Config::get('BASE_PATH', '/public'), '/');
 $displayErrors = Config::get('DISPLAY_ERRORS', false);
 function isAuthenticated() {
-    return isset($_SESSION['username']);
+    return isset($_SESSION['user']);
 }
 
 function hasPermission($permission) {
-    if ($_SESSION['is_super_user']) {
+    if ($_SESSION['user']['is_super_user']) {
         return true;
     }
     if (!isset($_SESSION['permissions']) || empty($_SESSION['permissions'])) {
@@ -31,14 +31,14 @@ function hasPermission($permission) {
     <!-- Bootstrap CSS -->
 
 
-    <link rel="stylesheet" href="<?= $basePath ?>/../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?= $basePath ?>css/styles.css">
-
+    <!-- Vendor CSS Files -->
+    <link href="<?= $basePath ?>/assets/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="<?= $basePath ?>/assets/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="<?= $basePath ?>/assets/assets/css/main.css" rel="stylesheet">
     <!-- Custom Dropdown Styles -->
     <style>
         .dropdown-menu-custom {
@@ -129,26 +129,27 @@ function hasPermission($permission) {
                             </li>
                         <?php endif; ?>
 
-<?php if (hasPermission('view_admin_blogs')): ?>
-    <li class="nav-item position-relative">
-        <button class="dropdown-toggle-custom" id="blogDropdownCustom">Blogs</button>
-        <ul class="dropdown-menu-custom" id="blogDropdownMenuCustom">
-            <?php if (hasPermission('view_blog_categories')): ?>
-                <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blog/categories">Blog Categories</a></li>
-            <?php endif; ?>
-            <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blogs">Blogs</a></li>
-        </ul>
-    </li>
-<?php endif; ?>
+                        <?php if (hasPermission('view_admin_blogs')): ?>
+                            <li class="nav-item position-relative">
+                                <button class="dropdown-toggle-custom" id="blogDropdownCustom">Blogs</button>
+                                <ul class="dropdown-menu-custom" id="blogDropdownMenuCustom">
+                                    <?php if (hasPermission('view_blog_categories')): ?>
+                                        <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blog/categories">Blog Categories</a></li>
+                                    <?php endif; ?>
+                                    <li><a class="dropdown-item" href="<?= $basePath ?>/admin/blogs">Blogs</a></li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
 
-<?php if (hasPermission('view_users')): ?>
-    <li class="nav-item position-relative">
-        <button class="dropdown-toggle-custom" id="userDropdownCustom">User Management</button>
-        <ul class="dropdown-menu-custom" id="userDropdownMenuCustom">
-            <li><a class="dropdown-item" href="<?= $basePath ?>/admin/users">Users</a></li>
-        </ul>
-    </li>
-<?php endif; ?>
+                        <?php if (hasPermission('view_users')): ?>
+                            <li class="nav-item position-relative">
+                                <button class="dropdown-toggle-custom" id="userDropdownCustom">User Management</button>
+                                <ul class="dropdown-menu-custom" id="userDropdownMenuCustom">
+                                    <li><a class="dropdown-item" href="<?= $basePath ?>/admin/users">Users</a></li>
+                                    <li><a class="dropdown-item" href="<?= $basePath ?>/admin/alumni">Alumni</a></li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
 
                         <li class="nav-item">
                             <a class="nav-link text-danger" href="<?= $basePath ?>/index">View Website</a>

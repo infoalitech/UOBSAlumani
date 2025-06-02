@@ -22,6 +22,7 @@ class BaseController {
         extract($data); // Extract array into variables
         // var_dump( "/../views/admin/{$viewPath}.php");
         require __DIR__ . "/../views/{$viewPath}.php";
+        exit();
     }
 
     /**

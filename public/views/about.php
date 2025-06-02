@@ -23,8 +23,8 @@ include 'snippets/header.php';
       <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
         <div class="image-wrapper">
           <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-            <img src="https://uobs.edu.pk/images/convocations/2022/3.jpg" alt="Convocation Ceremony" class="img-fluid main-image rounded-4">
-            <img src="https://uobs.edu.pk/images/convocations/2022/1.jpg" alt="Graduation Event" class="img-fluid small-image rounded-4">
+          <img src="../uploads/2019 convocation 1.jpg" alt="Convocation Ceremony" class="img-fluid main-image rounded-4">
+          <img src="../uploads/2020 convocation.jpg" alt="Graduation Event" class="img-fluid small-image rounded-4">
           </div>
           <div class="experience-badge floating">
             <h3>2022</h3>
@@ -43,8 +43,8 @@ include 'snippets/header.php';
       <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
         <div class="image-wrapper">
           <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-            <img src="https://uobs.edu.pk/images/convocations/2021/3.jpg" alt="Convocation 2021" class="img-fluid main-image rounded-4">
-            <img src="https://uobs.edu.pk/images/convocations/2021/2021.jpg" alt="Graduation Ceremony" class="img-fluid small-image rounded-4">
+          <img src="../uploads/2020 convocation.jpg" alt="Convocation Ceremony" class="img-fluid main-image rounded-4">
+          <img src="../uploads/2019 convocation 1.jpg" alt="Graduation Event" class="img-fluid small-image rounded-4">
           </div>
           <div class="experience-badge floating">
             <h3>2021</h3>
@@ -74,8 +74,8 @@ include 'snippets/header.php';
       <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
         <div class="image-wrapper">
           <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-            <img src="https://uobs.edu.pk/images/convocations/2020/DSC_1623.jpg" alt="Convocation 2020" class="img-fluid main-image rounded-4">
-            <img src="https://uobs.edu.pk/images/convocations/2020/DSC_1623.jpg" alt="Graduates 2020" class="img-fluid small-image rounded-4">
+          <img src="../uploads/2019 convocation 1.jpg" alt="Convocation Ceremony" class="img-fluid main-image rounded-4">
+          <img src="../uploads/2020 convocation.jpg" alt="Graduation Event" class="img-fluid small-image rounded-4">
           </div>
           <div class="experience-badge floating">
             <h3>2020</h3>
@@ -92,8 +92,8 @@ include 'snippets/header.php';
       <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
         <div class="image-wrapper">
           <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-            <img src="https://uobs.edu.pk/images/convocations/2019/2019.jpg" alt="Convocation 2019" class="img-fluid main-image rounded-4">
-            <img src="https://uobs.edu.pk/images/convocations/2019/2019.jpg" alt="UOBS Ceremony" class="img-fluid small-image rounded-4">
+          <img src="../uploads/2019 convocation 1.jpg" alt="Convocation Ceremony" class="img-fluid main-image rounded-4">
+          <img src="../uploads/2020 convocation.jpg" alt="Graduation Event" class="img-fluid small-image rounded-4">
           </div>
           <div class="experience-badge floating">
             <h3>2019</h3>
@@ -123,8 +123,8 @@ include 'snippets/header.php';
       <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
         <div class="image-wrapper">
           <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-            <img src="https://uobs.edu.pk/images/convocations/2018/2018.jpg" alt="First Convocation" class="img-fluid main-image rounded-4">
-            <img src="https://uobs.edu.pk/images/convocations/2018/2018.jpg" alt="UOBS 2018 Event" class="img-fluid small-image rounded-4">
+          <img src="../uploads/2019 convocation 1.jpg" alt="Convocation Ceremony" class="img-fluid main-image rounded-4">
+          <img src="../uploads/2020 convocation.jpg" alt="Graduation Event" class="img-fluid small-image rounded-4">
           </div>
           <div class="experience-badge floating">
             <h3>2018</h3>

@@ -24,17 +24,17 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </ul>
         </nav>
-        <?php if (isset($_SESSION['user']) && $_SESSION['user']['is_alumni'] == 1): ?>
+        <?php if (isset($_SESSION['user']) && is_array($_SESSION['user']) && ($_SESSION['user']['is_alumni'] ?? 0) == 1): ?>
             <nav id="navmenu" class="navmenu">
             <ul>
             <li class="dropdown d-none d-xl-block">
                 <a href="#" class=" px-3 btn-getstarted"><span><?= htmlspecialchars($_SESSION['name'] ?? 'My Account') ?></span> <i class="btn-getstartedbi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                    <?php if ($_SESSION['user']['status'] === 'active' && $_SESSION['user']['status'] === 'active'): ?>
+                    <?php if (($_SESSION['user']['status'] ?? '') === 'active'): ?>
                         <li><a href="<?= $basePath ?>/alumni/job/index">View My Jobs</a></li>
                         <li><a href="<?= $basePath ?>/alumni/job/create">Post a Job</a></li>
                         <li><a href="<?= $basePath ?>/change-password">Change Password</a></li>
-                        <?php else: 
+                    <?php else: 
                                 $status = $_SESSION['user']['status'] ?? 'unknown';
                                 $statusClass = [
                                     'active' => 'success',
@@ -48,7 +48,7 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
                                         <span class="badge bg-<?= $badgeClass ?>"><?= ucfirst($status) ?></span>
                                     </a>
                                 </li>
-                        <?php  endif;  ?>
+                    <?php  endif;  ?>
                         <li><a href="<?= $basePath ?>/profile/view">View Profile</a></li>
                         <li><a href="<?= $basePath ?>/profile/update">Update Profile</a></li>
                         <li><a href="<?= $basePath ?>/logout">Logout</a></li>
@@ -56,7 +56,7 @@ $displayErrors = Config::get('DISPLAY_ERRORS', false);
             </li>
             </ul>
         </nav>
-        <?php elseif (isset($_SESSION['user']) && $_SESSION['user']['is_alumni'] != 1): ?>
+        <?php elseif (isset($_SESSION['user']) && is_array($_SESSION['user']) && ($_SESSION['user']['is_alumni'] ?? 0) != 1): ?>
             <a class="btn-getstarted" href="<?= $basePath ?>/admin">Dashboard</a>
 
         <?php else: ?>

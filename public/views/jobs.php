@@ -26,8 +26,6 @@ include 'snippets/header.php';
         
         <div class="col-md-3 d-none d-md-block">
             <div id="filters" class="row">
-
-
                 <div class="mb-3">
                     <h6>Job Type</h6>
                     <?php foreach ($jobtypes as $jobtype): ?>
@@ -71,12 +69,11 @@ include 'snippets/header.php';
         </div>
 
         <div class="col-md-8">
-
             <div class="mb-3 filters">
                 <input type="text" id="search" class="form-control" placeholder="Search by job title, description, organization...">
             </div>
-            <div class="container mt-4">
-                <div class="row" id="job-results"></div>
+            <div class="container mt-4 py-4">
+                <div class="row mt-4" id="job-results"  style="margin-top: 50px;"></div>
             </div>
         </div>
     </div>
@@ -147,44 +144,94 @@ include 'snippets/header.php';
 <?php include 'snippets/footer.php'; ?>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    function fetchJobs() {
-        let formData = new FormData();
-        let selectedTypes = Array.from(document.querySelectorAll(".job-type:checked, .mobile-job-type:checked"))
+    document.addEventListener("DOMContentLoaded", function () {
+        function fetchJobs() {
+            let formData = new FormData();
+            
+            // Collect filter data for both desktop and mobile views
+            let selectedTypes = Array.from(document.querySelectorAll(".job-type:checked, .mobile-job-type:checked"))
+                .map(checkbox => checkbox.value);
+            let selectedCategories = Array.from(document.querySelectorAll(".job-category:checked, .mobile-job-category:checked"))
+                .map(checkbox => checkbox.value);
+            let selectedJoblevels = Array.from(document.querySelectorAll(".job-level:checked, .mobile-job-level:checked"))
+                .map(checkbox => checkbox.value);
+            let selectedJobFields = Array.from(document.querySelectorAll(".job-fields:checked, .mobile-job-fields:checked"))
+                .map(checkbox => checkbox.value);
+
+            // Append filters to formData
+            formData.append("type", selectedTypes.join(","));
+            formData.append("category", selectedCategories.join(","));
+            formData.append("selectedJoblevels", selectedJoblevels.join(","));
+            formData.append("selectedJobFields", selectedJobFields.join(","));
+            formData.append("search", document.getElementById("search").value || document.getElementById("mobile-search").value);
+
+            // Fetch jobs
+            fetch("fetchFilteredJobs", {
+                method: "POST",
+                body: formData // FormData automatically sets the content type
+            })
+            .then(response => response.json())
+            .then(data => {
+                let jobResults = document.getElementById("job-results");
+                jobResults.innerHTML = data.jobs.length 
+                    ? data.jobs.map(job => `
+                        <div class="col-lg-6 col-md-6 mb-4">
+                        
+
+                            <div class="card">
+                                <div class="accents">
+                                <div class="acc-card"></div><div class="acc-card"></div><div class="acc-card"></div>
+                                <div class="light"></div><div class="light sm"></div>
+                                <div class="top-light"></div>
+                                </div>
+                                <div class="">
+                                        <img src="./../${job.image}" alt="${job.title}" class="img-fluid">
+
+                                    <h5 class="card-title">${job.title}</h5>
+                                    <p>${job.organization}</p>
+                                    <a href="./jobs/details?id=${job.id}" class="btn btn-primary">View Details</a>
+                                </div>
+
+                            </div>
+                        </div>`).join('')
+                    : '<p class="alert alert-warning text-center">No jobs found.</p>';
+            });
+
+        }
+        // Attach event listeners to filter elements
+        document.querySelectorAll(".job-type, .job-category, .job-level, .job-fields").forEach(el => el.addEventListener("change", fetchJobs));
+        document.getElementById("search").addEventListener("input", fetchJobs);
+        fetchJobs(); // Initial fetch when page loads
+    });
+
+    function applyMobileFilters() {
+        // Close the modal after applying filters
+        let mobileSearch = document.getElementById("mobile-search").value;
+        let selectedMobileTypes = Array.from(document.querySelectorAll(".mobile-job-type:checked"))
             .map(checkbox => checkbox.value);
-        let selectedCategories = Array.from(document.querySelectorAll(".job-category:checked, .mobile-job-category:checked"))
+        let selectedMobileCategories = Array.from(document.querySelectorAll(".mobile-job-category:checked"))
             .map(checkbox => checkbox.value);
-        let selectedJoblevels = Array.from(document.querySelectorAll(".job-level:checked, .mobile-job-level:checked"))
+        let selectedMobileJoblevels = Array.from(document.querySelectorAll(".mobile-job-level:checked"))
             .map(checkbox => checkbox.value);
-        let selectedJobFields = Array.from(document.querySelectorAll(".job-fields:checked, .mobile-job-fields:checked"))
+        let selectedMobileJobFields = Array.from(document.querySelectorAll(".mobile-job-fields:checked"))
             .map(checkbox => checkbox.value);
 
-            
-        formData.append("type", selectedTypes.join(","));
-        formData.append("category", selectedCategories.join(","));
-        formData.append("selectedJoblevels", selectedJoblevels.join(","));
-        formData.append("selectedJobFields", selectedJobFields.join(","));
-        formData.append("search", document.getElementById("search").value || document.getElementById("mobile-search").value);
-        fetch("fetchFilteredJobs", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("job-results").innerHTML = data.jobs.length ? data.jobs.map(job => `
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="card">
-                        <h5 class="card-title">${job.title}</h5>
-                        <p>${job.organization}</p>
-                        <a href="./jobs/details?id=${job.id}" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>`).join('') : '<p class="alert alert-warning text-center">No jobs found.</p>';
-        });
+        // Apply these mobile filters in the form
+        document.getElementById("search").value = mobileSearch;
+
+        let mobileFilters = {
+            type: selectedMobileTypes.join(","),
+            category: selectedMobileCategories.join(","),
+            selectedJoblevels: selectedMobileJoblevels.join(","),
+            selectedJobFields: selectedMobileJobFields.join(","),
+            search: mobileSearch
+        };
+        // Fetch jobs with updated filters
+        fetchJobs();
+        // Close the mobile modal
+        $('#filterModal').modal('hide');
     }
-    document.querySelectorAll(".job-type, .job-category, .job-level, .job-field").forEach(el => el.addEventListener("change", fetchJobs));
-    document.getElementById("search").addEventListener("input", fetchJobs);
-    fetchJobs();
-});
+
 </script>
 
 <style>
@@ -205,4 +252,4 @@ div#filters {
 div#filters h6 {
     FONT-WEIGHT: 600;
 }
-<style>
+</style>

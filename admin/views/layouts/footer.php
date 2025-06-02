@@ -1,11 +1,19 @@
 </div> <!-- Close container -->
-<!-- jQuery & Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- DataTables JS -->
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+  <script src="<?= $basePath ?>/assets/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= $basePath ?>/assets/assets/vendor/php-email-form/validate.js"></script>
+  <script src="<?= $basePath ?>/assets/assets/vendor/aos/aos.js"></script>
+  <script src="<?= $basePath ?>/assets/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="<?= $basePath ?>/assets/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?= $basePath ?>/assets/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File -->
+  <script src="<?= $basePath ?>/assets/assets/js/main.js"></script>
 
 <style>
     .dropdown-menu-custom {

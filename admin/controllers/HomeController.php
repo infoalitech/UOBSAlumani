@@ -115,7 +115,7 @@ class HomeController {
         ];
 
         // Debugging output to check filter values
-        error_log(print_r($filters, true));
+        // error_log(print_r($filters, true));
     
         // Fetch filtered jobs
         $jobs = $this->jobModel->fetchFilteredJobPosts($filters);
@@ -123,6 +123,7 @@ class HomeController {
         // Ensure response is JSON formatted
         header('Content-Type: application/json');
         echo json_encode(['jobs' => $jobs]);
+        exit();
     }
 }
 ?>

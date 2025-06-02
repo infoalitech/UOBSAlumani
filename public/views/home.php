@@ -1,6 +1,6 @@
 <?php
-$title = 'UOBS Alumni';
 include 'snippets/header.php';
+$title = 'UOBS Alumni';
 ?>
     <section id="hero" class="hero section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -36,7 +36,7 @@ include 'snippets/header.php';
 
           <div class="col-lg-6">
             <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
-              <img src="https://uobs.edu.pk/images/convocations/2021/1.jpg" alt="Hero Image" class="img-fluid">
+              <img src="../uploads/2018 convocation.jpg" alt="Hero Image" class="img-fluid">
 
               <div class="customers-badge">
                 <div class="customer-avatars">
@@ -101,6 +101,8 @@ include 'snippets/header.php';
 
       </div>
     </section><!-- /Hero Section -->
+
+
     <!-- About Section -->
     <section id="about" class="about section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -115,8 +117,8 @@ include 'snippets/header.php';
           <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
             <div class="image-wrapper">
               <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-                <img src="https://uobs.edu.pk/images/convocations/2022/3.jpg" alt="Convocation Ceremony" class="img-fluid main-image rounded-4">
-                <img src="https://uobs.edu.pk/images/convocations/2022/1.jpg" alt="Graduation Event" class="img-fluid small-image rounded-4">
+                <img src="../uploads/2019 convocation 1.jpg" alt="Convocation Ceremony" class="img-fluid main-image rounded-4">
+                <img src="../uploads/2020 convocation.jpg" alt="Graduation Event" class="img-fluid small-image rounded-4">
               </div>
               <div class="experience-badge floating">
                 <h3>2022</h3>

@@ -243,23 +243,22 @@ class JobPost {
         $types = isset($filters['type']) 
             ? (is_array($filters['type']) ? array_filter($filters['type']) : array_filter(explode(',', $filters['type']))) 
             : [];
-
+    
         $categories = isset($filters['category']) 
             ? (is_array($filters['category']) ? array_filter($filters['category']) : array_filter(explode(',', $filters['category']))) 
             : [];
-
+    
         $levels = isset($filters['level']) 
             ? (is_array($filters['level']) ? array_filter($filters['level']) : array_filter(explode(',', $filters['level']))) 
             : [];
+            
         $fields = isset($filters['fields']) 
             ? (is_array($filters['fields']) ? array_filter($filters['fields']) : array_filter(explode(',', $filters['fields']))) 
             : [];
-            
+    
         $search = $filters['search'] ?? '';
-
-            
-
-        // try {
+    
+        try {
             $query = "SELECT jp.*, jc.name AS category_name, jf.name AS field_name, jt.name AS type_name, jel.level AS education_level 
                       FROM job_posts jp
                       LEFT JOIN job_categories jc ON jp.category_id = jc.id
@@ -267,20 +266,16 @@ class JobPost {
                       LEFT JOIN job_types jt ON jp.type_id = jt.id
                       LEFT JOIN education_levels jel ON jp.level_id = jel.id
                       WHERE 1=1";
-    
+            
             $params = [];
-            // print_r( $types);
-            // print_r( count($types));
-            // exit();
+    
             // Handling multiple types
             if (!empty($types)) {
                 $placeholders = implode(',', array_fill(0, count($types), '?'));
                 $query .= " AND jp.type_id IN ($placeholders)";
                 $params = array_merge($params, $types);
-                // print_r($params);
-                // exit();
             }
-
+    
             // Handling multiple categories
             if (!empty($categories)) {
                 $placeholders = implode(',', array_fill(0, count($categories), '?'));
@@ -295,7 +290,7 @@ class JobPost {
                 $params = array_merge($params, $levels);
             }
     
-            // Handling multiple education levels
+            // Handling multiple fields
             if (!empty($fields)) {
                 $placeholders = implode(',', array_fill(0, count($fields), '?'));
                 $query .= " AND jp.field_id IN ($placeholders)";
@@ -308,9 +303,8 @@ class JobPost {
                 array_push($params, "%$search%", "%$search%", "%$search%");
             }
     
-            $query .= " and jp.status = 'accepted' ORDER BY jp.open_date DESC LIMIT ?, ?";
-            $params[] = (int)$offset;
-            $params[] = (int)$limit;
+            // Status filter and ordering
+            $query .= " AND jp.status = 'accepted' ORDER BY jp.open_date DESC LIMIT $offset, $limit";
     
             $stmt = $this->db->prepare($query);
     
@@ -318,15 +312,17 @@ class JobPost {
             foreach ($params as $index => $param) {
                 $stmt->bindValue($index + 1, $param, is_numeric($param) ? PDO::PARAM_INT : PDO::PARAM_STR);
             }
-        // exit();
+    
             $stmt->execute();
     
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // } catch (PDOException $e) {
-        //     error_log($e->getMessage());
-        //     return [];
-        // }
+    
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            return [];
+        }
     }
+    
     
     public function updateJobStatus($id, $status) {
         $stmt = $this->db->prepare("UPDATE job_posts SET status = :status WHERE id = :id");
